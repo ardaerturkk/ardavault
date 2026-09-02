@@ -1,0 +1,53 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ardaerturk/Desktop/ardavault/.codex/hooks/session-start.sh",
+            "timeout": 15,
+            "statusMessage": "Beyin memory bridge"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ardaerturk/Desktop/ardavault/.codex/hooks/prompt-counter.sh",
+            "timeout": 5,
+            "statusMessage": "Beyin prompt counter"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ardaerturk/Desktop/ardavault/.codex/hooks/pre-compact.sh",
+            "timeout": 10,
+            "statusMessage": "Beyin pre-compact flush"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/ardaerturk/Desktop/ardavault/.codex/hooks/session-end.sh",
+            "timeout": 3,
+            "statusMessage": "Beyin session flush"
+          }
+        ]
+      }
+    ]
+  },
+  "description": "Avenox Beyin project hooks for Codex. Commands use absolute paths because Codex sets neither CODEX_PROJECT_DIR nor CLAUDE_PROJECT_DIR."
+}
