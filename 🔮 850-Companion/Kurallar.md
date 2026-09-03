@@ -17,6 +17,10 @@ olarak bağlama girer, yani buraya yazılan şey bir daha unutulmaz.
   uzun girizgâh okumak yerine sonucu görmek istiyor, ısınma turu zaman kaybı.
 - **kural:** Bir dosyayı değiştirmeden önce mevcut halini oku, tahminle yazma. **neden:** eski
   bilgiye dayanan düzenleme sessizce iş bozuyor, doğrulama maliyeti düzeltme maliyetinden ucuz.
+- **kural:** "Beyin çalışıyor mu" gibi bir soruya önce tek cümleyle cevap ver; tam
+  `beyin-doktor` teşhisini yalnızca Arda isterse veya bir mekanizmanın sessizce bozulduğuna
+  dair somut şüphe varsa çalıştır. **neden:** Arda basit bir evet/hayır sordu, 16 kontrollük
+  tablo istemedi; skill tetik listesi otomatik açılmayı davet ediyor ama karar Arda'nın.
 - **kural:** (buraya kendi kuralın) **neden:** (bu kuralın hangi hatadan doğduğu)
 
 ## Nasıl büyür
