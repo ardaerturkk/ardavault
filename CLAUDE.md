@@ -26,9 +26,11 @@ Arda's developer account at risk (App Review Guideline 4.3, spam).
 
 ## Run protocol (each scheduled run is a fresh container)
 
-1. `git pull`. If STUDIO.LOCK exists and the timestamp inside is less than 150 minutes
-   old, another run is active: end immediately without changes. Otherwise write the
-   current UTC time into STUDIO.LOCK, commit, push to claude/app-studio.
+1. `git pull`. One persistent cloud session runs this studio and a routine wakes it every
+   two hours, so a leftover STUDIO.LOCK is normally your own from an interrupted run:
+   take it over. Only if you have clear evidence of a different active session (commits
+   in the last 30 minutes that you did not make) end without changes. Write the current
+   UTC time into STUDIO.LOCK, commit, push to claude/app-studio.
 2. Read STATE.md, pick the single most valuable next step, do it completely, verify it,
    update STATE.md and PORTFOLIO.md, commit, push to claude/app-studio. Repeat. The Stop hook keeps you going
    for about 100 minutes.
