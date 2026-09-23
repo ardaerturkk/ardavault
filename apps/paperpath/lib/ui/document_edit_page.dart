@@ -72,7 +72,7 @@ class _DocumentEditPageState extends State<DocumentEditPage> {
       child: SafeArea(
         child: ListView(
           children: [
-            CupertinoFormSection.insetGrouped(
+            CupertinoListSection.insetGrouped(
               header: Text(l.name),
               children: [
                 CupertinoTextFormFieldRow(
@@ -84,7 +84,7 @@ class _DocumentEditPageState extends State<DocumentEditPage> {
                 ),
               ],
             ),
-            CupertinoFormSection.insetGrouped(
+            CupertinoListSection.insetGrouped(
               header: Text(l.notes),
               children: [
                 CupertinoTextFormFieldRow(
@@ -100,6 +100,7 @@ class _DocumentEditPageState extends State<DocumentEditPage> {
               CupertinoListSection.insetGrouped(
                 children: [
                   CupertinoListTile(
+                    padding: tilePadding,
                     title: RowText(
                       l.deleteDocument,
                       color: CupertinoColors.destructiveRed,

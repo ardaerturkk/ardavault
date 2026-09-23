@@ -46,7 +46,6 @@ class _StepPageState extends State<StepPage> {
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGroupedBackground,
       navigationBar: CupertinoNavigationBar(
-        previousPageTitle: l.tabSteps,
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () => openStepEditor(context, step: step),
@@ -79,6 +78,7 @@ class _StepPageState extends State<StepPage> {
               children: [
                 if (needs.isEmpty)
                   CupertinoListTile(
+                    padding: tilePadding,
                     title: RowText(l.nothingToBring, color: secondary),
                   ),
                 for (final d in needs) _DocCheckTile(doc: d),
@@ -97,6 +97,7 @@ class _StepPageState extends State<StepPage> {
                 children: [
                   for (final d in produces)
                     CupertinoListTile(
+                      padding: tilePadding,
                       leading: Icon(
                         d.have
                             ? CupertinoIcons.checkmark_seal_fill
@@ -116,33 +117,23 @@ class _StepPageState extends State<StepPage> {
             CupertinoListSection.insetGrouped(
               header: Text(l.dates),
               children: [
-                CupertinoListTile(
+                ValueTile(
                   leading: const Icon(CupertinoIcons.flag, color: accent),
-                  title: RowText(l.deadline, maxLines: 2),
-                  additionalInfo: Text(
-                    due == null ? l.none : shortDate(l, due),
-                    style:
-                        dueText?.$2 == DueTone.overdue &&
-                            status != StepStatus.done
-                        ? TextStyle(
-                            color: CupertinoColors.systemRed.resolveFrom(
-                              context,
-                            ),
-                          )
-                        : null,
-                  ),
-                  trailing: const CupertinoListTileChevron(),
+                  label: l.deadline,
+                  value: due == null ? l.none : shortDate(l, due),
+                  valueColor:
+                      dueText?.$2 == DueTone.overdue &&
+                          status != StepStatus.done
+                      ? CupertinoColors.systemRed.resolveFrom(context)
+                      : null,
                   onTap: () => _pickDeadline(step, due),
                 ),
-                CupertinoListTile(
+                ValueTile(
                   leading: const Icon(CupertinoIcons.calendar, color: accent),
-                  title: RowText(l.appointment, maxLines: 2),
-                  additionalInfo: Text(
-                    step.appointment == null
-                        ? l.none
-                        : dateTime(l, step.appointment!),
-                  ),
-                  trailing: const CupertinoListTileChevron(),
+                  label: l.appointment,
+                  value: step.appointment == null
+                      ? l.none
+                      : dateTime(l, step.appointment!),
                   onTap: () => _pickAppointment(step),
                 ),
               ],
@@ -239,6 +230,7 @@ class _DocCheckTile extends StatelessWidget {
       hint: l.semToggleHint,
       excludeSemantics: true,
       child: CupertinoListTile(
+        padding: tilePadding,
         leading: Icon(
           doc.have
               ? CupertinoIcons.checkmark_circle_fill

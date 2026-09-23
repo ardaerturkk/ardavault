@@ -89,6 +89,7 @@ class DocTile extends StatelessWidget {
         ? l.comesFrom(stepTitle(l, from.first))
         : l.neededForCount(openNeeds.length);
     return CupertinoListTile(
+      padding: tilePadding,
       leading: Icon(
         doc.have ? CupertinoIcons.checkmark_seal_fill : CupertinoIcons.doc,
         color: doc.have

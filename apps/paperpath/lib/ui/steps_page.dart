@@ -102,11 +102,10 @@ class _MoveInSection extends StatelessWidget {
     return CupertinoListSection.insetGrouped(
       footer: hasStarter ? Text(l.starterFooter) : null,
       children: [
-        CupertinoListTile(
+        ValueTile(
           leading: const Icon(CupertinoIcons.house, color: accent),
-          title: RowText(l.movedIn, maxLines: 2),
-          additionalInfo: Text(date == null ? l.notSet : longDate(l, date)),
-          trailing: const CupertinoListTileChevron(),
+          label: l.movedIn,
+          value: date == null ? l.notSet : longDate(l, date),
           onTap: () async {
             final state = AppScope.read(context);
             final pick = await pickDate(
@@ -171,6 +170,7 @@ class StepTile extends StatelessWidget {
     }
 
     return CupertinoListTile(
+      padding: tilePadding,
       leading: Icon(switch (status) {
         StepStatus.done => CupertinoIcons.checkmark_circle_fill,
         StepStatus.ready => CupertinoIcons.circle,

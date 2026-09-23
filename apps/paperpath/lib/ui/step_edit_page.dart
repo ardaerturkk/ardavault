@@ -81,7 +81,7 @@ class _StepEditPageState extends State<StepEditPage> {
       child: SafeArea(
         child: ListView(
           children: [
-            CupertinoFormSection.insetGrouped(
+            CupertinoListSection.insetGrouped(
               header: Text(l.title),
               children: [
                 CupertinoTextFormFieldRow(
@@ -93,7 +93,7 @@ class _StepEditPageState extends State<StepEditPage> {
                 ),
               ],
             ),
-            CupertinoFormSection.insetGrouped(
+            CupertinoListSection.insetGrouped(
               header: Text(l.notes),
               children: [
                 CupertinoTextFormFieldRow(
@@ -115,6 +115,7 @@ class _StepEditPageState extends State<StepEditPage> {
               CupertinoListSection.insetGrouped(
                 children: [
                   CupertinoListTile(
+                    padding: tilePadding,
                     title: RowText(
                       l.deleteStep,
                       color: CupertinoColors.destructiveRed,
@@ -138,6 +139,7 @@ class _StepEditPageState extends State<StepEditPage> {
     final l = context.l;
     final names = [for (final id in ids) ?plan.doc(id)];
     return CupertinoListTile(
+      padding: tilePadding,
       title: RowText(label, maxLines: 2),
       subtitle: names.isEmpty
           ? null
@@ -265,6 +267,7 @@ class _DocPickerPageState extends State<DocPickerPage> {
                       selected: _selected.contains(d.id),
                       button: true,
                       child: CupertinoListTile(
+                        padding: tilePadding,
                         title: RowText(docName(l, d)),
                         trailing: _selected.contains(d.id)
                             ? const Icon(
@@ -280,6 +283,7 @@ class _DocPickerPageState extends State<DocPickerPage> {
             CupertinoListSection.insetGrouped(
               children: [
                 CupertinoListTile(
+                  padding: tilePadding,
                   leading: const Icon(CupertinoIcons.add, color: accent),
                   title: RowText(l.newDocument, color: accent),
                   onTap: () async {

@@ -60,6 +60,7 @@ class DocumentPage extends StatelessWidget {
               children: [
                 MergeSemantics(
                   child: CupertinoListTile(
+                    padding: tilePadding,
                     title: RowText(l.inHand, maxLines: 2),
                     trailing: CupertinoSwitch(
                       value: doc.have,
@@ -100,6 +101,7 @@ class _StepLink extends StatelessWidget {
     final l = context.l;
     final done = step.done;
     return CupertinoListTile(
+      padding: tilePadding,
       leading: Icon(
         done ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.circle,
         color: accent,

@@ -16,7 +16,7 @@ extension L10nX on BuildContext {
 /// Title text for list rows: wraps up to three lines so large text sizes
 /// never clip.
 class RowText extends StatelessWidget {
-  const RowText(this.text, {super.key, this.color, this.maxLines = 3});
+  const RowText(this.text, {super.key, this.color, this.maxLines = 6});
   final String text;
   final Color? color;
   final int maxLines;
@@ -132,11 +132,12 @@ class ProblemBanner extends StatelessWidget {
     return CupertinoListSection.insetGrouped(
       children: [
         CupertinoListTile(
+          padding: tilePadding,
           leading: const Icon(
             CupertinoIcons.exclamationmark_triangle_fill,
             color: CupertinoColors.systemRed,
           ),
-          title: RowText(message, maxLines: 6),
+          title: RowText(message, maxLines: 12),
           trailing: state.loadFailed
               ? CupertinoButton(
                   padding: EdgeInsets.zero,
@@ -185,6 +186,14 @@ Future<DatePick?> pickDate(
     builder: (context) {
       final l = context.l;
       final theme = CupertinoTheme.of(context).textTheme;
+      final large = isLargeText(context);
+      final titleText = Text(
+        title,
+        textAlign: TextAlign.center,
+        maxLines: large ? 3 : 1,
+        overflow: TextOverflow.ellipsis,
+        style: theme.navTitleTextStyle,
+      );
       return Container(
         color: CupertinoColors.systemBackground.resolveFrom(context),
         child: SafeArea(
@@ -198,15 +207,7 @@ Future<DatePick?> pickDate(
                     onPressed: () => Navigator.pop(context),
                     child: Text(l.cancel),
                   ),
-                  Expanded(
-                    child: Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: theme.navTitleTextStyle,
-                    ),
-                  ),
+                  Expanded(child: large ? const SizedBox.shrink() : titleText),
                   CupertinoButton(
                     onPressed: () => Navigator.pop(context, DatePick(value)),
                     child: Text(
@@ -216,6 +217,11 @@ Future<DatePick?> pickDate(
                   ),
                 ],
               ),
+              if (large)
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+                  child: titleText,
+                ),
               if (helpText != null)
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -285,4 +291,47 @@ Future<bool> confirmDelete(
     ),
   );
   return ok ?? false;
+}
+
+/// Row padding with a little more air than the default so wrapped titles
+/// at large text sizes do not touch the separators.
+const tilePadding = EdgeInsetsDirectional.fromSTEB(20, 10, 14, 10);
+
+bool isLargeText(BuildContext context) =>
+    MediaQuery.textScalerOf(context).scale(10) > 13;
+
+/// A "label ... value >" row. At large text sizes the value moves under the
+/// label so neither is squeezed.
+class ValueTile extends StatelessWidget {
+  const ValueTile({
+    super.key,
+    required this.leading,
+    required this.label,
+    required this.value,
+    this.valueColor,
+    required this.onTap,
+  });
+
+  final Widget leading;
+  final String label;
+  final String value;
+  final Color? valueColor;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final large = isLargeText(context);
+    final style = TextStyle(
+      color: valueColor ?? CupertinoColors.secondaryLabel.resolveFrom(context),
+    );
+    return CupertinoListTile(
+      padding: tilePadding,
+      leading: leading,
+      title: RowText(label),
+      subtitle: large ? Text(value, maxLines: 3, style: style) : null,
+      additionalInfo: large ? null : Text(value, style: style),
+      trailing: const CupertinoListTileChevron(),
+      onTap: onTap,
+    );
+  }
 }
