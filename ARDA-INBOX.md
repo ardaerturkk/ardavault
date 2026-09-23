@@ -1,5 +1,8 @@
 # ARDA-INBOX
 
+Stüdyo şu an seni bekliyor (`.studio/WAITING_ON_ARDA`). Paperpath'i yükleyince ya da
+sorulara cevap verince bu dosyayı sil; stüdyo kaldığı yerden devam eder.
+
 ## 2026-09-23: Paperpath yüklemeye hazır
 İlk uygulama hazır: **Paperpath**. Almanya'daki resmi işleri (Anmeldung, banka, sigorta,
 oturum izni...) adım adım gösterir; her adım hangi belgeyi istiyor, sana hangisini veriyor.
