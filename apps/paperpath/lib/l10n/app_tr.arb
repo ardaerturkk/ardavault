@@ -110,5 +110,6 @@
   "confirmDoneMissing": "{count} belge hâlâ eksik. Yine de tamamlandı olarak işaretlensin mi?",
   "stepDone": "Tamamlandı",
   "discardChanges": "Değişiklikleri At",
-  "keepEditing": "Düzenlemeye Devam Et"
+  "keepEditing": "Düzenlemeye Devam Et",
+  "allDone": "Tüm adımlar tamamlandı."
 }

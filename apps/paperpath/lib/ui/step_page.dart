@@ -169,7 +169,10 @@ class _StepPageState extends State<StepPage> {
                     header: Text(l.dates),
                     children: [
                       ValueTile(
-                        leading: const Icon(CupertinoIcons.flag, color: accent),
+                        leading: Icon(
+                          CupertinoIcons.flag,
+                          color: accent.resolveFrom(context),
+                        ),
                         label: l.deadline,
                         value: due == null ? l.none : shortDate(l, due),
                         valueColor:
@@ -180,9 +183,9 @@ class _StepPageState extends State<StepPage> {
                         onTap: () => _pickDeadline(step, due),
                       ),
                       ValueTile(
-                        leading: const Icon(
+                        leading: Icon(
                           CupertinoIcons.calendar,
-                          color: accent,
+                          color: accent.resolveFrom(context),
                         ),
                         label: l.appointment,
                         value: step.appointment == null
@@ -333,14 +336,12 @@ class _DocCheckTile extends StatelessWidget {
       onTap: () => _toggle(context),
       child: CupertinoListTile(
         padding: tilePadding,
-        leading: Icon(
-          doc.have
-              ? CupertinoIcons.checkmark_circle_fill
-              : CupertinoIcons.circle,
-          color: doc.have
-              ? accent
-              : CupertinoColors.tertiaryLabel.resolveFrom(context),
-        ),
+        leading: doc.have
+            ? docIcon(context, true)
+            : Icon(
+                CupertinoIcons.circle,
+                color: CupertinoColors.tertiaryLabel.resolveFrom(context),
+              ),
         title: RowText(name),
         subtitle: doc.have
             ? null

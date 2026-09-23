@@ -411,4 +411,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get keepEditing => 'Weiter bearbeiten';
+
+  @override
+  String get allDone => 'Alle Schritte sind erledigt.';
 }

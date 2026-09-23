@@ -378,13 +378,13 @@ class FooterText extends StatelessWidget {
 /// One icon language for step status everywhere.
 Icon stepStatusIcon(BuildContext context, StepStatus status) =>
     switch (status) {
-      StepStatus.done => const Icon(
+      StepStatus.done => Icon(
         CupertinoIcons.checkmark_circle_fill,
-        color: accent,
+        color: accent.resolveFrom(context),
       ),
-      StepStatus.ready => const Icon(
+      StepStatus.ready => Icon(
         CupertinoIcons.arrow_right_circle,
-        color: accent,
+        color: accent.resolveFrom(context),
       ),
       StepStatus.waiting => Icon(
         CupertinoIcons.hourglass,
@@ -394,7 +394,10 @@ Icon stepStatusIcon(BuildContext context, StepStatus status) =>
 
 /// One icon language for documents: a seal when in hand.
 Icon docIcon(BuildContext context, bool have) => have
-    ? const Icon(CupertinoIcons.checkmark_seal_fill, color: accent)
+    ? Icon(
+        CupertinoIcons.checkmark_seal_fill,
+        color: accent.resolveFrom(context),
+      )
     : Icon(
         CupertinoIcons.doc,
         color: CupertinoColors.secondaryLabel.resolveFrom(context),

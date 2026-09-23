@@ -312,9 +312,9 @@ class _DocPickerPageState extends State<DocPickerPage> {
                         padding: tilePadding,
                         title: RowText(docName(l, d)),
                         trailing: _selected.contains(d.id)
-                            ? const Icon(
+                            ? Icon(
                                 CupertinoIcons.checkmark,
-                                color: accent,
+                                color: accent.resolveFrom(context),
                               )
                             : null,
                         onTap: () => _toggle(d.id),
@@ -326,8 +326,14 @@ class _DocPickerPageState extends State<DocPickerPage> {
               children: [
                 CupertinoListTile(
                   padding: tilePadding,
-                  leading: const Icon(CupertinoIcons.add, color: accent),
-                  title: RowText(l.newDocument, color: accent),
+                  leading: Icon(
+                    CupertinoIcons.add,
+                    color: accent.resolveFrom(context),
+                  ),
+                  title: RowText(
+                    l.newDocument,
+                    color: accent.resolveFrom(context),
+                  ),
                   onTap: () async {
                     final id = await openDocumentEditor(context);
                     if (id != null) _toggle(id);

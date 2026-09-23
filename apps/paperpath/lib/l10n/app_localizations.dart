@@ -765,6 +765,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Keep Editing'**
   String get keepEditing;
+
+  /// No description provided for @allDone.
+  ///
+  /// In en, this message translates to:
+  /// **'All steps are done.'**
+  String get allDone;
 }
 
 class _AppLocalizationsDelegate

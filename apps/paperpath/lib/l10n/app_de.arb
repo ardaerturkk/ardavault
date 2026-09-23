@@ -110,5 +110,6 @@
   "confirmDoneMissing": "{count, plural, =1{1 Unterlage fehlt noch.} other{{count} Unterlagen fehlen noch.}} Trotzdem als erledigt markieren?",
   "stepDone": "Erledigt",
   "discardChanges": "Änderungen verwerfen",
-  "keepEditing": "Weiter bearbeiten"
+  "keepEditing": "Weiter bearbeiten",
+  "allDone": "Alle Schritte sind erledigt."
 }

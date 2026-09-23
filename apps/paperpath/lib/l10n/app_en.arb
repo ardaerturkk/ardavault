@@ -183,5 +183,6 @@
     }
   },
   "discardChanges": "Discard Changes",
-  "keepEditing": "Keep Editing"
+  "keepEditing": "Keep Editing",
+  "allDone": "All steps are done."
 }

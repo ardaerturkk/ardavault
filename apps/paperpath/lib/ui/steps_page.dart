@@ -62,9 +62,13 @@ class StepsPage extends StatelessWidget {
                           StepStatus.waiting => l.sectionWaiting,
                           StepStatus.done => l.sectionDone,
                         }),
-                        footer: status == StepStatus.ready
-                            ? FooterText(l.readyFooter)
-                            : null,
+                        footer: switch (status) {
+                          StepStatus.ready => FooterText(l.readyFooter),
+                          StepStatus.done
+                              when steps.length == plan.steps.length =>
+                            FooterText(l.allDone),
+                          _ => null,
+                        },
                         children: [for (final s in steps) StepTile(step: s)],
                       ),
                   const SizedBox(height: 24),
@@ -105,7 +109,10 @@ class _MoveInSection extends StatelessWidget {
       footer: hasStarter ? FooterText(l.starterFooter) : null,
       children: [
         ValueTile(
-          leading: const Icon(CupertinoIcons.house, color: accent),
+          leading: Icon(
+            CupertinoIcons.house,
+            color: accent.resolveFrom(context),
+          ),
           label: l.movedIn,
           value: date == null ? l.notSet : longDate(l, date),
           onTap: () async {
