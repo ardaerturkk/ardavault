@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
@@ -66,7 +68,7 @@ class DocumentPage extends StatelessWidget {
                       value: doc.have,
                       activeTrackColor: accent,
                       onChanged: (v) {
-                        HapticFeedback.selectionClick();
+                        unawaited(HapticFeedback.selectionClick());
                         state.update(plan.withDoc(doc.copyWith(have: v)));
                       },
                     ),

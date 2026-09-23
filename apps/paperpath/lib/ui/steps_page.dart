@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
@@ -85,7 +87,7 @@ class StepsPage extends StatelessWidget {
       confirmLabel: l.continueLabel,
     );
     if (pick?.date == null) return;
-    await HapticFeedback.lightImpact();
+    unawaited(HapticFeedback.lightImpact());
     state.update(addStarter(state.plan, pick!.date!));
   }
 }

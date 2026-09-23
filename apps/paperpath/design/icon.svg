@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#2255CC"/>
+  <!-- sheet of paper with a folded corner -->
+  <path d="M292 190 H640 L752 302 V834 H292 Z" fill="#FFFFFF"/>
+  <path d="M640 190 V302 H752 Z" fill="#C9D6F2"/>
+  <!-- the path: three steps, two done -->
+  <line x1="430" y1="395" x2="430" y2="705" stroke="#2255CC" stroke-width="22" stroke-linecap="round"/>
+  <circle cx="430" cy="395" r="46" fill="#2255CC"/>
+  <circle cx="430" cy="550" r="46" fill="#2255CC"/>
+  <circle cx="430" cy="705" r="40" fill="#FFFFFF" stroke="#2255CC" stroke-width="22"/>
+  <!-- text lines next to each step -->
+  <rect x="516" y="380" width="160" height="30" rx="15" fill="#C9D6F2"/>
+  <rect x="516" y="535" width="130" height="30" rx="15" fill="#C9D6F2"/>
+  <rect x="516" y="690" width="150" height="30" rx="15" fill="#C9D6F2"/>
+</svg>

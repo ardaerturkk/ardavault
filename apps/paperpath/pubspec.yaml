@@ -26,6 +26,13 @@ dev_dependencies:
     sdk: flutter
   flutter_driver:
     sdk: flutter
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   generate: true
+
+flutter_launcher_icons:
+  ios: true
+  android: false
+  image_path: design/icon-1024.png
+  remove_alpha_ios: true

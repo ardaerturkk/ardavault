@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
@@ -159,7 +161,7 @@ class _StepPageState extends State<StepPage> {
   Future<void> _complete(PathStep step) async {
     final state = AppScope.read(context);
     final (next, received) = state.plan.complete(step.id);
-    await HapticFeedback.lightImpact();
+    unawaited(HapticFeedback.lightImpact());
     state.update(next);
     setState(() => _received = received);
   }
@@ -249,7 +251,7 @@ class _DocCheckTile extends StatelessWidget {
                 ),
               ),
         onTap: () {
-          HapticFeedback.selectionClick();
+          unawaited(HapticFeedback.selectionClick());
           final state = AppScope.read(context);
           final current = state.plan.doc(doc.id)!;
           state.update(
