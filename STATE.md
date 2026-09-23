@@ -3,7 +3,7 @@
 Updated: 2026-09-23 (first studio session)
 
 ## Current app: Paperpath (apps/paperpath)
-Stage: Polish/QA, hand-off written. Arda can archive and upload from apps/paperpath/ARDA-MAC.md.
+Stage: ready-for-arda (1.0.0+1), hand-off written, waiting for his Xcode archive result. Arda can archive and upload from apps/paperpath/ARDA-MAC.md.
 
 Done and verified here (Linux container, Flutter 3.47.5):
 - Model + starter set (10 steps, 14 documents), JSON persistence with atomic writes and
@@ -11,12 +11,14 @@ Done and verified here (Linux container, Flutter 3.47.5):
 - UI: Steps (Ready/Waiting/Done), step detail (Bring checklist, You Get, deadline,
   appointment, Mark as Done), step editor with document picker, Documents list/detail/editor.
 - en/de/tr via gen-l10n, including all starter content.
-- Widget flow tests (14) for every core flow; 110 goldens (13 screens/states x light/dark
+- 51 unit and widget flow tests (run with TZ=Europe/Berlin too); 110 goldens (13 screens/states x light/dark
   x 1x/2x x 375x667/440x956, plus de/tr at small 2x), all reviewed by eye.
 - iOS project: iPhone only, portrait only, single deployment target 15.0, PrivacyInfo in
   Runner resources, ITSAppUsesNonExemptEncryption false, CFBundleLocalizations en/de/tr,
   launch screen = systemGroupedBackground, original icon (apps/paperpath/design/icon.svg).
-- store/ (en-US, de-DE, tr) and site/paperpath (privacy, support). scripts/dod.sh passes.
+- store/ (en-US, de-DE, tr) incl. fallback 1320x2868 screenshots, site/paperpath
+  (privacy, support). scripts/dod.sh passes.
+- Dark mode fix: accent is now resolved for icons/text (was always the light blue).
 - `flutter build web` compiles.
 
 NOT verified (say so, do not fake):

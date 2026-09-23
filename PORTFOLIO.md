@@ -4,7 +4,7 @@ Bundle ID prefix: com.arda (placeholder until Arda confirms)
 
 | App | Stage | Wedge | Bundle ID | Notes |
 | --- | --- | --- | --- | --- |
-| Paperpath | 4 Polish/QA -> 6 ready-for-arda | Knows which documents each paperwork step needs and gives you, so it always shows what you can do today and what to bring; offline, no account | com.arda.paperpath | Idea: ideas/paperpath.md. iOS workflow not run (tag push refused in cloud session). |
+| Paperpath | 6 ready-for-arda (1.0.0+1) | Knows which documents each paperwork step needs and gives you, so it always shows what you can do today and what to bring; offline, no account | com.arda.paperpath | Idea: ideas/paperpath.md. iOS workflow not run (tag push refused in cloud session). |
 
 ## Parked / killed
 
@@ -28,3 +28,9 @@ Bundle ID prefix: com.arda (placeholder until Arda confirms)
 - CupertinoFormSection headers render without the theme font in tests; CupertinoListSection
   headers are fine and look the same.
 - Value rows (label + additionalInfo) break at 2x text: move the value under the label.
+- Icon and TextStyle do not resolve CupertinoDynamicColor: always pass
+  `accent.resolveFrom(context)`, or dark mode silently uses the light color. dod.sh checks.
+- Soft hyphens (U+00AD) break lines in Flutter without drawing a hyphen: do not use them.
+- Run date logic tests with TZ=Europe/Berlin: container UTC hides DST off-by-one bugs.
+- Fresh-eyes QA and design subagents found real bugs (DST, navigation, data loss) that
+  110 goldens and 50 tests did not: always run them before hand-off.
