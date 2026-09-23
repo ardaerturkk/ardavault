@@ -15,7 +15,10 @@ Senden istenen (adım adım): `apps/paperpath/ARDA-MAC.md`
    `git tag ios-check-paperpath-1 && git push origin ios-check-paperpath-1`.
 5. Privacy/support sayfalarını public gist olarak yayınla; support'a e-postanı ekle.
 
-Soru (cevap vermezsen böyle devam ederim): Bundle ID öneki `com.arda` kalsın mı?
+Sorular (cevap vermezsen böyle devam ederim):
+- Bundle ID öneki `com.arda` kalsın mı? (Varsayılan: evet.)
+- Kiel'de hâlâ oda/ev arıyor musun? Evetse sıradaki uygulama bir "ev arama takibi"
+  olabilir (`ideas/flathunt.md`). Hayırsa bu fikri park ederim.
 
 ## 2026-09-23
 Stüdyo kuruldu. Mac'te almak için:

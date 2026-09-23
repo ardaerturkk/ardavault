@@ -111,5 +111,6 @@
   "stepDone": "Tamamlandı",
   "discardChanges": "Değişiklikleri At",
   "keepEditing": "Düzenlemeye Devam Et",
-  "allDone": "Tüm adımlar tamamlandı."
+  "allDone": "Tüm adımlar tamamlandı.",
+  "listAnd": "{first} ve {last}"
 }

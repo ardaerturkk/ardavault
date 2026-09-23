@@ -184,5 +184,16 @@
   },
   "discardChanges": "Discard Changes",
   "keepEditing": "Keep Editing",
-  "allDone": "All steps are done."
+  "allDone": "All steps are done.",
+  "listAnd": "{first} and {last}",
+  "@listAnd": {
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "last": {
+        "type": "String"
+      }
+    }
+  }
 }

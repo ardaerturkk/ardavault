@@ -386,4 +386,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get allDone => 'Tüm adımlar tamamlandı.';
+
+  @override
+  String listAnd(String first, String last) {
+    return '$first ve $last';
+  }
 }

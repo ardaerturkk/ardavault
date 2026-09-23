@@ -143,8 +143,9 @@ class _StepPageState extends State<StepPage> {
                           ? null
                           : FooterText(
                               l.received(
-                                [for (final d in _received) docName(l, d)]
-                                    .join(', '),
+                                joinNames(l, [
+                                  for (final d in _received) docName(l, d),
+                                ]),
                               ),
                             ),
                       children: [

@@ -111,5 +111,6 @@
   "stepDone": "Erledigt",
   "discardChanges": "Änderungen verwerfen",
   "keepEditing": "Weiter bearbeiten",
-  "allDone": "Alle Schritte sind erledigt."
+  "allDone": "Alle Schritte sind erledigt.",
+  "listAnd": "{first} und {last}"
 }

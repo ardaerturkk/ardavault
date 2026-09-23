@@ -5,6 +5,7 @@ Bundle ID prefix: com.arda (placeholder until Arda confirms)
 | App | Stage | Wedge | Bundle ID | Notes |
 | --- | --- | --- | --- | --- |
 | Paperpath | 6 ready-for-arda (1.0.0+1) | Knows which documents each paperwork step needs and gives you, so it always shows what you can do today and what to bring; offline, no account | com.arda.paperpath | Idea: ideas/paperpath.md. iOS workflow not run (tag push refused in cloud session). |
+| Flatboard (flat hunt) | 0 Discover, candidate | One offline pipeline for flats from every portal, with viewings and warm-rent comparison | - | ideas/flathunt.md; waiting on Arda: still looking? |
 
 ## Parked / killed
 

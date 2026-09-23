@@ -40,3 +40,10 @@ String? needsLabel(AppLocalizations l, List<String> missingNames) {
   if (missingNames.length == 1) return l.needsOne(missingNames.first);
   return l.needsMany(missingNames.first, missingNames.length - 1);
 }
+
+/// "A", "A and B", "A, B and C" in the current language.
+String joinNames(AppLocalizations l, List<String> names) {
+  if (names.isEmpty) return '';
+  if (names.length == 1) return names.single;
+  return l.listAnd(names.sublist(0, names.length - 1).join(', '), names.last);
+}

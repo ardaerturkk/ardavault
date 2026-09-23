@@ -414,4 +414,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get allDone => 'All steps are done.';
+
+  @override
+  String listAnd(String first, String last) {
+    return '$first and $last';
+  }
 }

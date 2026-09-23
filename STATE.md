@@ -41,14 +41,15 @@ Reviews (fresh-eyes subagents, 2026-09-23), all must-fix items applied:
   unreadable file is moved aside (writes blocked if that fails), VoiceOver tap on Bring
   rows, refresh on resume, 12/24h appointment times, single-line titles, a step cannot
   need what it gives, id collision guard, German copy fixes.
-- Not done (should-fix, low value now): undo for deletes, discard-changes prompt,
-  localized list joining ("A, B"), collapsed Done section.
+- Also done: discard-changes prompt, localized list joining, all-done footer.
+- Not done (low value now): undo for deletes, collapsed Done section.
 
 ## Next
 1. Wait for Arda's Xcode result; fix anything he reports.
 2. When Arda reports the Xcode/ios-check result: fix, bump build number, update hand-off.
 3. Discover (2026-09-23): budget, TRY/EUR tracker and waste sorting failed the wedge
-   test (see PORTFOLIO.md). Next Discover should dig into habits/to-dos with a real
+   test (see PORTFOLIO.md). Candidate ideas/flathunt.md waits on Arda: is he still
+   looking for a flat? (asked in ARDA-INBOX.md; if no answer, park it). Next Discover should dig into habits/to-dos with a real
    wedge, or pursue Paperpath v1.1 "letters" if Arda likes v1.
 4. Then: improve Paperpath (reminders via local notifications only if Arda wants the
    plugin risk) or Discover the next app (budget TRY/EUR, habits) within WIP limits.

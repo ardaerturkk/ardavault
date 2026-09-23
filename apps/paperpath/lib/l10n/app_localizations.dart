@@ -771,6 +771,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All steps are done.'**
   String get allDone;
+
+  /// No description provided for @listAnd.
+  ///
+  /// In en, this message translates to:
+  /// **'{first} and {last}'**
+  String listAnd(String first, String last);
 }
 
 class _AppLocalizationsDelegate

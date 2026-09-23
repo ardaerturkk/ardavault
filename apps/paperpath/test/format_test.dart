@@ -32,6 +32,13 @@ void main() {
     );
   });
 
+  test('joins names like a sentence', () {
+    expect(joinNames(l, []), '');
+    expect(joinNames(l, ['A']), 'A');
+    expect(joinNames(l, ['A', 'B']), 'A and B');
+    expect(joinNames(l, ['A', 'B', 'C']), 'A, B and C');
+  });
+
   test('needs label', () {
     expect(needsLabel(l, []), isNull);
     expect(needsLabel(l, ['A']), 'Needs A');
