@@ -48,6 +48,17 @@ class _StepEditPageState extends State<StepEditPage> {
     _produces = [...?s?.produces];
   }
 
+  bool get _dirty {
+    final s = widget.step;
+    return _title.text != _startTitle ||
+        _note.text != _startNote ||
+        !_sameList(_needs, s?.needs ?? const []) ||
+        !_sameList(_produces, s?.produces ?? const []);
+  }
+
+  static bool _sameList(List<String> a, List<String> b) =>
+      a.length == b.length && a.toSet().containsAll(b);
+
   @override
   void dispose() {
     _title.dispose();
@@ -65,7 +76,7 @@ class _StepEditPageState extends State<StepEditPage> {
       navigationBar: CupertinoNavigationBar(
         leading: CupertinoButton(
           padding: EdgeInsets.zero,
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => cancelEditor(context, dirty: _dirty),
           child: Text(l.cancel),
         ),
         middle: Text(widget.step == null ? l.newStep : l.editStep),

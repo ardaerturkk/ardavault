@@ -377,4 +377,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get stepDone => 'Tamamlandı';
+
+  @override
+  String get discardChanges => 'Değişiklikleri At';
+
+  @override
+  String get keepEditing => 'Düzenlemeye Devam Et';
 }

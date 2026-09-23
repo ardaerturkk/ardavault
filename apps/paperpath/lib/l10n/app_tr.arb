@@ -108,5 +108,7 @@
   "stepResidencePermit": "Oturum İzni Başvurusu Yap",
   "stepResidencePermitNote": "Ausländerbehörde'ye, vizen bitmeden. Son tarihi vizenin bitiş tarihi yap; randevular haftalar sürebilir.",
   "confirmDoneMissing": "{count} belge hâlâ eksik. Yine de tamamlandı olarak işaretlensin mi?",
-  "stepDone": "Tamamlandı"
+  "stepDone": "Tamamlandı",
+  "discardChanges": "Değişiklikleri At",
+  "keepEditing": "Düzenlemeye Devam Et"
 }

@@ -9,8 +9,10 @@ Senden istenen (adım adım): `apps/paperpath/ARDA-MAC.md`
 1. Klonla, `flutter pub get`, `flutter build ios --config-only --release`, Xcode'da aç.
 2. Team seç, Archive, Upload.
 3. App Store Connect değerleri ve metinler dosyada hazır.
-4. Ekran görüntüleri: bulut iOS testini tetikleyemedi (tag push engelli). Mac'te
-   `flutter drive` komutu dosyada, ya da `git tag ios-check-paperpath-1 && git push origin ios-check-paperpath-1`.
+4. Ekran görüntüleri hazır (`apps/paperpath/store/screenshots/`, 1320x2868, en/de/tr).
+   Bulutta çizildi (Roboto, durum çubuğu yok). Gerçek simülatör görüntüsü istersen
+   komut ARDA-MAC.md'de. Bulut iOS testini tetikleyemedi (tag push engelli); istersen
+   `git tag ios-check-paperpath-1 && git push origin ios-check-paperpath-1`.
 5. Privacy/support sayfalarını public gist olarak yayınla; support'a e-postanı ekle.
 
 Soru (cevap vermezsen böyle devam ederim): Bundle ID öneki `com.arda` kalsın mı?

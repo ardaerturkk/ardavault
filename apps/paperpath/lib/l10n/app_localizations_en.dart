@@ -405,4 +405,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get stepDone => 'Done';
+
+  @override
+  String get discardChanges => 'Discard Changes';
+
+  @override
+  String get keepEditing => 'Keep Editing';
 }

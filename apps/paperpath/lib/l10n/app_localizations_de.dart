@@ -405,4 +405,10 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get stepDone => 'Erledigt';
+
+  @override
+  String get discardChanges => 'Änderungen verwerfen';
+
+  @override
+  String get keepEditing => 'Weiter bearbeiten';
 }

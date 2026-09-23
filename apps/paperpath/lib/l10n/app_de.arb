@@ -108,5 +108,7 @@
   "stepResidencePermit": "Aufenthaltserlaubnis beantragen",
   "stepResidencePermitNote": "Bei der Ausländerbehörde, bevor dein Visum abläuft. Setze die Frist auf das Ende deines Visums, Termine dauern oft Wochen.",
   "confirmDoneMissing": "{count, plural, =1{1 Unterlage fehlt noch.} other{{count} Unterlagen fehlen noch.}} Trotzdem als erledigt markieren?",
-  "stepDone": "Erledigt"
+  "stepDone": "Erledigt",
+  "discardChanges": "Änderungen verwerfen",
+  "keepEditing": "Weiter bearbeiten"
 }

@@ -109,6 +109,21 @@ void main() {
     expect(find.text('Buy a Bike'), findsOneWidget);
   });
 
+  testWidgets('cancel asks before throwing away edits', (t) async {
+    final (state, _) = await start(t, typicalPlan());
+    await tapText(t, 'Enroll at the University');
+    await tapText(t, 'Edit');
+    await t.enterText(find.byType(CupertinoTextField).first, 'Enroll');
+    await t.pumpAndSettle();
+    await tapText(t, 'Cancel');
+    await tapText(t, 'Keep Editing');
+    expect(find.text('Edit Step'), findsOneWidget);
+    await tapText(t, 'Cancel');
+    await tapText(t, 'Discard Changes');
+    expect(find.text('Edit Step'), findsNothing);
+    expect(state.plan.step('s:enroll')!.title, isNull);
+  });
+
   testWidgets('save is disabled without a title', (t) async {
     final (state, _) = await start(t);
     await tapText(t, 'Add Your Own Step');

@@ -56,7 +56,12 @@ class _DocumentEditPageState extends State<DocumentEditPage> {
       navigationBar: CupertinoNavigationBar(
         leading: CupertinoButton(
           padding: EdgeInsets.zero,
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => cancelEditor(
+            context,
+            dirty:
+                _name.text != _startName ||
+                _note.text != (widget.doc?.note ?? ''),
+          ),
           child: Text(l.cancel),
         ),
         middle: Text(widget.doc == null ? l.newDocument : l.editDocument),

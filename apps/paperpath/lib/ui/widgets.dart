@@ -415,3 +415,30 @@ void leaveDeletedPage(BuildContext context) {
 
 /// Titles and names are one line: Return may still slip in a newline.
 String oneLine(String s) => s.replaceAll(RegExp(r'\s*\n\s*'), ' ').trim();
+
+/// Cancel in an editor: asks first when there are unsaved changes.
+Future<void> cancelEditor(BuildContext context, {required bool dirty}) async {
+  if (!dirty) {
+    Navigator.pop(context);
+    return;
+  }
+  final l = context.l;
+  final discard = await showCupertinoModalPopup<bool>(
+    context: context,
+    builder: (context) => CupertinoActionSheet(
+      actions: [
+        CupertinoActionSheetAction(
+          isDestructiveAction: true,
+          onPressed: () => Navigator.pop(context, true),
+          child: Text(l.discardChanges),
+        ),
+      ],
+      cancelButton: CupertinoActionSheetAction(
+        isDefaultAction: true,
+        onPressed: () => Navigator.pop(context, false),
+        child: Text(l.keepEditing),
+      ),
+    ),
+  );
+  if ((discard ?? false) && context.mounted) Navigator.pop(context);
+}
