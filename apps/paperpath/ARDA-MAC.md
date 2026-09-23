@@ -77,11 +77,13 @@ Sürüm sayfası (1.0), her dil için dosyalar `apps/paperpath/store/<dil>/` iç
 
 ## 5. Ekran görüntüleri (6.9 inç, 1320x2868)
 
-Bulutta iOS simülatörü yok ve bu oturum GitHub'daki iOS workflow'unu tetikleyemedi (tag
-push'u proxy tarafından reddedildi). İki yol var:
+Hazır olanlar: `apps/paperpath/store/screenshots/<dil>/` (en-US, de-DE, tr), her dilde 5
+görüntü, tam 1320x2868, alfasız. Uygulamanın gerçek ekranları, ama bulutta
+render edildi: yazı tipi San Francisco yerine Roboto, üstte durum çubuğu yok. Yüklemek
+için yeterli; daha iyisini istersen:
 
-A) Mac'te otomatik (önerilen). Simülatörde iPhone 17 Pro Max (veya 16 Pro Max) açıkken,
-`apps/paperpath` içinde:
+A) Mac'te gerçek simülatör görüntüleri (önerilen, 5 dk). iPhone 17 Pro Max (veya 16 Pro
+Max) simülatörü açıkken `apps/paperpath` içinde:
 
     for l in en de tr; do
       SCREENSHOT_DIR=../../ci-screens/$l flutter drive \
@@ -90,18 +92,16 @@ A) Mac'te otomatik (önerilen). Simülatörde iPhone 17 Pro Max (veya 16 Pro Max
         -d "iPhone 17 Pro Max" --dart-define=SCREENSHOT_LOCALE=$l
     done
 
-Görüntüler `app-studio/ci-screens/<dil>/` içine gelir (1_steps, 2_step_ready,
-3_step_done, 4_documents, 5_document). Bu test ayrıca gerçek dosya kaydını da doğrular.
+Görüntüler `app-studio/ci-screens/<dil>/` içine gelir. Bu test ayrıca gerçek dosya
+kaydını doğrular. Bulut bu oturumda GitHub'daki iOS workflow'unu tetikleyemedi (tag
+push'u reddedildi), yani bu test henüz hiç iOS'ta koşmadı; hata verirse bana yaz.
 
 B) GitHub'ın macOS makinesinde (ücretsiz dakikalardan ~15 dk):
 
     git tag ios-check-paperpath-1 && git push origin ios-check-paperpath-1
 
-Actions sekmesinde "ios-check" çalışır; release build, simülatör testi ve ekran görüntüleri
-`ci/screenshots/paperpath` branch'ine gelir. Hata verirse bana haber ver, düzeltirim.
-
-Görüntü yoksa elle: simülatörde demo planı kurup (adım 2'deki akış) şu ekranları Cmd+S ile
-çek: Steps listesi, Anmeldung detay, tamamlanmış Anmeldung, Documents listesi.
+Actions > ios-check: release build, simülatör testi, ekran görüntüleri
+`ci/screenshots/paperpath` branch'ine gelir.
 
 ## Bulutta doğrulanamayanlar
 

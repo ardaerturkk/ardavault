@@ -51,3 +51,4 @@ Reviews (fresh-eyes subagents, 2026-09-23), all must-fix items applied:
 ## Notes
 - Scripts: scripts/dod.sh <app> (verified to catch injected failures).
 - Goldens are tagged `golden`; CI runs `flutter test --exclude-tags golden` on macOS.
+- Fallback store screenshots: scripts/store_screenshots.sh <app> (1320x2868, RGB, Roboto, no status bar).
