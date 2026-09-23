@@ -205,7 +205,7 @@ abstract class AppLocalizations {
   /// No description provided for @starterFooter.
   ///
   /// In en, this message translates to:
-  /// **'Typical steps for students from outside the EU. Rules differ by city, so check your office\'s website.'**
+  /// **'Deadlines like the Anmeldung count from this day. Rules differ by city, so check your office\'s website.'**
   String get starterFooter;
 
   /// No description provided for @emptyStepsTitle.
@@ -217,7 +217,7 @@ abstract class AppLocalizations {
   /// No description provided for @emptyStepsBody.
   ///
   /// In en, this message translates to:
-  /// **'Start with the usual paperwork for students moving to Germany. You can change every step.'**
+  /// **'Start with the usual paperwork for moving to Germany. You can change any step.'**
   String get emptyStepsBody;
 
   /// No description provided for @addStarter.
@@ -273,12 +273,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Edit'**
   String get edit;
-
-  /// No description provided for @delete.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete'**
-  String get delete;
 
   /// No description provided for @addStep.
   ///
@@ -385,7 +379,7 @@ abstract class AppLocalizations {
   /// No description provided for @neededForCount.
   ///
   /// In en, this message translates to:
-  /// **'{count, plural, =0{Not needed by any step} =1{Needed for 1 step} other{Needed for {count} steps}}'**
+  /// **'{count, plural, =0{Not needed by open steps} =1{Needed for 1 open step} other{Needed for {count} open steps}}'**
   String neededForCount(int count);
 
   /// No description provided for @comesFrom.
@@ -475,32 +469,20 @@ abstract class AppLocalizations {
   /// No description provided for @needs.
   ///
   /// In en, this message translates to:
-  /// **'Needs'**
+  /// **'Bring'**
   String get needs;
 
   /// No description provided for @givesYou.
   ///
   /// In en, this message translates to:
-  /// **'Gives You'**
+  /// **'You Get'**
   String get givesYou;
-
-  /// No description provided for @chooseDocuments.
-  ///
-  /// In en, this message translates to:
-  /// **'Choose Documents'**
-  String get chooseDocuments;
 
   /// No description provided for @noneChosen.
   ///
   /// In en, this message translates to:
   /// **'None'**
   String get noneChosen;
-
-  /// No description provided for @chosenCount.
-  ///
-  /// In en, this message translates to:
-  /// **'{count}'**
-  String chosenCount(int count);
 
   /// No description provided for @deleteStep.
   ///
@@ -535,7 +517,7 @@ abstract class AppLocalizations {
   /// No description provided for @loadFailed.
   ///
   /// In en, this message translates to:
-  /// **'Your saved plan could not be read. A copy was kept, and you are starting with an empty plan.'**
+  /// **'Your saved plan could not be read, so a new plan was started. The old file is still on this iPhone.'**
   String get loadFailed;
 
   /// No description provided for @ok.
@@ -550,22 +532,10 @@ abstract class AppLocalizations {
   /// **'You now have {docs}.'**
   String received(String docs);
 
-  /// No description provided for @semDocInHand.
-  ///
-  /// In en, this message translates to:
-  /// **'{doc}, in hand'**
-  String semDocInHand(String doc);
-
-  /// No description provided for @semDocMissing.
-  ///
-  /// In en, this message translates to:
-  /// **'{doc}, missing'**
-  String semDocMissing(String doc);
-
   /// No description provided for @semToggleHint.
   ///
   /// In en, this message translates to:
-  /// **'Double tap to change'**
+  /// **'Marks the document as in hand or missing'**
   String get semToggleHint;
 
   /// No description provided for @docPassport.
@@ -771,6 +741,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'At the Ausländerbehörde, before your visa ends. Set the deadline to your visa\'s end date; appointments can take weeks.'**
   String get stepResidencePermitNote;
+
+  /// No description provided for @confirmDoneMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 document is still missing.} other{{count} documents are still missing.}} Mark as done anyway?'**
+  String confirmDoneMissing(int count);
+
+  /// No description provided for @stepDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get stepDone;
 }
 
 class _AppLocalizationsDelegate

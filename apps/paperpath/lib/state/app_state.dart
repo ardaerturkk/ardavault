@@ -7,7 +7,7 @@ import '../model/plan.dart';
 import 'storage.dart';
 
 /// Holds the plan, saves every change, and tells the UI to rebuild.
-class AppState extends ChangeNotifier {
+class AppState extends ChangeNotifier with WidgetsBindingObserver {
   AppState(this._storage, {this._plan = const Plan(), DateTime Function()? now})
     : now = now ?? DateTime.now;
 
@@ -26,23 +26,24 @@ class AppState extends ChangeNotifier {
 
   Future<void> _saving = Future.value();
 
+  /// True when the saved file could not be read or moved aside. Saving is
+  /// then off for this launch so the original file is never overwritten.
+  bool _writesBlocked = false;
+
   static Future<AppState> load(PlanStorage storage) async {
     final state = AppState(storage);
-    String? raw;
     try {
-      raw = await storage.read();
+      final raw = await storage.read();
       if (raw != null) {
         final json = (jsonDecode(raw) as Map).cast<String, Object?>();
         state._plan = Plan.fromJson(json);
       }
     } on Object {
       state.loadFailed = true;
-      if (raw != null) {
-        try {
-          await storage.keepBrokenCopy(raw);
-        } on Object {
-          // Nothing more can be done; the user still gets a working app.
-        }
+      try {
+        await storage.setAsideUnreadable();
+      } on Object {
+        state._writesBlocked = true;
       }
     }
     return state;
@@ -51,6 +52,10 @@ class AppState extends ChangeNotifier {
   void update(Plan next) {
     _plan = next;
     notifyListeners();
+    if (_writesBlocked) {
+      saveFailed = true;
+      return;
+    }
     final json = jsonEncode(next.toJson());
     _saving = _saving.then((_) async {
       try {
@@ -64,6 +69,13 @@ class AppState extends ChangeNotifier {
         notifyListeners();
       }
     });
+  }
+
+  /// Coming back after a night in the background: "Due today" and
+  /// "overdue" depend on the date, so rebuild.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) notifyListeners();
   }
 
   void dismissLoadError() {

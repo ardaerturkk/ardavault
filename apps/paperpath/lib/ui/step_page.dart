@@ -12,8 +12,11 @@ import 'step_edit_page.dart';
 import 'widgets.dart';
 
 class StepPage extends StatefulWidget {
-  const StepPage({super.key, required this.stepId});
+  const StepPage({super.key, required this.stepId, this.previousTitle});
   final String stepId;
+
+  /// Label for the back button, like "Steps".
+  final String? previousTitle;
 
   @override
   State<StepPage> createState() => _StepPageState();
@@ -31,9 +34,7 @@ class _StepPageState extends State<StepPage> {
     final step = plan.step(widget.stepId);
     if (step == null) {
       // Deleted in the editor: leave this screen too.
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) Navigator.of(context).maybePop();
-      });
+      leaveDeletedPage(context);
       return const CupertinoPageScaffold(child: SizedBox.shrink());
     }
     final status = plan.statusOf(step);
@@ -42,12 +43,26 @@ class _StepPageState extends State<StepPage> {
     final note = stepNote(l, step);
     final due = step.effectiveDue(plan.moveInDate);
     final dueText = dueLabel(l, due, state.now());
-    final needs = [for (final id in step.needs) ?plan.doc(id)];
+    // Missing documents first: they are what needs attention.
+    final needs = [for (final id in step.needs) ?plan.doc(id)]
+      ..sort((a, b) => (a.have ? 1 : 0).compareTo(b.have ? 1 : 0));
     final produces = [for (final id in step.produces) ?plan.doc(id)];
+
+    final String? statusText = switch (status) {
+      StepStatus.done => l.stepDone,
+      _ => dueText?.$1,
+    };
+    final Color statusColor = switch ((status, dueText?.$2)) {
+      (StepStatus.done, _) => accent.resolveFrom(context),
+      (_, DueTone.overdue) => CupertinoColors.systemRed.resolveFrom(context),
+      (_, DueTone.soon) => CupertinoColors.systemOrange.resolveFrom(context),
+      _ => secondary,
+    };
 
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGroupedBackground,
       navigationBar: CupertinoNavigationBar(
+        previousPageTitle: widget.previousTitle,
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () => openStepEditor(context, step: step),
@@ -55,107 +70,181 @@ class _StepPageState extends State<StepPage> {
         ),
       ),
       child: SafeArea(
-        child: ListView(
+        child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
-              child: Text(
-                stepTitle(l, step),
-                style: theme.navLargeTitleTextStyle.copyWith(fontSize: 28),
-              ),
-            ),
-            if (note.isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
-                child: Text(
-                  note,
-                  style: theme.textStyle.copyWith(color: secondary),
-                ),
-              ),
-            CupertinoListSection.insetGrouped(
-              header: Text(l.bring),
-              footer: needs.isEmpty || status == StepStatus.done
-                  ? null
-                  : Text(l.bringFooter),
-              children: [
-                if (needs.isEmpty)
-                  CupertinoListTile(
-                    padding: tilePadding,
-                    title: RowText(l.nothingToBring, color: secondary),
-                  ),
-                for (final d in needs) _DocCheckTile(doc: d),
-              ],
-            ),
-            if (produces.isNotEmpty)
-              CupertinoListSection.insetGrouped(
-                header: Text(l.youGet),
-                footer: _received.isEmpty
-                    ? null
-                    : Text(
-                        l.received(
-                          [for (final d in _received) docName(l, d)].join(', '),
-                        ),
-                      ),
+            Expanded(
+              child: ListView(
                 children: [
-                  for (final d in produces)
-                    CupertinoListTile(
-                      padding: tilePadding,
-                      leading: Icon(
-                        d.have
-                            ? CupertinoIcons.checkmark_seal_fill
-                            : CupertinoIcons.doc,
-                        color: d.have ? accent : secondary,
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 16, 20, 0),
+                    child: Text(
+                      stepTitle(l, step),
+                      style: theme.navLargeTitleTextStyle.copyWith(
+                        fontSize: 28,
                       ),
-                      title: RowText(docName(l, d)),
-                      trailing: const CupertinoListTileChevron(),
-                      onTap: () => Navigator.of(context).push(
-                        CupertinoPageRoute<void>(
-                          builder: (_) => DocumentPage(docId: d.id),
+                    ),
+                  ),
+                  if (statusText != null)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 6, 20, 0),
+                      child: Row(
+                        children: [
+                          if (status == StepStatus.done)
+                            Padding(
+                              padding: const EdgeInsetsDirectional.only(end: 6),
+                              child: Icon(
+                                CupertinoIcons.checkmark_circle_fill,
+                                size: 18,
+                                color: statusColor,
+                              ),
+                            ),
+                          Expanded(
+                            child: Text(
+                              statusText,
+                              style: theme.textStyle.copyWith(
+                                fontSize: 15,
+                                fontWeight: FontWeight.w600,
+                                color: statusColor,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  if (note.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
+                      child: Text(
+                        note,
+                        style: theme.textStyle.copyWith(
+                          fontSize: 15,
+                          color: secondary,
                         ),
                       ),
                     ),
+                  CupertinoListSection.insetGrouped(
+                    header: Text(l.bring),
+                    footer: needs.isEmpty || status == StepStatus.done
+                        ? null
+                        : FooterText(l.bringFooter),
+                    children: [
+                      if (needs.isEmpty)
+                        CupertinoListTile(
+                          padding: tilePadding,
+                          title: RowText(l.nothingToBring, color: secondary),
+                        ),
+                      for (final d in needs) _DocCheckTile(doc: d),
+                    ],
+                  ),
+                  if (produces.isNotEmpty)
+                    CupertinoListSection.insetGrouped(
+                      header: Text(l.youGet),
+                      footer: _received.isEmpty
+                          ? null
+                          : FooterText(
+                              l.received(
+                                [for (final d in _received) docName(l, d)]
+                                    .join(', '),
+                              ),
+                            ),
+                      children: [
+                        for (final d in produces)
+                          CupertinoListTile(
+                            padding: tilePadding,
+                            leading: docIcon(context, d.have),
+                            title: RowText(docName(l, d)),
+                            trailing: const CupertinoListTileChevron(),
+                            onTap: () => Navigator.of(context).push(
+                              CupertinoPageRoute<void>(
+                                builder: (_) => DocumentPage(
+                                  docId: d.id,
+                                  previousTitle: l.tabSteps,
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
+                  CupertinoListSection.insetGrouped(
+                    header: Text(l.dates),
+                    children: [
+                      ValueTile(
+                        leading: const Icon(CupertinoIcons.flag, color: accent),
+                        label: l.deadline,
+                        value: due == null ? l.none : shortDate(l, due),
+                        valueColor:
+                            dueText?.$2 == DueTone.overdue &&
+                                status != StepStatus.done
+                            ? CupertinoColors.systemRed.resolveFrom(context)
+                            : null,
+                        onTap: () => _pickDeadline(step, due),
+                      ),
+                      ValueTile(
+                        leading: const Icon(
+                          CupertinoIcons.calendar,
+                          color: accent,
+                        ),
+                        label: l.appointment,
+                        value: step.appointment == null
+                            ? l.none
+                            : dateTime(
+                                l,
+                                step.appointment!,
+                                use24h: MediaQuery.alwaysUse24HourFormatOf(
+                                  context,
+                                ),
+                              ),
+                        onTap: () => _pickAppointment(step),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
                 ],
               ),
-            CupertinoListSection.insetGrouped(
-              header: Text(l.dates),
-              children: [
-                ValueTile(
-                  leading: const Icon(CupertinoIcons.flag, color: accent),
-                  label: l.deadline,
-                  value: due == null ? l.none : shortDate(l, due),
-                  valueColor:
-                      dueText?.$2 == DueTone.overdue &&
-                          status != StepStatus.done
-                      ? CupertinoColors.systemRed.resolveFrom(context)
-                      : null,
-                  onTap: () => _pickDeadline(step, due),
-                ),
-                ValueTile(
-                  leading: const Icon(CupertinoIcons.calendar, color: accent),
-                  label: l.appointment,
-                  value: step.appointment == null
-                      ? l.none
-                      : dateTime(l, step.appointment!),
-                  onTap: () => _pickAppointment(step),
-                ),
-              ],
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
-              child: step.done
-                  ? CupertinoButton(
-                      onPressed: () => _reopen(step),
-                      child: Text(l.markNotDone, textAlign: TextAlign.center),
-                    )
-                  : CupertinoButton.filled(
-                      onPressed: () => _complete(step),
-                      child: Text(l.markDone, textAlign: TextAlign.center),
-                    ),
+            _ActionBar(
+              child: switch (status) {
+                StepStatus.done => CupertinoButton(
+                  onPressed: () => _reopen(step),
+                  child: Text(l.markNotDone, textAlign: TextAlign.center),
+                ),
+                StepStatus.ready => CupertinoButton.filled(
+                  onPressed: () => _complete(step),
+                  child: Text(l.markDone, textAlign: TextAlign.center),
+                ),
+                StepStatus.waiting => CupertinoButton.tinted(
+                  onPressed: () => _completeWaiting(step),
+                  child: Text(l.markDone, textAlign: TextAlign.center),
+                ),
+              },
             ),
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _completeWaiting(PathStep step) async {
+    final l = context.l;
+    final missing = AppScope.read(context).plan.missingFor(step).length;
+    final ok = await showCupertinoModalPopup<bool>(
+      context: context,
+      builder: (context) => CupertinoActionSheet(
+        message: Text(l.confirmDoneMissing(missing)),
+        actions: [
+          CupertinoActionSheetAction(
+            onPressed: () => Navigator.pop(context, true),
+            child: Text(l.markDone),
+          ),
+        ],
+        cancelButton: CupertinoActionSheetAction(
+          isDefaultAction: true,
+          onPressed: () => Navigator.pop(context, false),
+          child: Text(l.cancel),
+        ),
+      ),
+    );
+    if (ok ?? false) await _complete(step);
   }
 
   Future<void> _complete(PathStep step) async {
@@ -182,6 +271,8 @@ class _StepPageState extends State<StepPage> {
       removeLabel: due == null ? null : l.removeDeadline,
     );
     if (pick == null) return;
+    // Confirming the same date keeps a deadline tied to the move-in date.
+    if (!pick.removed && due != null && dateOnly(pick.date!) == due) return;
     final current = state.plan.step(step.id)!;
     state.update(
       state.plan.withStep(
@@ -221,16 +312,25 @@ class _DocCheckTile extends StatelessWidget {
   const _DocCheckTile({required this.doc});
   final Doc doc;
 
+  void _toggle(BuildContext context) {
+    unawaited(HapticFeedback.selectionClick());
+    final state = AppScope.read(context);
+    final current = state.plan.doc(doc.id)!;
+    state.update(state.plan.withDoc(current.copyWith(have: !current.have)));
+  }
+
   @override
   Widget build(BuildContext context) {
     final l = context.l;
     final name = docName(l, doc);
+    final from = AppScope.of(context).plan.stepsProducing(doc.id);
     return Semantics(
       checked: doc.have,
       button: true,
       label: name,
       hint: l.semToggleHint,
       excludeSemantics: true,
+      onTap: () => _toggle(context),
       child: CupertinoListTile(
         padding: tilePadding,
         leading: Icon(
@@ -245,20 +345,38 @@ class _DocCheckTile extends StatelessWidget {
         subtitle: doc.have
             ? null
             : Text(
-                l.missing,
+                from.isEmpty
+                    ? l.missing
+                    : l.comesFrom(stepTitle(l, from.first)),
                 style: TextStyle(
                   color: CupertinoColors.secondaryLabel.resolveFrom(context),
                 ),
               ),
-        onTap: () {
-          unawaited(HapticFeedback.selectionClick());
-          final state = AppScope.read(context);
-          final current = state.plan.doc(doc.id)!;
-          state.update(
-            state.plan.withDoc(current.copyWith(have: !current.have)),
-          );
-        },
+        onTap: () => _toggle(context),
       ),
     );
   }
+}
+
+/// Keeps the primary action in reach at the bottom of the screen.
+class _ActionBar extends StatelessWidget {
+  const _ActionBar({required this.child});
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) => DecoratedBox(
+    decoration: BoxDecoration(
+      color: CupertinoColors.systemGroupedBackground.resolveFrom(context),
+      border: Border(
+        top: BorderSide(
+          color: CupertinoColors.separator.resolveFrom(context),
+          width: 0,
+        ),
+      ),
+    ),
+    child: Padding(
+      padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+      child: SizedBox(width: double.infinity, child: child),
+    ),
+  );
 }

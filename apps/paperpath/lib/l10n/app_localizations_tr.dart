@@ -74,14 +74,14 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get starterFooter =>
-      'AB dışından gelen öğrenciler için tipik adımlar. Kurallar şehre göre değişir, ilgili dairenin web sitesine bak.';
+      'Anmeldung gibi süreler bu günden itibaren sayılır. Kurallar şehre göre değişir, ilgili dairenin web sitesine bak.';
 
   @override
   String get emptyStepsTitle => 'Henüz Adım Yok';
 
   @override
   String get emptyStepsBody =>
-      'Almanya\'ya taşınan öğrenciler için olağan evrak işleriyle başla. Her adımı değiştirebilirsin.';
+      'Almanya\'ya taşınırken gereken olağan evrak işleriyle başla. Her adımı değiştirebilirsin.';
 
   @override
   String get addStarter => 'Almanya Başlangıç Adımlarını Ekle';
@@ -109,9 +109,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get edit => 'Düzenle';
-
-  @override
-  String get delete => 'Sil';
 
   @override
   String get addStep => 'Adım Ekle';
@@ -170,8 +167,8 @@ class AppLocalizationsTr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count adımda gerekli',
-      zero: 'Hiçbir adımda gerekmiyor',
+      other: '$count açık adımda gerekli',
+      zero: 'Açık adımlarda gerekmiyor',
     );
     return '$_temp0';
   }
@@ -222,21 +219,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get notesHint => 'Nereye gidilecek, ne sorulacak';
 
   @override
-  String get needs => 'Gerekenler';
+  String get needs => 'Yanına Al';
 
   @override
-  String get givesYou => 'Sağladıkları';
-
-  @override
-  String get chooseDocuments => 'Belgeleri Seç';
+  String get givesYou => 'Alacağın';
 
   @override
   String get noneChosen => 'Yok';
-
-  @override
-  String chosenCount(int count) {
-    return '$count';
-  }
 
   @override
   String get deleteStep => 'Adımı Sil';
@@ -256,7 +245,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get loadFailed =>
-      'Kayıtlı planın okunamadı. Bir kopyası saklandı, boş bir planla başlıyorsun.';
+      'Kayıtlı planın okunamadı, bu yüzden yeni bir plan başlatıldı. Eski dosya hâlâ bu iPhone\'da.';
 
   @override
   String get ok => 'Tamam';
@@ -267,17 +256,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String semDocInHand(String doc) {
-    return '$doc, elimde';
-  }
-
-  @override
-  String semDocMissing(String doc) {
-    return '$doc, eksik';
-  }
-
-  @override
-  String get semToggleHint => 'Değiştirmek için çift dokun';
+  String get semToggleHint => 'Belgeyi elimde ya da eksik olarak işaretler';
 
   @override
   String get docPassport => 'Pasaport';
@@ -390,4 +369,12 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get stepResidencePermitNote =>
       'Ausländerbehörde\'ye, vizen bitmeden. Son tarihi vizenin bitiş tarihi yap; randevular haftalar sürebilir.';
+
+  @override
+  String confirmDoneMissing(int count) {
+    return '$count belge hâlâ eksik. Yine de tamamlandı olarak işaretlensin mi?';
+  }
+
+  @override
+  String get stepDone => 'Tamamlandı';
 }

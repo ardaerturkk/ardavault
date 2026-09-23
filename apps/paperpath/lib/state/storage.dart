@@ -7,8 +7,9 @@ abstract class PlanStorage {
   Future<String?> read();
   Future<void> write(String json);
 
-  /// Keeps an unreadable file aside so nothing is lost for good.
-  Future<void> keepBrokenCopy(String contents);
+  /// Moves an unreadable saved plan aside so the next save cannot overwrite
+  /// it. Throws if that is not possible.
+  Future<void> setAsideUnreadable();
 }
 
 class FileStorage implements PlanStorage {
@@ -35,11 +36,11 @@ class FileStorage implements PlanStorage {
   }
 
   @override
-  Future<void> keepBrokenCopy(String contents) async {
-    final f = await _file(
-      'paperpath-unreadable-${DateTime.now().millisecondsSinceEpoch}.json',
-    );
-    await f.writeAsString(contents, flush: true);
+  Future<void> setAsideUnreadable() async {
+    final f = await _file('paperpath.json');
+    if (!await f.exists()) return;
+    final stamp = DateTime.now().millisecondsSinceEpoch;
+    await f.rename((await _file('paperpath-unreadable-$stamp.json')).path);
   }
 }
 
@@ -47,11 +48,16 @@ class MemoryStorage implements PlanStorage {
   MemoryStorage([this.contents]);
 
   String? contents;
-  String? broken;
+  String? setAside;
+  bool failReads = false;
   bool failWrites = false;
+  bool failSetAside = false;
 
   @override
-  Future<String?> read() async => contents;
+  Future<String?> read() async {
+    if (failReads) throw const FileSystemException('read failed');
+    return contents;
+  }
 
   @override
   Future<void> write(String json) async {
@@ -60,5 +66,9 @@ class MemoryStorage implements PlanStorage {
   }
 
   @override
-  Future<void> keepBrokenCopy(String contents) async => broken = contents;
+  Future<void> setAsideUnreadable() async {
+    if (failSetAside) throw const FileSystemException('rename failed');
+    setAside = contents;
+    contents = null;
+  }
 }

@@ -28,8 +28,22 @@ NOT verified (say so, do not fake):
 - Playwright web click-through not done: the app uses path_provider, which has no web
   implementation, so the web build is a compile check only. Flows are covered by widget tests.
 
+Reviews (fresh-eyes subagents, 2026-09-23), all must-fix items applied:
+- Design: footnote footers, back labels, one icon language for step status and documents,
+  Ready icon no longer looks like a checkbox, editor wording matches detail (Bring/You
+  Get), editor alignment, Mark as Done pinned in a bottom bar (tinted + confirm on
+  waiting steps), missing documents first with "From: <step>", clearer error copy,
+  status line under step titles, due-soon in orange, rounded picker sheet.
+- QA: calendar-day math across DST (tests run with TZ=Europe/Berlin), deleted-page
+  navigation removes only its own route, same-date deadline pick keeps the move-in link,
+  unreadable file is moved aside (writes blocked if that fails), VoiceOver tap on Bring
+  rows, refresh on resume, 12/24h appointment times, single-line titles, a step cannot
+  need what it gives, id collision guard, German copy fixes.
+- Not done (should-fix, low value now): undo for deletes, discard-changes prompt,
+  localized list joining ("A, B"), collapsed Done section.
+
 ## Next
-1. Apply must-fix items from the design and QA subagent reviews (in progress).
+1. Wait for Arda's Xcode result; fix anything he reports.
 2. When Arda reports the Xcode/ios-check result: fix, bump build number, update hand-off.
 3. Then: improve Paperpath (reminders via local notifications only if Arda wants the
    plugin risk) or Discover the next app (budget TRY/EUR, habits) within WIP limits.

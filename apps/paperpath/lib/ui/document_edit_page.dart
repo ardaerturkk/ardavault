@@ -73,26 +73,33 @@ class _DocumentEditPageState extends State<DocumentEditPage> {
         child: ListView(
           children: [
             CupertinoListSection.insetGrouped(
-              header: Text(l.name),
               children: [
-                CupertinoTextFormFieldRow(
-                  controller: _name,
-                  placeholder: l.docNameHint,
-                  autofocus: widget.doc == null,
-                  textCapitalization: TextCapitalization.words,
-                  maxLines: null,
+                Semantics(
+                  label: l.name,
+                  child: CupertinoTextFormFieldRow(
+                    padding: const EdgeInsetsDirectional.fromSTEB(14, 8, 14, 8),
+                    controller: _name,
+                    textInputAction: TextInputAction.done,
+                    placeholder: l.docNameHint,
+                    autofocus: widget.doc == null,
+                    textCapitalization: TextCapitalization.words,
+                    maxLines: null,
+                  ),
                 ),
               ],
             ),
             CupertinoListSection.insetGrouped(
-              header: Text(l.notes),
               children: [
-                CupertinoTextFormFieldRow(
-                  controller: _note,
-                  placeholder: l.notesHint,
-                  textCapitalization: TextCapitalization.sentences,
-                  minLines: 2,
-                  maxLines: null,
+                Semantics(
+                  label: l.notes,
+                  child: CupertinoTextFormFieldRow(
+                    padding: const EdgeInsetsDirectional.fromSTEB(14, 8, 14, 8),
+                    controller: _note,
+                    placeholder: l.notesHint,
+                    textCapitalization: TextCapitalization.sentences,
+                    minLines: 2,
+                    maxLines: null,
+                  ),
                 ),
               ],
             ),
@@ -117,7 +124,7 @@ class _DocumentEditPageState extends State<DocumentEditPage> {
 
   void _save() {
     final state = AppScope.read(context);
-    final name = _name.text.trim();
+    final name = oneLine(_name.text);
     final note = _note.text.trim();
     final old = widget.doc;
     if (old == null) {

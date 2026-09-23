@@ -90,17 +90,15 @@ class DocTile extends StatelessWidget {
         : l.neededForCount(openNeeds.length);
     return CupertinoListTile(
       padding: tilePadding,
-      leading: Icon(
-        doc.have ? CupertinoIcons.checkmark_seal_fill : CupertinoIcons.doc,
-        color: doc.have
-            ? accent
-            : CupertinoColors.secondaryLabel.resolveFrom(context),
-      ),
+      leading: docIcon(context, doc.have),
       title: RowText(docName(l, doc)),
       subtitle: Text(subtitle, maxLines: 3, overflow: TextOverflow.ellipsis),
       trailing: const CupertinoListTileChevron(),
       onTap: () => Navigator.of(context).push(
-        CupertinoPageRoute<void>(builder: (_) => DocumentPage(docId: doc.id)),
+        CupertinoPageRoute<void>(
+          builder: (_) =>
+              DocumentPage(docId: doc.id, previousTitle: l.tabDocuments),
+        ),
       ),
     );
   }

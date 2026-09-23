@@ -26,10 +26,29 @@ void main() {
     final storage = MemoryStorage('{not json');
     final s = await AppState.load(storage);
     expect(s.loadFailed, isTrue);
-    expect(storage.broken, '{not json');
+    expect(storage.setAside, '{not json');
     expect(s.plan.isEmpty, isTrue);
     s.dismissLoadError();
     expect(s.loadFailed, isFalse);
+  });
+
+  test(
+    'if the bad file cannot be moved aside, nothing overwrites it',
+    () async {
+      final storage = MemoryStorage('{bad')..failSetAside = true;
+      final s = await AppState.load(storage);
+      s.update(s.plan.addDoc((id) => Doc(id: id, name: 'A')));
+      await s.flush();
+      expect(storage.contents, '{bad');
+      expect(s.saveFailed, isTrue);
+    },
+  );
+
+  test('a read error also sets the file aside', () async {
+    final storage = MemoryStorage('{"docs":[]}')..failReads = true;
+    final s = await AppState.load(storage);
+    expect(s.loadFailed, isTrue);
+    expect(storage.setAside, '{"docs":[]}');
   });
 
   test('a failed save is reported and cleared by the next good save', () async {
@@ -53,7 +72,8 @@ void main() {
     await f.write('{"a":1}');
     await f.write('{"a":2}');
     expect(await f.read(), '{"a":2}');
-    await f.keepBrokenCopy('x');
-    expect(dir.listSync().length, 2);
+    await f.setAsideUnreadable();
+    expect(await f.read(), isNull);
+    expect(dir.listSync().single.path, contains('unreadable'));
   });
 }

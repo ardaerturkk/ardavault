@@ -62,7 +62,7 @@ void main() {
     expect(find.text('Bring'), findsOneWidget);
     await tapText(t, 'Mark as Done');
     expect(
-      find.text('You now have Registration Certificate (Meldebescheinigung).'),
+      find.textContaining('You now have Registration Certificate'),
       findsOneWidget,
     );
     expect(find.text('Mark as Not Done'), findsOneWidget);
@@ -71,6 +71,18 @@ void main() {
     await t.pageBack();
     await t.pumpAndSettle();
     expect(find.text('Open a Bank Account'), findsOneWidget);
+  });
+
+  testWidgets('a waiting step asks before it is marked done', (t) async {
+    final (state, _) = await start(t, typicalPlan());
+    await tapText(t, 'Open a Bank Account');
+    await tapText(t, 'Mark as Done');
+    expect(find.textContaining('1 document is still missing'), findsOneWidget);
+    await tapText(t, 'Cancel');
+    expect(state.plan.step('s:bank')!.done, isFalse);
+    await tapText(t, 'Mark as Done');
+    await tapText(t, 'Mark as Done');
+    expect(state.plan.step('s:bank')!.done, isTrue);
   });
 
   testWidgets('tapping a needed document marks it in hand', (t) async {
@@ -119,7 +131,7 @@ void main() {
     final (state, _) = await start(t, typicalPlan());
     await tapText(t, 'Enroll at the University');
     await tapText(t, 'Edit');
-    await tapText(t, 'Needs');
+    await tapText(t, 'Bring');
     await tapText(t, 'New Document');
     await t.enterText(
       find.byType(CupertinoTextField).first,
@@ -149,6 +161,42 @@ void main() {
     expect(find.text('Enroll at the University'), findsNothing);
   });
 
+  testWidgets('deleting a step open twice in the stack leaves cleanly', (
+    t,
+  ) async {
+    final (state, _) = await start(t, typicalPlan());
+    await tapText(t, 'Register Your Address (Anmeldung)');
+    await tapText(t, 'Registration Certificate (Meldebescheinigung)');
+    await tapText(t, 'Open a Bank Account');
+    await tapText(t, 'Edit');
+    await tapText(t, 'Delete Step');
+    await tapText(t, 'Delete Step');
+    expect(state.plan.step('s:bank'), isNull);
+    // Back on the document page, with the Anmeldung page still below it.
+    expect(find.text('Comes From'), findsOneWidget);
+    await t.pageBack();
+    await t.pumpAndSettle();
+    expect(find.text('Mark as Done'), findsOneWidget);
+  });
+
+  testWidgets('confirming the same deadline keeps it tied to move-in', (
+    t,
+  ) async {
+    final (state, _) = await start(t, typicalPlan());
+    await tapText(t, 'Register Your Address (Anmeldung)');
+    await tapText(t, 'Deadline');
+    await tapText(t, 'Done');
+    expect(state.plan.step('s:anmeldung')!.dueDaysAfterMoveIn, 14);
+  });
+
+  testWidgets('a step cannot need what it gives', (t) async {
+    await start(t, typicalPlan());
+    await tapText(t, 'Open a Bank Account');
+    await tapText(t, 'Edit');
+    await tapText(t, 'Bring');
+    expect(find.text('German Bank Account (IBAN)'), findsNothing);
+  });
+
   testWidgets('set and remove a deadline', (t) async {
     final (state, _) = await start(t, typicalPlan());
     await tapText(t, 'Enroll at the University');
@@ -170,6 +218,7 @@ void main() {
     await tapText(t, 'Appointment');
     await tapText(t, 'Done');
     expect(state.plan.step('s:enroll')!.appointment, DateTime(2026, 10, 7, 9));
+    expect(find.textContaining(RegExp(r'Oct 7, 9:00.AM')), findsOneWidget);
   });
 
   testWidgets('documents: add, mark in hand, delete', (t) async {

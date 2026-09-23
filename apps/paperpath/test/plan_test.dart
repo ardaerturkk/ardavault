@@ -149,6 +149,29 @@ void main() {
     });
   });
 
+  group('calendar days across clock changes', () {
+    test('relative deadline counts calendar days', () {
+      // Europe: clocks go back on 25 Oct 2026.
+      const s = PathStep(id: 's', dueDaysAfterMoveIn: 14);
+      expect(s.effectiveDue(DateTime(2026, 10, 20)), DateTime(2026, 11, 3));
+      const t = PathStep(id: 't', dueDaysAfterMoveIn: 30);
+      expect(t.effectiveDue(DateTime(2027, 3)), DateTime(2027, 3, 31));
+    });
+  });
+
+  test('ids from a file without nextId never collide', () {
+    final p = Plan.fromJson(const {
+      'docs': [
+        {'id': 'd4', 'name': 'A'},
+      ],
+      'steps': [
+        {'id': 's7', 'title': 'B'},
+      ],
+    });
+    final q = p.addDoc((id) => Doc(id: id, name: 'C'));
+    expect(q.docs.last.id, 'd8');
+  });
+
   test('JSON round trip keeps everything', () {
     var p = addStarter(const Plan(), moveIn);
     p = p.withStep(

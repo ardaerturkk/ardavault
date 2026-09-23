@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/cupertino.dart';
 
 import '../l10n/app_localizations.dart';
@@ -68,9 +70,11 @@ class EmptyState extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = CupertinoTheme.of(context).textTheme;
+    // Keep lines short on wide screens without breaking intrinsic sizing.
+    final side = math.max(32.0, (MediaQuery.sizeOf(context).width - 380) / 2);
     return Center(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(32, 24, 32, 48),
+        padding: EdgeInsets.fromLTRB(side, 24, side, 48),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -194,72 +198,77 @@ Future<DatePick?> pickDate(
         overflow: TextOverflow.ellipsis,
         style: theme.navTitleTextStyle,
       );
-      return Container(
-        color: CupertinoColors.systemBackground.resolveFrom(context),
-        child: SafeArea(
-          top: false,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                children: [
-                  CupertinoButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: Text(l.cancel),
-                  ),
-                  Expanded(child: large ? const SizedBox.shrink() : titleText),
-                  CupertinoButton(
-                    onPressed: () => Navigator.pop(context, DatePick(value)),
-                    child: Text(
-                      confirmLabel ?? l.done,
-                      style: const TextStyle(fontWeight: FontWeight.w600),
+      return ClipRRect(
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
+        child: ColoredBox(
+          color: CupertinoColors.secondarySystemBackground.resolveFrom(context),
+          child: SafeArea(
+            top: false,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  children: [
+                    CupertinoButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Text(l.cancel),
                     ),
-                  ),
-                ],
-              ),
-              if (large)
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
-                  child: titleText,
+                    Expanded(
+                      child: large ? const SizedBox.shrink() : titleText,
+                    ),
+                    CupertinoButton(
+                      onPressed: () => Navigator.pop(context, DatePick(value)),
+                      child: Text(
+                        confirmLabel ?? l.done,
+                        style: const TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ],
                 ),
-              if (helpText != null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Text(
-                    helpText,
-                    textAlign: TextAlign.center,
-                    style: theme.textStyle.copyWith(
-                      fontSize: 15,
-                      color: CupertinoColors.secondaryLabel.resolveFrom(
-                        context,
+                if (large)
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+                    child: titleText,
+                  ),
+                if (helpText != null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Text(
+                      helpText,
+                      textAlign: TextAlign.center,
+                      style: theme.textStyle.copyWith(
+                        fontSize: 15,
+                        color: CupertinoColors.secondaryLabel.resolveFrom(
+                          context,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              SizedBox(
-                height: 216,
-                child: CupertinoDatePicker(
-                  mode: withTime
-                      ? CupertinoDatePickerMode.dateAndTime
-                      : CupertinoDatePickerMode.date,
-                  use24hFormat: MediaQuery.alwaysUse24HourFormatOf(context),
-                  initialDateTime: initial,
-                  minuteInterval: withTime ? 5 : 1,
-                  onDateTimeChanged: (d) => value = d,
-                ),
-              ),
-              if (removeLabel != null)
-                CupertinoButton(
-                  onPressed: () =>
-                      Navigator.pop(context, const DatePick.removed()),
-                  child: Text(
-                    removeLabel,
-                    style: const TextStyle(
-                      color: CupertinoColors.destructiveRed,
-                    ),
+                SizedBox(
+                  height: 216,
+                  child: CupertinoDatePicker(
+                    mode: withTime
+                        ? CupertinoDatePickerMode.dateAndTime
+                        : CupertinoDatePickerMode.date,
+                    use24hFormat: MediaQuery.alwaysUse24HourFormatOf(context),
+                    initialDateTime: initial,
+                    minuteInterval: withTime ? 5 : 1,
+                    onDateTimeChanged: (d) => value = d,
                   ),
                 ),
-            ],
+                if (removeLabel != null)
+                  CupertinoButton(
+                    onPressed: () =>
+                        Navigator.pop(context, const DatePick.removed()),
+                    child: Text(
+                      removeLabel,
+                      style: const TextStyle(
+                        color: CupertinoColors.destructiveRed,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
           ),
         ),
       );
@@ -327,11 +336,82 @@ class ValueTile extends StatelessWidget {
     return CupertinoListTile(
       padding: tilePadding,
       leading: leading,
-      title: RowText(label),
+      title: large
+          ? RowText(label)
+          : Row(
+              children: [
+                // Labels are short ("Deadline"); the value takes the rest.
+                RowText(label, maxLines: 1),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    value,
+                    textAlign: TextAlign.end,
+                    maxLines: 2,
+                    style: style,
+                  ),
+                ),
+              ],
+            ),
       subtitle: large ? Text(value, maxLines: 3, style: style) : null,
-      additionalInfo: large ? null : Text(value, style: style),
       trailing: const CupertinoListTileChevron(),
       onTap: onTap,
     );
   }
 }
+
+/// Footnote-style text for list section footers, as on iOS.
+class FooterText extends StatelessWidget {
+  const FooterText(this.text, {super.key});
+  final String text;
+
+  @override
+  Widget build(BuildContext context) => Text(
+    text,
+    style: CupertinoTheme.of(context).textTheme.textStyle.copyWith(
+      fontSize: 13,
+      color: CupertinoColors.secondaryLabel.resolveFrom(context),
+    ),
+  );
+}
+
+/// One icon language for step status everywhere.
+Icon stepStatusIcon(BuildContext context, StepStatus status) =>
+    switch (status) {
+      StepStatus.done => const Icon(
+        CupertinoIcons.checkmark_circle_fill,
+        color: accent,
+      ),
+      StepStatus.ready => const Icon(
+        CupertinoIcons.arrow_right_circle,
+        color: accent,
+      ),
+      StepStatus.waiting => Icon(
+        CupertinoIcons.hourglass,
+        color: CupertinoColors.secondaryLabel.resolveFrom(context),
+      ),
+    };
+
+/// One icon language for documents: a seal when in hand.
+Icon docIcon(BuildContext context, bool have) => have
+    ? const Icon(CupertinoIcons.checkmark_seal_fill, color: accent)
+    : Icon(
+        CupertinoIcons.doc,
+        color: CupertinoColors.secondaryLabel.resolveFrom(context),
+      );
+
+final _leaving = Expando<bool>();
+
+/// Removes the page whose step or document was just deleted: only that page,
+/// only once, wherever it sits in the stack.
+void leaveDeletedPage(BuildContext context) {
+  final route = ModalRoute.of(context);
+  if (route == null || (_leaving[route] ?? false)) return;
+  _leaving[route] = true;
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    if (route.isActive) route.navigator?.removeRoute(route);
+  });
+}
+
+/// Titles and names are one line: Return may still slip in a newline.
+String oneLine(String s) => s.replaceAll(RegExp(r'\s*\n\s*'), ' ').trim();

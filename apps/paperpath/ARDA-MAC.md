@@ -10,7 +10,9 @@ Sürüm: 1.0.0 (build 1). Bundle ID: `com.arda.paperpath`.
 ## 1. Kodu al ve Xcode'da aç
 
 Gerekenler: güncel Xcode, Flutter stable 3.47.5 veya daha yenisi (`flutter --version`).
-CocoaPods gerekmiyor, proje Swift Package Manager kullanıyor.
+CocoaPods gerekmiyor, proje Swift Package Manager kullanıyor. Flutter'ında bu kapalıysa
+(Xcode "FlutterGeneratedPluginSwiftPackage bulunamadı" derse) bir kez şunu çalıştır:
+`flutter config --enable-swift-package-manager`, sonra aşağıdaki komutları tekrarla.
 
     git clone -b claude/app-studio --single-branch https://github.com/ardaerturkk/ardavault.git app-studio
     cd app-studio/apps/paperpath

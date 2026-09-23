@@ -62,9 +62,9 @@
   },
   "movedIn": "Move-In Date",
   "notSet": "Not Set",
-  "starterFooter": "Typical steps for students from outside the EU. Rules differ by city, so check your office's website.",
+  "starterFooter": "Deadlines like the Anmeldung count from this day. Rules differ by city, so check your office's website.",
   "emptyStepsTitle": "No Steps Yet",
-  "emptyStepsBody": "Start with the usual paperwork for students moving to Germany. You can change every step.",
+  "emptyStepsBody": "Start with the usual paperwork for moving to Germany. You can change any step.",
   "addStarter": "Add Germany Starter Steps",
   "addOwnStep": "Add Your Own Step",
   "moveInQuestion": "When Do You Move In?",
@@ -74,7 +74,6 @@
   "done": "Done",
   "save": "Save",
   "edit": "Edit",
-  "delete": "Delete",
   "addStep": "Add Step",
   "addDocument": "Add Document",
   "bring": "Bring",
@@ -92,7 +91,7 @@
   "removeAppointment": "Remove Appointment",
   "inHand": "In Hand",
   "missing": "Missing",
-  "neededForCount": "{count, plural, =0{Not needed by any step} =1{Needed for 1 step} other{Needed for {count} steps}}",
+  "neededForCount": "{count, plural, =0{Not needed by open steps} =1{Needed for 1 open step} other{Needed for {count} open steps}}",
   "@neededForCount": {
     "placeholders": {
       "count": {
@@ -121,24 +120,15 @@
   "name": "Name",
   "docNameHint": "For example: Passport",
   "notesHint": "Where to go, what to ask",
-  "needs": "Needs",
-  "givesYou": "Gives You",
-  "chooseDocuments": "Choose Documents",
+  "needs": "Bring",
+  "givesYou": "You Get",
   "noneChosen": "None",
-  "chosenCount": "{count}",
-  "@chosenCount": {
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
   "deleteStep": "Delete Step",
   "deleteDocument": "Delete Document",
   "deleteStepConfirm": "This step will be removed from your plan.",
   "deleteDocConfirm": "This document will also be removed from every step.",
   "saveFailed": "Your last change could not be saved. Free up some storage and try again.",
-  "loadFailed": "Your saved plan could not be read. A copy was kept, and you are starting with an empty plan.",
+  "loadFailed": "Your saved plan could not be read, so a new plan was started. The old file is still on this iPhone.",
   "ok": "OK",
   "received": "You now have {docs}.",
   "@received": {
@@ -148,23 +138,7 @@
       }
     }
   },
-  "semDocInHand": "{doc}, in hand",
-  "@semDocInHand": {
-    "placeholders": {
-      "doc": {
-        "type": "String"
-      }
-    }
-  },
-  "semDocMissing": "{doc}, missing",
-  "@semDocMissing": {
-    "placeholders": {
-      "doc": {
-        "type": "String"
-      }
-    }
-  },
-  "semToggleHint": "Double tap to change",
+  "semToggleHint": "Marks the document as in hand or missing",
   "docPassport": "Passport",
   "docVisa": "Visa (National D Visa)",
   "docAdmission": "Admission Letter (Zulassungsbescheid)",
@@ -198,5 +172,14 @@
   "stepPhoto": "Get Biometric Photos",
   "stepPhotoNote": "Photo booths and photo shops take them. Get a few extra.",
   "stepResidencePermit": "Apply for a Residence Permit",
-  "stepResidencePermitNote": "At the Ausländerbehörde, before your visa ends. Set the deadline to your visa's end date; appointments can take weeks."
+  "stepResidencePermitNote": "At the Ausländerbehörde, before your visa ends. Set the deadline to your visa's end date; appointments can take weeks.",
+  "confirmDoneMissing": "{count, plural, =1{1 document is still missing.} other{{count} documents are still missing.}} Mark as done anyway?",
+  "stepDone": "Done",
+  "@confirmDoneMissing": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

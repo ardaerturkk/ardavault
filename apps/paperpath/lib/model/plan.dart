@@ -108,7 +108,12 @@ class PathStep {
   DateTime? effectiveDue(DateTime? moveIn) {
     if (dueDate != null) return dateOnly(dueDate!);
     if (dueDaysAfterMoveIn != null && moveIn != null) {
-      return dateOnly(moveIn).add(Duration(days: dueDaysAfterMoveIn!));
+      // Calendar days, not 24-hour blocks: safe across clock changes.
+      return DateTime(
+        moveIn.year,
+        moveIn.month,
+        moveIn.day + dueDaysAfterMoveIn!,
+      );
     }
     return null;
   }
@@ -310,16 +315,30 @@ class Plan {
     'steps': [for (final s in steps) s.toJson()],
   };
 
-  factory Plan.fromJson(Map<String, Object?> j) => Plan(
-    moveInDate: _dateFromJson(j['moveInDate']),
-    nextId: (j['nextId'] as num?)?.toInt() ?? 1,
-    docs: [
+  factory Plan.fromJson(Map<String, Object?> j) {
+    final docs = [
       for (final d in (j['docs'] as List?) ?? const <Object?>[])
         Doc.fromJson((d as Map).cast<String, Object?>()),
-    ],
-    steps: [
+    ];
+    final steps = [
       for (final s in (j['steps'] as List?) ?? const <Object?>[])
         PathStep.fromJson((s as Map).cast<String, Object?>()),
-    ],
-  );
+    ];
+    // Never hand out an id that is already taken, even if nextId is missing
+    // or wrong in the file.
+    var next = (j['nextId'] as num?)?.toInt() ?? 1;
+    for (final id in [
+      for (final d in docs) d.id,
+      for (final s in steps) s.id,
+    ]) {
+      final n = int.tryParse(id.substring(1));
+      if (n != null && n >= next) next = n + 1;
+    }
+    return Plan(
+      moveInDate: _dateFromJson(j['moveInDate']),
+      nextId: next,
+      docs: docs,
+      steps: steps,
+    );
+  }
 }

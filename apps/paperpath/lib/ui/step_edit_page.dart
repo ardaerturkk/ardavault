@@ -82,33 +82,54 @@ class _StepEditPageState extends State<StepEditPage> {
         child: ListView(
           children: [
             CupertinoListSection.insetGrouped(
-              header: Text(l.title),
               children: [
-                CupertinoTextFormFieldRow(
-                  controller: _title,
-                  placeholder: l.stepTitleHint,
-                  autofocus: widget.step == null,
-                  textCapitalization: TextCapitalization.sentences,
-                  maxLines: null,
-                ),
-              ],
-            ),
-            CupertinoListSection.insetGrouped(
-              header: Text(l.notes),
-              children: [
-                CupertinoTextFormFieldRow(
-                  controller: _note,
-                  placeholder: l.notesHint,
-                  textCapitalization: TextCapitalization.sentences,
-                  minLines: 2,
-                  maxLines: null,
+                Semantics(
+                  label: l.title,
+                  child: CupertinoTextFormFieldRow(
+                    padding: const EdgeInsetsDirectional.fromSTEB(14, 8, 14, 8),
+                    controller: _title,
+                    textInputAction: TextInputAction.done,
+                    placeholder: l.stepTitleHint,
+                    autofocus: widget.step == null,
+                    textCapitalization: TextCapitalization.sentences,
+                    maxLines: null,
+                  ),
                 ),
               ],
             ),
             CupertinoListSection.insetGrouped(
               children: [
-                _pickerTile(l.needs, _needs, plan, (v) => _needs = v),
-                _pickerTile(l.givesYou, _produces, plan, (v) => _produces = v),
+                Semantics(
+                  label: l.notes,
+                  child: CupertinoTextFormFieldRow(
+                    padding: const EdgeInsetsDirectional.fromSTEB(14, 8, 14, 8),
+                    controller: _note,
+                    placeholder: l.notesHint,
+                    textCapitalization: TextCapitalization.sentences,
+                    minLines: 2,
+                    maxLines: null,
+                  ),
+                ),
+              ],
+            ),
+            CupertinoListSection.insetGrouped(
+              dividerMargin: 20,
+              additionalDividerMargin: 0,
+              children: [
+                _pickerTile(
+                  l.needs,
+                  _needs,
+                  _produces,
+                  plan,
+                  (v) => _needs = v,
+                ),
+                _pickerTile(
+                  l.givesYou,
+                  _produces,
+                  _needs,
+                  plan,
+                  (v) => _produces = v,
+                ),
               ],
             ),
             if (widget.step != null)
@@ -133,6 +154,7 @@ class _StepEditPageState extends State<StepEditPage> {
   Widget _pickerTile(
     String label,
     List<String> ids,
+    List<String> excluded,
     Plan plan,
     void Function(List<String>) set,
   ) {
@@ -155,6 +177,7 @@ class _StepEditPageState extends State<StepEditPage> {
           builder: (_) => DocPickerPage(
             title: label,
             selected: ids,
+            excluded: excluded,
             onChanged: (v) => setState(() => set(v)),
           ),
         ),
@@ -164,7 +187,7 @@ class _StepEditPageState extends State<StepEditPage> {
 
   void _save() {
     final state = AppScope.read(context);
-    final title = _title.text.trim();
+    final title = oneLine(_title.text);
     final note = _note.text.trim();
     final old = widget.step;
     if (old == null) {
@@ -223,11 +246,15 @@ class DocPickerPage extends StatefulWidget {
     super.key,
     required this.title,
     required this.selected,
+    this.excluded = const [],
     required this.onChanged,
   });
 
   final String title;
   final List<String> selected;
+
+  /// Documents already in the other list: a step cannot need what it gives.
+  final List<String> excluded;
   final ValueChanged<List<String>> onChanged;
 
   @override
@@ -253,16 +280,20 @@ class _DocPickerPageState extends State<DocPickerPage> {
   Widget build(BuildContext context) {
     final l = context.l;
     final plan = AppScope.of(context).plan;
+    final docs = [
+      for (final d in plan.docs)
+        if (!widget.excluded.contains(d.id)) d,
+    ];
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGroupedBackground,
       navigationBar: CupertinoNavigationBar(middle: Text(widget.title)),
       child: SafeArea(
         child: ListView(
           children: [
-            if (plan.docs.isNotEmpty)
+            if (docs.isNotEmpty)
               CupertinoListSection.insetGrouped(
                 children: [
-                  for (final d in plan.docs)
+                  for (final d in docs)
                     Semantics(
                       selected: _selected.contains(d.id),
                       button: true,

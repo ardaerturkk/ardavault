@@ -11,8 +11,11 @@ import 'step_page.dart';
 import 'widgets.dart';
 
 class DocumentPage extends StatelessWidget {
-  const DocumentPage({super.key, required this.docId});
+  const DocumentPage({super.key, required this.docId, this.previousTitle});
   final String docId;
+
+  /// Label for the back button, like "Documents".
+  final String? previousTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +24,7 @@ class DocumentPage extends StatelessWidget {
     final l = context.l;
     final doc = plan.doc(docId);
     if (doc == null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (context.mounted) Navigator.of(context).maybePop();
-      });
+      leaveDeletedPage(context);
       return const CupertinoPageScaffold(child: SizedBox.shrink());
     }
     final theme = CupertinoTheme.of(context).textTheme;
@@ -34,6 +35,7 @@ class DocumentPage extends StatelessWidget {
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGroupedBackground,
       navigationBar: CupertinoNavigationBar(
+        previousPageTitle: previousTitle,
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () => openDocumentEditor(context, doc: doc),
@@ -55,7 +57,10 @@ class DocumentPage extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 0),
                 child: Text(
                   doc.note,
-                  style: theme.textStyle.copyWith(color: secondary),
+                  style: theme.textStyle.copyWith(
+                    fontSize: 15,
+                    color: secondary,
+                  ),
                 ),
               ),
             CupertinoListSection.insetGrouped(
@@ -63,6 +68,7 @@ class DocumentPage extends StatelessWidget {
                 MergeSemantics(
                   child: CupertinoListTile(
                     padding: tilePadding,
+                    leading: docIcon(context, doc.have),
                     title: RowText(l.inHand, maxLines: 2),
                     trailing: CupertinoSwitch(
                       value: doc.have,
@@ -104,9 +110,9 @@ class _StepLink extends StatelessWidget {
     final done = step.done;
     return CupertinoListTile(
       padding: tilePadding,
-      leading: Icon(
-        done ? CupertinoIcons.checkmark_circle_fill : CupertinoIcons.circle,
-        color: accent,
+      leading: stepStatusIcon(
+        context,
+        AppScope.of(context).plan.statusOf(step),
       ),
       title: RowText(
         stepTitle(l, step),
@@ -116,7 +122,10 @@ class _StepLink extends StatelessWidget {
       ),
       trailing: const CupertinoListTileChevron(),
       onTap: () => Navigator.of(context).push(
-        CupertinoPageRoute<void>(builder: (_) => StepPage(stepId: step.id)),
+        CupertinoPageRoute<void>(
+          builder: (_) =>
+              StepPage(stepId: step.id, previousTitle: l.tabDocuments),
+        ),
       ),
     );
   }

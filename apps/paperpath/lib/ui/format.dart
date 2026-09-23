@@ -1,7 +1,6 @@
 import 'package:intl/intl.dart';
 
 import '../l10n/app_localizations.dart';
-import '../model/plan.dart';
 
 enum DueTone { normal, soon, overdue }
 
@@ -9,7 +8,12 @@ enum DueTone { normal, soon, overdue }
 /// deadline.
 (String, DueTone)? dueLabel(AppLocalizations l, DateTime? due, DateTime today) {
   if (due == null) return null;
-  final days = dateOnly(due).difference(dateOnly(today)).inDays;
+  // Compare calendar days in UTC so clock changes never shift the count.
+  final days = DateTime.utc(
+    due.year,
+    due.month,
+    due.day,
+  ).difference(DateTime.utc(today.year, today.month, today.day)).inDays;
   if (days < 0) return (l.overdue(-days), DueTone.overdue);
   if (days == 0) return (l.dueToday, DueTone.soon);
   if (days == 1) return (l.dueTomorrow, DueTone.soon);
@@ -25,9 +29,10 @@ String shortDate(AppLocalizations l, DateTime d) =>
 String longDate(AppLocalizations l, DateTime d) =>
     DateFormat.yMMMd(l.localeName).format(d);
 
-String dateTime(AppLocalizations l, DateTime d) =>
+/// Date and time; the time follows the device's 12/24-hour setting.
+String dateTime(AppLocalizations l, DateTime d, {bool use24h = true}) =>
     '${DateFormat.MMMEd(l.localeName).format(d)}, '
-    '${DateFormat.Hm(l.localeName).format(d)}';
+    '${(use24h ? DateFormat.Hm(l.localeName) : DateFormat.jm(l.localeName)).format(d)}';
 
 /// "Needs Passport" or "Needs Passport and 2 more".
 String? needsLabel(AppLocalizations l, List<String> missingNames) {

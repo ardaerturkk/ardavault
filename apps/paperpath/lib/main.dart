@@ -7,5 +7,6 @@ import 'state/storage.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final state = await AppState.load(FileStorage());
+  WidgetsBinding.instance.addObserver(state);
   runApp(PaperpathApp(state: state));
 }

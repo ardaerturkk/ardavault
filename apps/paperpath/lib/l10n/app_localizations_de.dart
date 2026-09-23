@@ -92,17 +92,17 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get starterFooter =>
-      'Typische Schritte für Studierende aus Nicht-EU-Ländern. Die Regeln sind je nach Stadt verschieden, prüfe die Website deines Amts.';
+      'Fristen wie die Anmeldung zählen ab diesem Tag. Die Regeln sind je nach Stadt verschieden, prüfe die Website deines Amts.';
 
   @override
   String get emptyStepsTitle => 'Noch keine Schritte';
 
   @override
   String get emptyStepsBody =>
-      'Beginne mit dem üblichen Papierkram für Studierende, die nach Deutschland ziehen. Jeden Schritt kannst du ändern.';
+      'Beginne mit dem üblichen Papierkram für den Umzug nach Deutschland. Jeden Schritt kannst du ändern.';
 
   @override
-  String get addStarter => 'Startschritte für Deutschland';
+  String get addStarter => 'Deutschland-Startschritte hinzufügen';
 
   @override
   String get addOwnStep => 'Eigenen Schritt hinzufügen';
@@ -129,9 +129,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get edit => 'Bearbeiten';
 
   @override
-  String get delete => 'Löschen';
-
-  @override
   String get addStep => 'Schritt hinzufügen';
 
   @override
@@ -151,7 +148,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get youGet => 'Du bekommst';
 
   @override
-  String get dates => 'Termine';
+  String get dates => 'Fristen und Termine';
 
   @override
   String get deadline => 'Frist';
@@ -188,9 +185,9 @@ class AppLocalizationsDe extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Für $count Schritte nötig',
-      one: 'Für 1 Schritt nötig',
-      zero: 'Für keinen Schritt nötig',
+      other: 'Für $count offene Schritte nötig',
+      one: 'Für 1 offenen Schritt nötig',
+      zero: 'Für keinen offenen Schritt nötig',
     );
     return '$_temp0';
   }
@@ -241,21 +238,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get notesHint => 'Wohin, was fragen';
 
   @override
-  String get needs => 'Braucht';
+  String get needs => 'Mitbringen';
 
   @override
-  String get givesYou => 'Ergibt';
-
-  @override
-  String get chooseDocuments => 'Unterlagen wählen';
+  String get givesYou => 'Du bekommst';
 
   @override
   String get noneChosen => 'Keine';
-
-  @override
-  String chosenCount(int count) {
-    return '$count';
-  }
 
   @override
   String get deleteStep => 'Schritt löschen';
@@ -277,7 +266,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get loadFailed =>
-      'Dein gesicherter Plan konnte nicht gelesen werden. Eine Kopie wurde aufbewahrt, du beginnst mit einem leeren Plan.';
+      'Dein gesicherter Plan konnte nicht gelesen werden, deshalb wurde ein neuer Plan begonnen. Die alte Datei ist noch auf diesem iPhone.';
 
   @override
   String get ok => 'OK';
@@ -288,17 +277,8 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String semDocInHand(String doc) {
-    return '$doc, vorhanden';
-  }
-
-  @override
-  String semDocMissing(String doc) {
-    return '$doc, fehlt';
-  }
-
-  @override
-  String get semToggleHint => 'Zum Ändern doppeltippen';
+  String get semToggleHint =>
+      'Markiert die Unterlage als vorhanden oder fehlend';
 
   @override
   String get docPassport => 'Reisepass';
@@ -411,4 +391,18 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get stepResidencePermitNote =>
       'Bei der Ausländerbehörde, bevor dein Visum abläuft. Setze die Frist auf das Ende deines Visums, Termine dauern oft Wochen.';
+
+  @override
+  String confirmDoneMissing(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Unterlagen fehlen noch.',
+      one: '1 Unterlage fehlt noch.',
+    );
+    return '$_temp0 Trotzdem als erledigt markieren?';
+  }
+
+  @override
+  String get stepDone => 'Erledigt';
 }

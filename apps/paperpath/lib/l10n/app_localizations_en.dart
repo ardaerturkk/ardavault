@@ -92,14 +92,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get starterFooter =>
-      'Typical steps for students from outside the EU. Rules differ by city, so check your office\'s website.';
+      'Deadlines like the Anmeldung count from this day. Rules differ by city, so check your office\'s website.';
 
   @override
   String get emptyStepsTitle => 'No Steps Yet';
 
   @override
   String get emptyStepsBody =>
-      'Start with the usual paperwork for students moving to Germany. You can change every step.';
+      'Start with the usual paperwork for moving to Germany. You can change any step.';
 
   @override
   String get addStarter => 'Add Germany Starter Steps';
@@ -127,9 +127,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get edit => 'Edit';
-
-  @override
-  String get delete => 'Delete';
 
   @override
   String get addStep => 'Add Step';
@@ -188,9 +185,9 @@ class AppLocalizationsEn extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Needed for $count steps',
-      one: 'Needed for 1 step',
-      zero: 'Not needed by any step',
+      other: 'Needed for $count open steps',
+      one: 'Needed for 1 open step',
+      zero: 'Not needed by open steps',
     );
     return '$_temp0';
   }
@@ -241,21 +238,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get notesHint => 'Where to go, what to ask';
 
   @override
-  String get needs => 'Needs';
+  String get needs => 'Bring';
 
   @override
-  String get givesYou => 'Gives You';
-
-  @override
-  String get chooseDocuments => 'Choose Documents';
+  String get givesYou => 'You Get';
 
   @override
   String get noneChosen => 'None';
-
-  @override
-  String chosenCount(int count) {
-    return '$count';
-  }
 
   @override
   String get deleteStep => 'Delete Step';
@@ -276,7 +265,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loadFailed =>
-      'Your saved plan could not be read. A copy was kept, and you are starting with an empty plan.';
+      'Your saved plan could not be read, so a new plan was started. The old file is still on this iPhone.';
 
   @override
   String get ok => 'OK';
@@ -287,17 +276,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String semDocInHand(String doc) {
-    return '$doc, in hand';
-  }
-
-  @override
-  String semDocMissing(String doc) {
-    return '$doc, missing';
-  }
-
-  @override
-  String get semToggleHint => 'Double tap to change';
+  String get semToggleHint => 'Marks the document as in hand or missing';
 
   @override
   String get docPassport => 'Passport';
@@ -412,4 +391,18 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get stepResidencePermitNote =>
       'At the Ausländerbehörde, before your visa ends. Set the deadline to your visa\'s end date; appointments can take weeks.';
+
+  @override
+  String confirmDoneMissing(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count documents are still missing.',
+      one: '1 document is still missing.',
+    );
+    return '$_temp0 Mark as done anyway?';
+  }
+
+  @override
+  String get stepDone => 'Done';
 }

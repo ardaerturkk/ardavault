@@ -63,7 +63,7 @@ class StepsPage extends StatelessWidget {
                           StepStatus.done => l.sectionDone,
                         }),
                         footer: status == StepStatus.ready
-                            ? Text(l.readyFooter)
+                            ? FooterText(l.readyFooter)
                             : null,
                         children: [for (final s in steps) StepTile(step: s)],
                       ),
@@ -102,7 +102,7 @@ class _MoveInSection extends StatelessWidget {
     final hasStarter = plan.steps.any((s) => s.templateKey != null);
     final date = plan.moveInDate;
     return CupertinoListSection.insetGrouped(
-      footer: hasStarter ? Text(l.starterFooter) : null,
+      footer: hasStarter ? FooterText(l.starterFooter) : null,
       children: [
         ValueTile(
           leading: const Icon(CupertinoIcons.house, color: accent),
@@ -152,18 +152,22 @@ class StepTile extends StatelessWidget {
 
     if (status != StepStatus.done) {
       if (step.appointment case final a?) {
-        add(l.appointmentOn(dateTime(l, a)), accent.resolveFrom(context));
+        add(
+          l.appointmentOn(
+            dateTime(l, a, use24h: MediaQuery.alwaysUse24HourFormatOf(context)),
+          ),
+          accent.resolveFrom(context),
+        );
       }
       if (dueLabel(l, step.effectiveDue(plan.moveInDate), state.now()) case (
         final text,
         final tone,
       )) {
-        add(
-          text,
-          tone == DueTone.overdue
-              ? CupertinoColors.systemRed.resolveFrom(context)
-              : null,
-        );
+        add(text, switch (tone) {
+          DueTone.overdue => CupertinoColors.systemRed.resolveFrom(context),
+          DueTone.soon => CupertinoColors.systemOrange.resolveFrom(context),
+          DueTone.normal => null,
+        });
       }
       if (needsLabel(l, [for (final d in plan.missingFor(step)) docName(l, d)])
           case final needs?) {
@@ -173,11 +177,7 @@ class StepTile extends StatelessWidget {
 
     return CupertinoListTile(
       padding: tilePadding,
-      leading: Icon(switch (status) {
-        StepStatus.done => CupertinoIcons.checkmark_circle_fill,
-        StepStatus.ready => CupertinoIcons.circle,
-        StepStatus.waiting => CupertinoIcons.hourglass,
-      }, color: status == StepStatus.waiting ? secondary : accent),
+      leading: stepStatusIcon(context, status),
       title: RowText(
         stepTitle(l, step),
         color: status == StepStatus.done ? secondary : null,
