@@ -1,0 +1,288 @@
+import 'package:flutter/cupertino.dart';
+
+import '../l10n/app_localizations.dart';
+import '../model/plan.dart';
+import '../state/app_state.dart';
+
+const accent = CupertinoDynamicColor.withBrightness(
+  color: Color(0xFF2255CC),
+  darkColor: Color(0xFF4F86FF),
+);
+
+extension L10nX on BuildContext {
+  AppLocalizations get l => AppLocalizations.of(this);
+}
+
+/// Title text for list rows: wraps up to three lines so large text sizes
+/// never clip.
+class RowText extends StatelessWidget {
+  const RowText(this.text, {super.key, this.color, this.maxLines = 3});
+  final String text;
+  final Color? color;
+  final int maxLines;
+
+  @override
+  Widget build(BuildContext context) => Text(
+    text,
+    maxLines: maxLines,
+    overflow: TextOverflow.ellipsis,
+    style: color == null ? null : TextStyle(color: color),
+  );
+}
+
+/// A nav bar "+" button with a VoiceOver label.
+class AddButton extends StatelessWidget {
+  const AddButton({super.key, required this.label, required this.onPressed});
+  final String label;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) => CupertinoButton(
+    padding: EdgeInsets.zero,
+    onPressed: onPressed,
+    child: Icon(CupertinoIcons.add, semanticLabel: label),
+  );
+}
+
+/// Centered teaching state for an empty list.
+class EmptyState extends StatelessWidget {
+  const EmptyState({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.body,
+    required this.primaryLabel,
+    required this.onPrimary,
+    this.secondaryLabel,
+    this.onSecondary,
+  });
+
+  final IconData icon;
+  final String title;
+  final String body;
+  final String primaryLabel;
+  final VoidCallback onPrimary;
+  final String? secondaryLabel;
+  final VoidCallback? onSecondary;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = CupertinoTheme.of(context).textTheme;
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(32, 24, 32, 48),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              icon,
+              size: 56,
+              color: CupertinoColors.tertiaryLabel.resolveFrom(context),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: theme.navTitleTextStyle.copyWith(fontSize: 22),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              body,
+              textAlign: TextAlign.center,
+              style: theme.textStyle.copyWith(
+                color: CupertinoColors.secondaryLabel.resolveFrom(context),
+              ),
+            ),
+            const SizedBox(height: 24),
+            SizedBox(
+              width: double.infinity,
+              child: CupertinoButton.filled(
+                onPressed: onPrimary,
+                child: Text(primaryLabel, textAlign: TextAlign.center),
+              ),
+            ),
+            if (secondaryLabel != null) ...[
+              const SizedBox(height: 8),
+              CupertinoButton(
+                onPressed: onSecondary,
+                child: Text(secondaryLabel!, textAlign: TextAlign.center),
+              ),
+            ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/// Shows load or save problems at the top of a list. Empty when all is well.
+class ProblemBanner extends StatelessWidget {
+  const ProblemBanner({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final state = AppScope.of(context);
+    final l = context.l;
+    final String? message = state.loadFailed
+        ? l.loadFailed
+        : state.saveFailed
+        ? l.saveFailed
+        : null;
+    if (message == null) return const SizedBox.shrink();
+    return CupertinoListSection.insetGrouped(
+      children: [
+        CupertinoListTile(
+          leading: const Icon(
+            CupertinoIcons.exclamationmark_triangle_fill,
+            color: CupertinoColors.systemRed,
+          ),
+          title: RowText(message, maxLines: 6),
+          trailing: state.loadFailed
+              ? CupertinoButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: state.dismissLoadError,
+                  child: Text(l.ok),
+                )
+              : null,
+        ),
+      ],
+    );
+  }
+}
+
+/// A bottom sheet with a date picker. Returns the picked date, or
+/// [removed] when the user chose the remove action, or null on cancel.
+class DatePick {
+  const DatePick(this.date) : removed = false;
+  const DatePick.removed() : date = null, removed = true;
+  final DateTime? date;
+  final bool removed;
+}
+
+Future<DatePick?> pickDate(
+  BuildContext context, {
+  required String title,
+  required DateTime initial,
+  bool withTime = false,
+  String? helpText,
+  String? removeLabel,
+  String? confirmLabel,
+}) {
+  if (withTime) {
+    initial = DateTime(
+      initial.year,
+      initial.month,
+      initial.day,
+      initial.hour,
+      initial.minute - initial.minute % 5,
+    );
+  } else {
+    initial = dateOnly(initial);
+  }
+  var value = initial;
+  return showCupertinoModalPopup<DatePick>(
+    context: context,
+    builder: (context) {
+      final l = context.l;
+      final theme = CupertinoTheme.of(context).textTheme;
+      return Container(
+        color: CupertinoColors.systemBackground.resolveFrom(context),
+        child: SafeArea(
+          top: false,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Row(
+                children: [
+                  CupertinoButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text(l.cancel),
+                  ),
+                  Expanded(
+                    child: Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.navTitleTextStyle,
+                    ),
+                  ),
+                  CupertinoButton(
+                    onPressed: () => Navigator.pop(context, DatePick(value)),
+                    child: Text(
+                      confirmLabel ?? l.done,
+                      style: const TextStyle(fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ],
+              ),
+              if (helpText != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    helpText,
+                    textAlign: TextAlign.center,
+                    style: theme.textStyle.copyWith(
+                      fontSize: 15,
+                      color: CupertinoColors.secondaryLabel.resolveFrom(
+                        context,
+                      ),
+                    ),
+                  ),
+                ),
+              SizedBox(
+                height: 216,
+                child: CupertinoDatePicker(
+                  mode: withTime
+                      ? CupertinoDatePickerMode.dateAndTime
+                      : CupertinoDatePickerMode.date,
+                  use24hFormat: MediaQuery.alwaysUse24HourFormatOf(context),
+                  initialDateTime: initial,
+                  minuteInterval: withTime ? 5 : 1,
+                  onDateTimeChanged: (d) => value = d,
+                ),
+              ),
+              if (removeLabel != null)
+                CupertinoButton(
+                  onPressed: () =>
+                      Navigator.pop(context, const DatePick.removed()),
+                  child: Text(
+                    removeLabel,
+                    style: const TextStyle(
+                      color: CupertinoColors.destructiveRed,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}
+
+/// Asks before deleting. Returns true when the user confirmed.
+Future<bool> confirmDelete(
+  BuildContext context, {
+  required String message,
+  required String action,
+}) async {
+  final ok = await showCupertinoModalPopup<bool>(
+    context: context,
+    builder: (context) => CupertinoActionSheet(
+      message: Text(message),
+      actions: [
+        CupertinoActionSheetAction(
+          isDestructiveAction: true,
+          onPressed: () => Navigator.pop(context, true),
+          child: Text(action),
+        ),
+      ],
+      cancelButton: CupertinoActionSheetAction(
+        onPressed: () => Navigator.pop(context, false),
+        child: Text(context.l.cancel),
+      ),
+    ),
+  );
+  return ok ?? false;
+}

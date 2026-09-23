@@ -1,0 +1,202 @@
+{
+  "@@locale": "en",
+  "appTitle": "Paperpath",
+  "tabSteps": "Steps",
+  "tabDocuments": "Documents",
+  "sectionReady": "Ready",
+  "sectionWaiting": "Waiting",
+  "sectionDone": "Done",
+  "readyFooter": "You have everything these steps need.",
+  "needsOne": "Needs {doc}",
+  "@needsOne": {
+    "placeholders": {
+      "doc": {
+        "type": "String"
+      }
+    }
+  },
+  "needsMany": "Needs {doc} and {count, plural, =1{1 more} other{{count} more}}",
+  "@needsMany": {
+    "placeholders": {
+      "doc": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueToday": "Due today",
+  "dueTomorrow": "Due tomorrow",
+  "dueInDays": "Due in {count, plural, =1{1 day} other{{count} days}}",
+  "@dueInDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dueOn": "Due {date}",
+  "@dueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "overdue": "{count, plural, =1{1 day overdue} other{{count} days overdue}}",
+  "@overdue": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "appointmentOn": "Appointment {date}",
+  "@appointmentOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "movedIn": "Move-In Date",
+  "notSet": "Not Set",
+  "starterFooter": "Typical steps for students from outside the EU. Rules differ by city, so check your office's website.",
+  "emptyStepsTitle": "No Steps Yet",
+  "emptyStepsBody": "Start with the usual paperwork for students moving to Germany. You can change every step.",
+  "addStarter": "Add Germany Starter Steps",
+  "addOwnStep": "Add Your Own Step",
+  "moveInQuestion": "When Do You Move In?",
+  "moveInHelp": "Deadlines like the Anmeldung count from this day.",
+  "continueLabel": "Continue",
+  "cancel": "Cancel",
+  "done": "Done",
+  "save": "Save",
+  "edit": "Edit",
+  "delete": "Delete",
+  "addStep": "Add Step",
+  "addDocument": "Add Document",
+  "bring": "Bring",
+  "bringFooter": "Tap a document once you have it. Bring originals and a copy.",
+  "nothingToBring": "Nothing to bring",
+  "youGet": "You Get",
+  "dates": "Dates",
+  "deadline": "Deadline",
+  "appointment": "Appointment",
+  "none": "None",
+  "notes": "Notes",
+  "markDone": "Mark as Done",
+  "markNotDone": "Mark as Not Done",
+  "removeDeadline": "Remove Deadline",
+  "removeAppointment": "Remove Appointment",
+  "inHand": "In Hand",
+  "missing": "Missing",
+  "neededForCount": "{count, plural, =0{Not needed by any step} =1{Needed for 1 step} other{Needed for {count} steps}}",
+  "@neededForCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "comesFrom": "From: {step}",
+  "@comesFrom": {
+    "placeholders": {
+      "step": {
+        "type": "String"
+      }
+    }
+  },
+  "neededFor": "Needed For",
+  "comesFromHeader": "Comes From",
+  "emptyDocsTitle": "No Documents Yet",
+  "emptyDocsBody": "Add the papers you already have, like your passport.",
+  "newStep": "New Step",
+  "editStep": "Edit Step",
+  "newDocument": "New Document",
+  "editDocument": "Edit Document",
+  "title": "Title",
+  "stepTitleHint": "For example: Register Your Address",
+  "name": "Name",
+  "docNameHint": "For example: Passport",
+  "notesHint": "Where to go, what to ask",
+  "needs": "Needs",
+  "givesYou": "Gives You",
+  "chooseDocuments": "Choose Documents",
+  "noneChosen": "None",
+  "chosenCount": "{count}",
+  "@chosenCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "deleteStep": "Delete Step",
+  "deleteDocument": "Delete Document",
+  "deleteStepConfirm": "This step will be removed from your plan.",
+  "deleteDocConfirm": "This document will also be removed from every step.",
+  "saveFailed": "Your last change could not be saved. Free up some storage and try again.",
+  "loadFailed": "Your saved plan could not be read. A copy was kept, and you are starting with an empty plan.",
+  "ok": "OK",
+  "received": "You now have {docs}.",
+  "@received": {
+    "placeholders": {
+      "docs": {
+        "type": "String"
+      }
+    }
+  },
+  "semDocInHand": "{doc}, in hand",
+  "@semDocInHand": {
+    "placeholders": {
+      "doc": {
+        "type": "String"
+      }
+    }
+  },
+  "semDocMissing": "{doc}, missing",
+  "@semDocMissing": {
+    "placeholders": {
+      "doc": {
+        "type": "String"
+      }
+    }
+  },
+  "semToggleHint": "Double tap to change",
+  "docPassport": "Passport",
+  "docVisa": "Visa (National D Visa)",
+  "docAdmission": "Admission Letter (Zulassungsbescheid)",
+  "docBlockedAccount": "Blocked Account Confirmation (Sperrkonto)",
+  "docPhoto": "Biometric Photo",
+  "docRentalContract": "Rental Contract (Mietvertrag)",
+  "docLandlordConfirmation": "Landlord Confirmation (Wohnungsgeberbestätigung)",
+  "docRegistration": "Registration Certificate (Meldebescheinigung)",
+  "docInsurance": "Health Insurance Certificate",
+  "docEnrollment": "Enrollment Certificate (Immatrikulationsbescheinigung)",
+  "docBankAccount": "German Bank Account (IBAN)",
+  "docTaxId": "Tax ID Letter (Steuer-ID)",
+  "docBroadcastNumber": "Broadcasting Fee Number (Rundfunkbeitrag)",
+  "docResidencePermit": "Residence Permit Card (eAT)",
+  "stepSignLease": "Sign the Lease",
+  "stepSignLeaseNote": "Ask your landlord for the Wohnungsgeberbestätigung as well. The Anmeldung needs it.",
+  "stepAnmeldung": "Register Your Address (Anmeldung)",
+  "stepAnmeldungNote": "At the Bürgeramt, usually within 14 days of moving in. Book the appointment early.",
+  "stepInsurance": "Get Health Insurance",
+  "stepInsuranceNote": "The insurer reports you to the university. Keep your own certificate for the Ausländerbehörde.",
+  "stepEnroll": "Enroll at the University",
+  "stepEnrollNote": "Pay the semester fee first. The semester ticket usually comes with it.",
+  "stepBank": "Open a Bank Account",
+  "stepBankNote": "Some online banks do not ask for the Meldebescheinigung.",
+  "stepBlockedPayout": "Start Blocked Account Payouts",
+  "stepBlockedPayoutNote": "Give your blocked account provider your new IBAN so the monthly payout can start.",
+  "stepTaxId": "Receive Your Tax ID",
+  "stepTaxIdNote": "Arrives by post a few weeks after the Anmeldung. You need it for a job.",
+  "stepBroadcastFee": "Register for the Broadcasting Fee",
+  "stepBroadcastFeeNote": "One fee per flat. If a flatmate already pays, note their contribution number.",
+  "stepPhoto": "Get Biometric Photos",
+  "stepPhotoNote": "Photo booths and photo shops take them. Get a few extra.",
+  "stepResidencePermit": "Apply for a Residence Permit",
+  "stepResidencePermitNote": "At the Ausländerbehörde, before your visa ends. Set the deadline to your visa's end date; appointments can take weeks."
+}
