@@ -1,0 +1,22 @@
+# Paperpath Privacy Policy
+
+Last updated: 23 September 2026
+
+Paperpath does not collect any data.
+
+- There is no account, no sign-in, no analytics, no advertising and no tracking.
+- The app makes no network requests. It works fully offline.
+- Your steps, documents, dates and notes are stored only on your iPhone, in the app's
+  own storage. They are included in your device backups (iCloud or computer) the same
+  way as other app data, under your control.
+- Nobody, including the developer, can see what you enter.
+
+## Deleting your data
+
+Delete a step or document inside the app (open it, tap Edit, then Delete), or delete the
+app from your iPhone. Deleting the app removes all of its data from the device.
+
+## Changes
+
+If this policy ever changes, the new version will be published at this address with a new
+date.

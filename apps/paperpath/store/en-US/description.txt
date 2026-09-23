@@ -1,0 +1,18 @@
+Paperpath keeps the chain of paperwork after a move in order. Every step knows which documents it needs and which document it gives you, so the app always shows what you can do today and exactly what to bring.
+
+Made for students moving to Germany from outside the EU, and just as useful for any move with a pile of offices.
+
+WHAT YOU CAN DO
+- Start with ten typical steps for a student in Germany: lease, Anmeldung, health insurance, enrollment, bank account, blocked account payouts, tax ID, broadcasting fee, photos and residence permit. Change or delete any of them.
+- See at a glance which steps are ready, which are waiting and for which document.
+- Open a step to get your Bring list. Tap a document once you have it.
+- Mark a step as done and the documents it gives you are added to your folder. Steps that waited for them move to Ready.
+- Keep deadlines and appointments with each step. The Anmeldung deadline counts from your move-in date.
+- Add your own steps and documents for anything else.
+
+PRIVATE BY DESIGN
+No account, no tracking, no ads. Everything stays on your iPhone and the app works fully offline.
+
+Rules differ from city to city. Paperpath gives you a starting point; your office's website has the final word.
+
+Available in English, German and Turkish.

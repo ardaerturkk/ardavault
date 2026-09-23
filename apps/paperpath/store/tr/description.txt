@@ -1,0 +1,18 @@
+Paperpath, taşındıktan sonraki evrak zincirini düzene sokar. Her adım hangi belgelere ihtiyaç duyduğunu ve sana hangi belgeyi kazandırdığını bilir. Böylece uygulama her zaman bugün neyi halledebileceğini ve yanına tam olarak ne alman gerektiğini gösterir.
+
+AB dışından Almanya'ya gelen öğrenciler için yapıldı; çok sayıda daireyle uğraştıran her taşınma için de işe yarar.
+
+NELER YAPABİLİRSİN
+- Almanya'daki bir öğrenci için on tipik adımla başla: kira sözleşmesi, Anmeldung, sağlık sigortası, üniversite kaydı, banka hesabı, bloke hesap ödemeleri, vergi numarası, yayın ücreti, biyometrik fotoğraf ve oturum izni. Her birini değiştirebilir ya da silebilirsin.
+- Hangi adımların hazır olduğunu, hangilerinin beklediğini ve hangi belgeyi beklediğini bir bakışta gör.
+- Bir adımı aç, yanına alacakların listesi hazır. Elindeki belgeye dokun.
+- Bir adımı tamamlandı olarak işaretle; sana sağladığı belgeler dosyana eklenir. Onları bekleyen adımlar hazır hale gelir.
+- Her adımın son tarihini ve randevusunu tut. Anmeldung süresi taşınma tarihinden itibaren sayılır.
+- Başka her şey için kendi adımlarını ve belgelerini ekle.
+
+GİZLİLİK
+Hesap yok, takip yok, reklam yok. Her şey iPhone'unda kalır ve uygulama tamamen çevrimdışı çalışır.
+
+Kurallar şehirden şehre değişir. Paperpath bir başlangıç noktasıdır; son sözü ilgili dairenin web sitesi söyler.
+
+İngilizce, Almanca ve Türkçe.

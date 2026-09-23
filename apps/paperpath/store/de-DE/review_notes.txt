@@ -1,0 +1,1 @@
+Paperpath works fully offline and needs no account or login. On the empty Steps screen tap Add Germany Starter Steps (Startschritte für Deutschland), pick any date and tap Continue. Open Register Your Address, tap Landlord Confirmation, then Mark as Done. Open a Bank Account moves to Ready. The app collects no data and makes no network requests.
