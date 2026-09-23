@@ -22,6 +22,8 @@ Developer Program kaydı, API key, Xcode 26.x, sonra Claude Desktop'ta kickoff p
 Riskler: 4.3 spam reddi, kullanım limitleri. İlk kullanıcı Arda (Kiel'e taşınma, TRY/EUR).
 2026-09-23: Arda Flutter + bulut versiyonunu seçti (`flutter-bulut/`). Ajan bulutta rutinle
 çalışacak, Arda Mac'ten archive/upload yapacak. SwiftUI kiti yedek olarak duruyor.
+Stüdyo canlı: branch `claude/app-studio`, oturum `session_01Y9VaCzfWjGkDBBKYXkUCot`,
+rutin `trig_01YBtHpf8GUFUXXzgLF1UvKk` (2 saatte bir). Durum için branch'teki STATE.md.
 
 ## Closed Threads
 (none)

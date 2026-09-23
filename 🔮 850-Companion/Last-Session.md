@@ -8,8 +8,14 @@ prompt + CLAUDE.md içeriği + rutin prompt'u), session-start.sh, keep-going.sh 
 bütçe + STUDIO.LOCK), settings.json. Bu konteynerde doğruladım: Flutter 3.47.5 kuruluyor,
 test/golden/web build çalışıyor, golden'da Roboto ile gerçek yazı render ediliyor, xcodeproj
 gem çalışıyor; KVM yok (Android emülatör yok), dl.google.com kapalı. iOS doğrulaması GitHub
-Actions macOS (private repo ~200 dk/ay). Açık: Arda `app-studio` reposunu açıp kickoff'u
-yapıştıracak, rutini kuracak.
+Actions macOS (private repo ~200 dk/ay).
+
+Sonra Arda "hepsini sen yap" dedi ve bıraktı. Yeni repo açamadım (GitHub entegrasyonu 403),
+stüdyoyu `ardavault` içinde orphan branch `claude/app-studio` olarak kurdum (vault'tan ayrı
+geçmiş). Bulut oturumu `session_01Y9VaCzfWjGkDBBKYXkUCot` başlatıldı, rutin
+`trig_01YBtHpf8GUFUXXzgLF1UvKk` her 2 saatte (dakika 29) aynı oturumu uyandırıyor.
+Arda yarın: `git clone -b claude/app-studio --single-branch <ardavault> app-studio`,
+sonra ARDA-INBOX.md. Durdurma: branch'e STOP dosyası ya da rutini kapat.
 
 ## Session: 2026-09-23: Apple App Studio kiti hazırlandı
 Arda, Apple Developer hesabı alıp "hepsini senin yaptığın, Apple standartlarında minik

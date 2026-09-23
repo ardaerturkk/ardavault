@@ -9,6 +9,12 @@ tags: [flutter, ios, claude-code, otonom-ajan]
 
 # Flutter bulut stüdyosu
 
+> **Durum (2026-09-23):** Canlı. Lecko kurdu: stüdyo `ardavault` reposunun
+> `claude/app-studio` branch'inde (vault'tan ayrı geçmiş; yeni repo açma yetkisi yoktu).
+> Bulut oturumu `session_01Y9VaCzfWjGkDBBKYXkUCot`, rutin her 2 saatte bir.
+> Mac'te: `git clone -b claude/app-studio --single-branch https://github.com/ardaerturkk/ardavault.git app-studio`
+> Aşağıdaki kurulum adımları artık gerekmiyor; referans için duruyor.
+
 Mac'e bağlı olmayan versiyon. Ajan Claude Code bulut oturumlarında, Flutter'la, sen
 uyurken çalışıyor. Uygulamaları App Store'a yüklemeye hazır hale getiriyor. Mac'te
 çalıştırma, archive ve yükleme sende. Mac'li SwiftUI versiyonu `../README.md`'de.
