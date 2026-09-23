@@ -45,7 +45,10 @@ Reviews (fresh-eyes subagents, 2026-09-23), all must-fix items applied:
 ## Next
 1. Wait for Arda's Xcode result; fix anything he reports.
 2. When Arda reports the Xcode/ios-check result: fix, bump build number, update hand-off.
-3. Then: improve Paperpath (reminders via local notifications only if Arda wants the
+3. Discover (2026-09-23): budget, TRY/EUR tracker and waste sorting failed the wedge
+   test (see PORTFOLIO.md). Next Discover should dig into habits/to-dos with a real
+   wedge, or pursue Paperpath v1.1 "letters" if Arda likes v1.
+4. Then: improve Paperpath (reminders via local notifications only if Arda wants the
    plugin risk) or Discover the next app (budget TRY/EUR, habits) within WIP limits.
 
 ## Notes
