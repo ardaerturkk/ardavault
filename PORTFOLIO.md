@@ -6,8 +6,14 @@ Bundle ID prefix: com.arda (placeholder until Arda confirms)
 | --- | --- | --- | --- | --- |
 | Paperpath | 6 ready-for-arda (1.0.0+1) | Knows which documents each paperwork step needs and gives you, so it always shows what you can do today and what to bring; offline, no account | com.arda.paperpath | Idea: ideas/paperpath.md. iOS workflow not run (tag push refused in cloud session). |
 | Flatboard (flat hunt) | 3 Build (builder agent, night of 2026-09-23) | One offline pipeline for flats from every portal, with viewings and warm-rent comparison | - | ideas/flathunt.md; waiting on Arda: still looking? |
+| Halfday (work-day quota) | 3 Build (builder agent) | Counts full/half work days against the 140/280 student quota and shows when a plan hits the limit | com.arda.halfday | ideas/halfday.md |
+| Sagbar (counter phrases) | 3 Build (builder agent) | Ready German lines with your own details filled in, meanings in EN/TR, show-card for the counter | com.arda.sagbar | ideas/sagbar.md |
 
 ## Parked / killed
+
+- Studienstand (ECTS/exam-attempt planner): parked, low-medium confidence; module.org covers much of it.
+- Belegheft (study-cost receipts for the tax return): parked, close to the killed expense-tracker category; MeinELSTER+ is free.
+- From the idea agent, dropped: grocery unit prices, utility bill check, recipe costing, der/die/das trainer, Turkish ingredient guide, WG chores (needs sync), packing (all saturated or out of scope).
 
 - Document expiry tracker: saturated (Document Expiry Reminder, RemindMe, KeepValid, RenewalKit).
 - Contract cancellation tracker: saturated (All Renewals, aboalarm, Contract, Contractly).
