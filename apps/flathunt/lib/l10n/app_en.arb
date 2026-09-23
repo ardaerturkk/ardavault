@@ -1,0 +1,180 @@
+{
+  "@@locale": "en",
+  "appTitle": "Flatboard",
+  "tabFlats": "Flats",
+  "tabCompare": "Compare",
+  "stageInterested": "Interested",
+  "stageMessaged": "Messaged",
+  "stageViewing": "Viewing",
+  "stageApplied": "Applied",
+  "stageAccepted": "Accepted",
+  "stageDeclined": "Declined",
+  "actionMessaged": "Mark as Messaged",
+  "actionViewing": "Schedule Viewing",
+  "actionApplied": "Mark as Applied",
+  "actionAnswer": "Record Answer",
+  "answerQuestion": "Did you get the flat?",
+  "answerAccepted": "Accepted",
+  "answerDeclined": "Declined",
+  "sourceWgGesucht": "WG-Gesucht",
+  "sourceKleinanzeigen": "Kleinanzeigen",
+  "sourceImmoscout": "ImmoScout24",
+  "sourceFacebook": "Facebook Group",
+  "sourceStudentenwerk": "Studentenwerk",
+  "sourceFriends": "Friends",
+  "sourceOther": "Other",
+  "emptyFlatsTitle": "No Flats Yet",
+  "emptyFlatsBody": "Add each flat you like, from any site or group. Then move it along as you message, view and apply.",
+  "addFlat": "Add Flat",
+  "warmShort": "{amount} warm",
+  "@warmShort": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "sizeShort": "{size} m²",
+  "@sizeShort": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "viewingOn": "Viewing {date}",
+  "@viewingOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "viewedOn": "Viewed {date}",
+  "@viewedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "noViewingTime": "No viewing time yet",
+  "addedOn": "Added {date}",
+  "@addedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "messagedOn": "Messaged {date}",
+  "@messagedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "appliedOn": "Applied {date}",
+  "@appliedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "acceptedOn": "Accepted {date}",
+  "@acceptedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "declinedOn": "Declined {date}",
+  "@declinedOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "stage": "Stage",
+  "viewing": "Viewing",
+  "notSet": "Not Set",
+  "rent": "Rent",
+  "warmRent": "Warm Rent",
+  "coldRent": "Cold Rent",
+  "size": "Size",
+  "perSqm": "Warm per m²",
+  "rentFooter": "Warm rent includes heating and running costs (Nebenkosten).",
+  "listing": "Listing",
+  "source": "Source",
+  "link": "Link",
+  "copyLink": "Copy Link",
+  "linkCopied": "Link copied.",
+  "district": "District",
+  "notes": "Notes",
+  "checksHeader": "Safety Checks",
+  "checkViewed": "You have seen the flat in person",
+  "checkNoPrepay": "No deposit or rent before the viewing and a signed contract",
+  "checkAccountInName": "Payment only by bank transfer to the landlord, not abroad or through cash transfer services",
+  "checkIdLater": "ID copy only once the contract is ready to sign",
+  "checkPlausible": "The rent fits the area and size, not far below similar flats",
+  "checksFooter": "Tick each point once you have confirmed it. If one does not hold, stop and ask the Studentenwerk or the local tenants' association (Mieterverein) before you pay or send documents.",
+  "checksCount": "{done} of {total} confirmed",
+  "@checksCount": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "semCheckHint": "Marks this point as confirmed",
+  "edit": "Edit",
+  "newFlat": "New Flat",
+  "editFlat": "Edit Flat",
+  "title": "Title",
+  "titleHint": "For example: Room Near Campus",
+  "linkHint": "Paste the listing link",
+  "optional": "Optional",
+  "districtHint": "For example: Gaarden",
+  "notesHint": "Contact, questions, what to bring",
+  "deleteFlat": "Delete Flat",
+  "deleteFlatConfirm": "This flat will be removed from your board.",
+  "invalidAmount": "Enter amounts like 480 or 480,50 and a size like 18 or 18,5.",
+  "save": "Save",
+  "cancel": "Cancel",
+  "done": "Done",
+  "ok": "OK",
+  "discardChanges": "Discard Changes",
+  "keepEditing": "Keep Editing",
+  "viewingTime": "Viewing Time",
+  "setTimeLater": "Set Time Later",
+  "removeViewing": "Remove Viewing Time",
+  "compareBy": "Compare by",
+  "perMonthSeg": "Per Month",
+  "perSqmSeg": "Per m²",
+  "compareEmptyTitle": "Nothing to Compare Yet",
+  "compareEmptyBody": "Add the warm rent to your flats to see them side by side, cheapest first.",
+  "compareFooter": "Cheapest first. Declined flats are left out.",
+  "notCompared": "Not Compared",
+  "missingWarm": "Warm rent missing",
+  "missingSize": "Size missing",
+  "missingBoth": "Warm rent and size missing",
+  "cheapest": "Cheapest",
+  "moreThanCheapest": "{amount} more",
+  "@moreThanCheapest": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "chooseStage": "Move this flat to another stage.",
+  "loadFailed": "Your saved flats could not be read, so a new board was started. The old file is still on this iPhone.",
+  "saveFailed": "Your last change could not be saved. Free up some storage and try again."
+}
