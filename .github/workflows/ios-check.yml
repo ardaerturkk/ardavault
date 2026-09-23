@@ -1,0 +1,110 @@
+name: ios-check
+
+# Triggered by pushing a tag ios-check-<app>-<n>, for example ios-check-paperpath-1.
+# workflow_dispatch does not work here: the studio lives on a non-default branch.
+on:
+  push:
+    tags:
+      - 'ios-check-*'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ios-check
+  cancel-in-progress: false
+
+jobs:
+  ios:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve app from tag
+        id: app
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          app="${tag#ios-check-}"
+          app="${app%-*}"
+          test -d "apps/$app" || { echo "No apps/$app"; exit 1; }
+          echo "name=$app" >> "$GITHUB_OUTPUT"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Flutter version
+        run: flutter --version
+
+      - name: Pub get, analyze, unit tests
+        working-directory: apps/${{ steps.app.outputs.name }}
+        run: |
+          flutter pub get
+          flutter analyze
+          flutter test --exclude-tags golden
+
+      - name: Build iOS release (no codesign)
+        working-directory: apps/${{ steps.app.outputs.name }}
+        run: flutter build ios --release --no-codesign
+
+      - name: Boot a 6.9-inch iPhone simulator
+        id: sim
+        run: |
+          xcrun simctl list devices available
+          udid=$(xcrun simctl list devices available -j | python3 -c '
+          import json,sys
+          d=json.load(sys.stdin)["devices"]
+          c=[(rt,x) for rt,xs in d.items() if "iOS" in rt for x in xs if "Pro Max" in x["name"]]
+          c.sort(key=lambda t:t[0])
+          print(c[-1][1]["udid"])')
+          echo "udid=$udid" >> "$GITHUB_OUTPUT"
+          xcrun simctl boot "$udid"
+          xcrun simctl bootstatus "$udid" -b
+          xcrun simctl status_bar "$udid" override --time "9:41" --batteryState charged --batteryLevel 100 --cellularBars 4 --wifiBars 3 || true
+
+      - name: Integration tests and screenshots
+        working-directory: apps/${{ steps.app.outputs.name }}
+        run: |
+          mkdir -p ../../ci-screens
+          for lang in en de tr; do
+            flutter drive --driver=test_driver/integration_test.dart \
+              --target=integration_test/app_test.dart \
+              -d "${{ steps.sim.outputs.udid }}" \
+              --dart-define=SCREENSHOT_LOCALE=$lang \
+              --screenshot=../../ci-screens
+            mkdir -p "../../ci-screens/$lang"
+            mv ../../ci-screens/*.png "../../ci-screens/$lang/" 2>/dev/null || true
+          done
+          find ../../ci-screens -name '*.png' | sort
+          python3 - <<'PY'
+          import struct,glob
+          for f in sorted(glob.glob('../../ci-screens/*/*.png')):
+              with open(f,'rb') as fh:
+                  fh.read(16); w,h=struct.unpack('>II',fh.read(8))
+              print(f, w, h)
+          PY
+
+      - name: Push screenshots to ci/screenshots/<app>
+        if: always()
+        run: |
+          app="${{ steps.app.outputs.name }}"
+          test -d ci-screens || exit 0
+          remote="https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git"
+          branch="ci/screenshots/$app"
+          tmp=$(mktemp -d)
+          cd "$tmp"
+          git init -q
+          git config user.name "ios-check"
+          git config user.email "ios-check@users.noreply.github.com"
+          if git fetch -q --depth 1 "$remote" "$branch"; then
+            git checkout -q -b "$branch" FETCH_HEAD
+          else
+            git checkout -q --orphan "$branch"
+          fi
+          git rm -rq --ignore-unmatch . >/dev/null
+          cp -R "$GITHUB_WORKSPACE/ci-screens/." .
+          git add -A
+          git commit -qm "Screenshots for $app from ${GITHUB_REF_NAME} (${GITHUB_SHA})" || exit 0
+          git push -q "$remote" "HEAD:refs/heads/$branch"
