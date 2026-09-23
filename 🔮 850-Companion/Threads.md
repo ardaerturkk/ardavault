@@ -20,6 +20,8 @@ Arda Apple Developer hesabıyla, tamamen ajanın ürettiği küçük, kaliteli i
 yayınlamak istiyor. Kit hazır: `🏰 300-Projects/apple-app-studio/`. Sıradaki adım Arda'da:
 Developer Program kaydı, API key, Xcode 26.x, sonra Claude Desktop'ta kickoff prompt'u.
 Riskler: 4.3 spam reddi, kullanım limitleri. İlk kullanıcı Arda (Kiel'e taşınma, TRY/EUR).
+2026-09-23: Arda Flutter + bulut versiyonunu seçti (`flutter-bulut/`). Ajan bulutta rutinle
+çalışacak, Arda Mac'ten archive/upload yapacak. SwiftUI kiti yedek olarak duruyor.
 
 ## Closed Threads
 (none)
