@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kuromi Pixel Doldurma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stars"></div>
+
+  <main class="app">
+    <header class="app__header">
+      <h1>KUROMI <span>PIXEL DOLDURMA</span></h1>
+      <p class="subtitle">Doğru rengi seç, doğru kareyi boya ✦</p>
+    </header>
+
+    <div class="game">
+      <div class="board-wrap">
+        <div id="board" class="board" role="grid" aria-label="Kuromi pixel tablosu"></div>
+        <div id="winOverlay" class="win-overlay hidden">
+          <div class="win-card">
+            <p class="win-emoji">🖤🎀</p>
+            <h2>Tamamlandı!</h2>
+            <p id="winStats"></p>
+            <button id="playAgainBtn" class="btn">Tekrar Oyna</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div class="stat">
+          <span class="stat__label">İlerleme</span>
+          <div class="progress">
+            <div id="progressFill" class="progress__fill"></div>
+          </div>
+          <span id="progressText" class="stat__value">0%</span>
+        </div>
+
+        <div class="stat">
+          <span class="stat__label">Hata</span>
+          <span id="mistakeCount" class="stat__value">0</span>
+        </div>
+
+        <div class="palette" id="palette" role="listbox" aria-label="Renk paleti"></div>
+
+        <button id="resetBtn" class="btn btn--ghost">Baştan Başla</button>
+      </aside>
+    </div>
+
+    <footer class="app__footer">
+      <p>yap → <a href="https://vercel.com" target="_blank" rel="noopener">vercel</a> ile deploy edilecek 🚀</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
