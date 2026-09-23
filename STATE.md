@@ -45,7 +45,12 @@ Reviews (fresh-eyes subagents, 2026-09-23), all must-fix items applied:
 - Not done (low value now): undo for deletes, collapsed Done section.
 
 ## Next
-Studio is paused: .studio/WAITING_ON_ARDA (Paperpath upload result, flat hunt question).
+Arda, 2026-09-23 night (direct message): "build separate apps, one agent generates ideas
+and hands them to the others, work non-stop until morning". This overrides the WIP limits
+and the "subagents only for review" rule for tonight. Setup: one idea agent writes
+briefs to ideas/, one builder agent per accepted idea works only inside apps/<app>/ (and
+site/<app>/), the orchestrator (main session) verifies dod.sh and does all git commits.
+Wedge test and quality bar unchanged (Guideline 4.3).
 1. Wait for Arda's Xcode result; fix anything he reports.
 2. When Arda reports the Xcode/ios-check result: fix, bump build number, update hand-off.
 3. Discover (2026-09-23): budget, TRY/EUR tracker and waste sorting failed the wedge
