@@ -77,6 +77,19 @@ kimlik isteyen birkaç tıkını yapıyor ve "yayınla" diyor.
 - **Almanca + Türkçe + İngilizce** her uygulamada. Alman pazarında rakiplerin çoğu kötü
   çeviriyle geliyor, bu ucuz bir avantaj.
 
+## Karar: neden Flutter değil, SwiftUI (2026-09-23)
+
+- Flutter Mac ihtiyacını kaldırmıyor: iOS build, imzalama, simulator ve yükleme yine
+  Xcode ister.
+- Flutter arayüzü kendi motoruyla çiziyor; Cupertino widget'ları iOS'u taklit ediyor.
+  Liquid Glass, sistem animasyonları, Dynamic Type davranışı sistemden gelmiyor, taklit
+  ediliyor. Hedef "Apple yapmış gibi" olduğu için bu doğrudan kalite kaybı.
+- Wedge'lerin çoğu (widget, Control Center, Lock Screen, Shortcuts, Live Activity) zaten
+  Swift'te yazılmak zorunda; Flutter'da iki dil ve bir köprü demek.
+- Ajan araçları (Swift skill'leri, Xcode MCP, SwiftUI preview) SwiftUI'da çok daha güçlü.
+- Flutter'ın tek artısı Android. Hedef Apple; bir uygulama tutarsa sadece o Android'e
+  taşınır.
+
 ## Tek seferlik kurulum (senin yapacakların, ~1 saat)
 
 Sırayla:
