@@ -188,7 +188,7 @@
   "kindMinijob": "Minijob",
   "kindMinijobInfo": "Counts toward the day limit. Pay is checked against the monthly Minijob limit.",
   "kindUniversity": "University Job",
-  "kindUniversityInfo": "Student assistant or tutor at a university. Usually not counted.",
+  "kindUniversityInfo": "Student assistant or tutor at a university or research institute. Usually not counted.",
   "hourlyPay": "Hourly Pay",
   "hourlyPayHint": "Amount",
   "hourlyPayFooter": "Used only to check the monthly Minijob limit.",
@@ -376,7 +376,7 @@
     }
   },
   "howNotCountedTitle": "Not Counted",
-  "howNotCountedBody": "Jobs marked University Job are not counted, because student assistant and tutor jobs at a university usually are not. Vacation and sick days are not counted either: just do not log them.",
+  "howNotCountedBody": "Jobs marked University Job are not counted, because student assistant and tutor jobs at a university or research institute usually are not. An internship that your study regulations require usually does not count either; to leave it out, give that job the type University Job. Vacation and sick days usually do not count: just do not log them.",
   "howWeekTitle": "Weekly Hours",
   "howWeekBody": "During the lecture period, working more than {hours} a week can affect your student status, for example for health insurance. Halfday shows the hours; it does not judge them.",
   "@howWeekBody": {

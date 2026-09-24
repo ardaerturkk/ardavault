@@ -241,7 +241,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get kindUniversityInfo =>
-      'Üniversitede öğrenci asistanı ya da tutor. Genelde sayılmaz.';
+      'Üniversitede ya da araştırma kurumunda öğrenci asistanı veya tutor. Genelde sayılmaz.';
 
   @override
   String get hourlyPay => 'Saatlik Ücret';
@@ -437,7 +437,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get howNotCountedBody =>
-      'Üniversite İşi olarak işaretlenen işler sayılmaz, çünkü üniversitedeki öğrenci asistanlığı ve tutorluk genelde sayılmaz. İzin ve hastalık günleri de sayılmaz: onları hiç girme.';
+      'Üniversite İşi olarak işaretlenen işler sayılmaz, çünkü üniversitede ya da araştırma kurumunda öğrenci asistanlığı ve tutorluk genelde sayılmaz. Öğrenim yönetmeliğinin zorunlu kıldığı staj da genelde sayılmaz; dışarıda bırakmak için o işin türünü Üniversite İşi yap. İzin ve hastalık günleri de genelde sayılmaz: onları hiç girme.';
 
   @override
   String get howWeekTitle => 'Haftalık Saat';

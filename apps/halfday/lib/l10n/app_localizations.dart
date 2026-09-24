@@ -493,7 +493,7 @@ abstract class AppLocalizations {
   /// No description provided for @kindUniversityInfo.
   ///
   /// In en, this message translates to:
-  /// **'Student assistant or tutor at a university. Usually not counted.'**
+  /// **'Student assistant or tutor at a university or research institute. Usually not counted.'**
   String get kindUniversityInfo;
 
   /// No description provided for @hourlyPay.
@@ -805,7 +805,7 @@ abstract class AppLocalizations {
   /// No description provided for @howNotCountedBody.
   ///
   /// In en, this message translates to:
-  /// **'Jobs marked University Job are not counted, because student assistant and tutor jobs at a university usually are not. Vacation and sick days are not counted either: just do not log them.'**
+  /// **'Jobs marked University Job are not counted, because student assistant and tutor jobs at a university or research institute usually are not. An internship that your study regulations require usually does not count either; to leave it out, give that job the type University Job. Vacation and sick days usually do not count: just do not log them.'**
   String get howNotCountedBody;
 
   /// No description provided for @howWeekTitle.

@@ -87,10 +87,10 @@ class AppLocalizationsDe extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count geplanter Tage',
-      one: '1 geplantem Tag',
+      other: '$count geplante Tage',
+      one: '1 geplanten Tag',
     );
-    return 'Inklusive $_temp0';
+    return 'Enthält $_temp0';
   }
 
   @override
@@ -266,7 +266,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get kindUniversityInfo =>
-      'Studentische Hilfskraft oder Tutor an einer Hochschule. Zählt meist nicht.';
+      'Studentische Hilfskraft oder Tutor an einer Hochschule oder Forschungseinrichtung. Zählt meist nicht.';
 
   @override
   String get hourlyPay => 'Stundenlohn';
@@ -325,17 +325,17 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String planOverBody(String date, String days, String year) {
-    return 'Dein letzter geplanter Tag im Limit ist der $date. Der Plan liegt $year um $days darüber.';
+    return 'Dein letzter geplanter Tag im Limit ist der $date. Der Plan überschreitet das Limit für $year um $days.';
   }
 
   @override
   String planOverBodyNoLast(String year, String days) {
-    return 'Das Limit für $year ist schon aufgebraucht. Der Plan liegt $days darüber.';
+    return 'Das Limit für $year ist schon aufgebraucht. Der Plan überschreitet es um $days.';
   }
 
   @override
   String planUsedUpTitle(String year) {
-    return 'Keine Tage mehr übrig $year';
+    return 'Für $year keine Tage übrig';
   }
 
   @override
@@ -456,7 +456,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get howItCounts => 'So zählt Halfday';
 
   @override
-  String get fullDaysHelp => 'Halbe Tage sind doppelt so viele erlaubt.';
+  String get fullDaysHelp => 'Als halbe Tage ist die doppelte Anzahl erlaubt.';
 
   @override
   String get halfDayHelp =>
@@ -464,7 +464,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get weeklyHelp =>
-      'Wird in der Übersicht gezeigt. In der Vorlesungszeit können mehr Stunden deinen Studierendenstatus berühren.';
+      'Wird in der Übersicht gezeigt. In der Vorlesungszeit können mehr Stunden deinen Studierendenstatus beeinflussen.';
 
   @override
   String minijobHelp(String year) {
@@ -487,14 +487,14 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get howNotCountedBody =>
-      'Jobs mit der Art Job an der Uni zählen nicht, weil Hilfskraft- und Tutorjobs an Hochschulen meist nicht zählen. Urlaubs- und Krankheitstage zählen auch nicht: trag sie einfach nicht ein.';
+      'Jobs der Art „Job an der Uni“ zählen nicht, weil Tätigkeiten als studentische Hilfskraft oder Tutor an Hochschulen und Forschungseinrichtungen meist nicht angerechnet werden. Ein Pflichtpraktikum laut Studienordnung zählt meist auch nicht; gib diesem Job dafür die Art „Job an der Uni“. Urlaubs- und Krankheitstage zählen meist nicht: trag sie einfach nicht ein.';
 
   @override
   String get howWeekTitle => 'Wochenstunden';
 
   @override
   String howWeekBody(String hours) {
-    return 'In der Vorlesungszeit können mehr als $hours pro Woche deinen Studierendenstatus berühren, etwa bei der Krankenversicherung. Halfday zeigt die Stunden, bewertet sie aber nicht.';
+    return 'In der Vorlesungszeit können mehr als $hours pro Woche deinen Studierendenstatus beeinflussen, etwa bei der Krankenversicherung. Halfday zeigt die Stunden, bewertet sie aber nicht.';
   }
 
   @override

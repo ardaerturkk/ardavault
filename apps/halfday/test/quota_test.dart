@@ -269,6 +269,22 @@ void main() {
       expect(r.firstLimitYear, y26);
     });
 
+    test('a year that goes over is reported before one that just fits', () {
+      var b = bookWith([]);
+      b = b.copyWith(settings: b.settings.copyWith(fullDayLimit: 4));
+      final r = runPlan(
+        b,
+        PlanInput(start: Day(2026, 12, 28), weeks: 2, jobId: 'cafe'),
+      );
+      final y26 = r.years.first;
+      final y27 = r.years.last;
+      // 28-31 Dec: exactly 4 days. 2027: 6 days against 4.
+      expect(y26.isOver, isFalse);
+      expect(y26.reachedOn, Day(2026, 12, 31));
+      expect(y27.isOver, isTrue);
+      expect(r.firstLimitYear, y27);
+    });
+
     test('a university job plan adds nothing', () {
       final b = bookWith([]);
       final r = runPlan(

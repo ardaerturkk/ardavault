@@ -8,8 +8,13 @@ Bundle ID prefix: com.arda (placeholder until Arda confirms)
 | Flatboard (flat hunt) | 6 ready-for-arda (1.0.0+1), review fixes applied | One offline pipeline for flats from every portal, with viewings and warm-rent comparison | - | ideas/flathunt.md; waiting on Arda: still looking? |
 | Halfday (work-day quota) | 4 Polish/QA (dod.sh passes, review running) | Counts full/half work days against the 140/280 student quota and shows when a plan hits the limit | com.arda.halfday | ideas/halfday.md |
 | Sagbar (counter phrases) | 6 ready-for-arda (1.0.0+1), review fixes applied | Ready German lines with your own details filled in, meanings in EN/TR, show-card for the counter | com.arda.sagbar | ideas/sagbar.md |
+| Sheetwise (exam admission points) | 3 Build (builder agent) | Knows the usual exam-admission rules and tells you the points still needed per remaining sheet | com.arda.sheetwise | ideas/sheetwise.md |
+| Bayram Rounds (family call list) | 3 Build (builder agent) | Call checklist for each Bayram and family day with dates in both calendars and local times | com.arda.bayramrounds | ideas/bayramrounds.md |
 
 ## Parked / killed
+
+- Bardak (Turkish recipe units to grams): parked, medium; converters are crowded and the parser/ingredient table must be excellent.
+- Idea round 2 dropped: call-window planner, suitcase weight, trip-home planner, LeetCode review, clock-time trainer, rain/sailing apps, prayer times (saturated or need network/plugins).
 
 - Studienstand (ECTS/exam-attempt planner): parked, low-medium confidence; module.org covers much of it.
 - Belegheft (study-cost receipts for the tax return): parked, close to the killed expense-tracker category; MeinELSTER+ is free.

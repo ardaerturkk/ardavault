@@ -266,7 +266,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get kindUniversityInfo =>
-      'Student assistant or tutor at a university. Usually not counted.';
+      'Student assistant or tutor at a university or research institute. Usually not counted.';
 
   @override
   String get hourlyPay => 'Hourly Pay';
@@ -485,7 +485,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get howNotCountedBody =>
-      'Jobs marked University Job are not counted, because student assistant and tutor jobs at a university usually are not. Vacation and sick days are not counted either: just do not log them.';
+      'Jobs marked University Job are not counted, because student assistant and tutor jobs at a university or research institute usually are not. An internship that your study regulations require usually does not count either; to leave it out, give that job the type University Job. Vacation and sick days usually do not count: just do not log them.';
 
   @override
   String get howWeekTitle => 'Weekly Hours';
