@@ -45,6 +45,6 @@ Bundle ID prefix: com.arda (placeholder until Arda confirms)
   (App Store rejects alpha). dod.sh now excludes the tag and checks for alpha.
 - Plain `flutter test` now skips the `screenshots` tag (dart_test.yaml skip);
   scripts/store_screenshots.sh passes --run-skipped.
-- WIP limit note: Arda asked for parallel apps on 2026-09-23; three ready-for-arda apps
-  exceed the usual limit of two unconfirmed. Stop adding new builds until he confirms
-  some of them.
+- WIP limit note: Arda asked for parallel apps until morning (2026-09-23), which overrides
+  the usual limit of two unconfirmed ready-for-arda apps for that night. He picks which
+  ones to publish; do not upload several near-simultaneously (Guideline 4.3).
