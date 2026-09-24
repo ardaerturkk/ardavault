@@ -1,0 +1,4 @@
+tags:
+  golden:
+  screenshots:
+    skip: "Store screenshots: run scripts/store_screenshots.sh <app>"

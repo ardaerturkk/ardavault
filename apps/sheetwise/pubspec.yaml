@@ -1,0 +1,38 @@
+name: sheetwise
+description: "Exercise sheet points toward exam admission"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+  path_provider: ^2.1.6
+  intl: ^0.20.3
+  flutter_localizations:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+  integration_test:
+    sdk: flutter
+  flutter_driver:
+    sdk: flutter
+  flutter_launcher_icons: ^0.14.4
+
+flutter:
+  generate: true
+
+flutter_launcher_icons:
+  ios: true
+  android: false
+  image_path: design/icon-1024.png
+  remove_alpha_ios: true
