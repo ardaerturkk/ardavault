@@ -8,8 +8,8 @@ when a planned schedule would reach the limit.
 
 **Which rules does Halfday use?**
 Typical rules as of 2026: more than 4 hours on a date is a full day, up to 4 hours a half
-day, 140 full or 280 half days per calendar year. Student assistant and tutor jobs at the
-university can be marked as not counted. Your residence permit, its supplementary sheet
+day, 140 full or 280 half days per calendar year. Student assistant and tutor jobs at a
+university or research institute can be marked as not counted. Your residence permit, its supplementary sheet
 and your Ausländerbehörde decide what applies to you. Halfday is not legal advice.
 
 **The rules changed. Can I adjust them?**
@@ -22,6 +22,10 @@ one full day.
 
 **Do vacation or sick days count?**
 Usually not. Simply do not log them.
+
+**Does a mandatory internship count?**
+An internship that your study regulations require usually does not count. To leave it
+out, give that job the type University Job. Ask your office if you are unsure.
 
 **My office counts 2.5 days per week instead. Can Halfday do that?**
 Not in this version. The How Halfday Counts page in Settings explains this method; ask

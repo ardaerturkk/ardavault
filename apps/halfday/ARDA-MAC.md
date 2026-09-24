@@ -36,9 +36,11 @@ Bakılacak akış:
 2. Saat çarkı 4 saatte: "Counts as a half day" yazmalı. Save. Sayı 139.5 olur.
 3. Bir vardiya daha ekle, aynı gün, 2 saat: "Together with 1 other shift that day: 6 h"
    ve "Counts as a full day" görünmeli. Save: sayı 139 olur.
-4. Plan sekmesi: Weeks'i 20 yap. Sonuç kırmızıya dönmeli ("Over the Limit from ...").
-5. Ayarlar > Full Days per Year: 140'ı değiştir, Özet'teki sayı hemen güncellenmeli.
-   Restore Typical Values ile geri al.
+4. Plan sekmesi: sonuç en üstte, "Fits Within the Limit" yazmalı. Weeks'i 20 yap: plan
+   2027'ye taşar, altta "Left in 2027" satırı da görünür.
+5. Ayarlar > Full Days per Year: 50 yap. Özet'teki sayı hemen güncellenmeli ve Plan
+   sekmesindeki sonuç kırmızıya dönmeli ("Over the Limit from ..."). Restore Typical
+   Values ile geri al.
 6. Telefonun dilini Almanca veya Türkçe yap, metinlere göz at.
 
 ## 3. Arşivle ve yükle

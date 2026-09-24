@@ -6,7 +6,7 @@ Bundle ID prefix: com.arda (placeholder until Arda confirms)
 | --- | --- | --- | --- | --- |
 | Paperpath | 6 ready-for-arda (1.0.0+1) | Knows which documents each paperwork step needs and gives you, so it always shows what you can do today and what to bring; offline, no account | com.arda.paperpath | Idea: ideas/paperpath.md. iOS workflow not run (tag push refused in cloud session). |
 | Flatboard (flat hunt) | 6 ready-for-arda (1.0.0+1), review fixes applied | One offline pipeline for flats from every portal, with viewings and warm-rent comparison | - | ideas/flathunt.md; waiting on Arda: still looking? |
-| Halfday (work-day quota) | 4 Polish/QA (dod.sh passes, review running) | Counts full/half work days against the 140/280 student quota and shows when a plan hits the limit | com.arda.halfday | ideas/halfday.md |
+| Halfday (work-day quota) | 6 ready-for-arda (1.0.0+1), review fixes applied | Counts full/half work days against the 140/280 student quota and shows when a plan hits the limit | com.arda.halfday | ideas/halfday.md |
 | Sagbar (counter phrases) | 6 ready-for-arda (1.0.0+1), review fixes applied | Ready German lines with your own details filled in, meanings in EN/TR, show-card for the counter | com.arda.sagbar | ideas/sagbar.md |
 | Sheetwise (exam admission points) | 3 Build (builder agent) | Knows the usual exam-admission rules and tells you the points still needed per remaining sheet | com.arda.sheetwise | ideas/sheetwise.md |
 | Bayram Rounds (family call list) | 3 Build (builder agent) | Call checklist for each Bayram and family day with dates in both calendars and local times | com.arda.bayramrounds | ideas/bayramrounds.md |

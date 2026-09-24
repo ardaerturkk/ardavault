@@ -12,8 +12,8 @@ Yüklemeye hazır (her birinde `apps/<app>/ARDA-MAC.md` adım adım):
 - **Sagbar** (`apps/sagbar`): Bürgeramt, banka, Krankenkasse vb. için kendi
   bilgilerinle dolmuş hazır Almanca cümleler, gişede göstermek için büyük kart.
   Almanca cümleleri anadili Almanca biri okumadı; göz atarsan iyi olur.
-- **Halfday** (`apps/halfday`, son incelemesi sürüyor): öğrenci çalışma günü sayacı
-  (140 tam / 280 yarım gün), planın sınıra ne zaman takılacağını gösterir.
+- **Halfday** (`apps/halfday`): öğrenci çalışma günü sayacı (140 tam / 280 yarım gün),
+  planın sınıra ne zaman takılacağını gösterir. Kuralları kontrol edildi.
 
 Önemli düzeltme: Paperpath'in ekran görüntüleri alfa kanallıydı (App Store reddederdi);
 düzeltildi. Hepsini tek seferde değil, önce Paperpath'i yükle; sorun çıkarsa diğerlerine
