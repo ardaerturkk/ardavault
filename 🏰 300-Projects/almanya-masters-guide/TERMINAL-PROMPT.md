@@ -237,3 +237,32 @@ Bu iş tek oturumda bitmez — 32 adım, 7 dallanma, 6 referans sayfası, hepsi 
    dön, ya da yeni bir `claude` oturumunda "ROADMAP.md'yi oku ve kaldığın yerden devam et" de.
 4. Sonunda son mesajında: ne yaptın, neyi doğrulayamadın, hangi konularda insan kontrolü şart
    (özellikle vize/askerlik/sigorta gibi geri dönüşü olmayan konular).
+
+## 9. Lecko'ya senkron (ardavault hafızası) — ZORUNLU
+
+Bu iş Arda'nın "Lecko" adlı ikinci beynine (`ardaerturkk/ardavault` reposu) bağlı ama sen ayrı bir
+repoda çalışıyorsun, o vault'un hook'ları burada yok. Bu yüzden hafıza senkronunu **sen elle
+yapacaksın**, otomatik olmuyor. Her oturumun sonunda (context bitmeden önce, veya iş tamamen
+bitince) şunu yap:
+
+1. `ardaerturkk/ardavault` reposunu ayrı, geçici bir klasöre klonla (bu repoyla karıştırma):
+   `git clone https://github.com/ardaerturkk/ardavault /tmp/ardavault-sync`
+2. O klasördeki `CLAUDE.md` ve `🔮 850-Companion/Kurallar.md`'yi oku — hafıza protokolü ve ton
+   oradan geliyor, uydurmadan birebir uygula.
+3. `🔮 850-Companion/Last-Session.md`'yi aç, en üste (mevcut en üstteki oturumun üzerine, onu
+   silmeden — "## Previous Sessions" başlığının üstüne) yeni bir madde ekle:
+   `## Session: <bugünün tarihi>: <kısa başlık>` + 3-6 satırlık özet: bu oturumda ne yapıldı,
+   hangi fazlar bitti, ne kaldı, hangi konularda Arda'nın kontrolü şart.
+4. `🔮 850-Companion/Threads.md`'de "Almanya Master rehber sitesi" thread'ini bul, durumunu
+   güncelle (kaç adım yazıldı, doğrulama turu yapıldı mı, sıradaki ne).
+5. Gerçekten önemli bir şey olduysa (site yayına girdi, doğrulama turu tamamlandı gibi)
+   `🔮 850-Companion/Journal.md`'ye kısa bir giriş ekle. Küçük ilerlemeler için Journal'a yazma.
+6. Commit mesajı Türkçe ve net olsun (ör. "Lecko senkron: Almanya rehberi Faz 3 tamamlandı").
+   `git push origin main` (veya reponun varsayılan branch'i neyse). Push reddedilirse önce
+   `git pull --rebase` yap, tekrar dene.
+7. Geçici klasörü (`/tmp/ardavault-sync`) silebilirsin, `almanya-master-rehberi` reposundaki
+   çalışmana geri dön.
+
+Bunu atlama — Arda bu senkronu özellikle istedi. Küçük, sık commit'lerde her seferinde Lecko'yu
+güncellemene gerek yok; ama her oturum kapanışında (context bitmeden önce) en az bir senkron
+commit'i olmalı.

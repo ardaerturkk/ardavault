@@ -17,6 +17,9 @@ policy'si dış siteleri (resmi kaynaklar, 3ds.hacks.guide) engelliyor, WebFetch
 veriyor. Arda bunun yerine terminalden lokal Claude Code ile tek seferde halletmek istedi.
 `🏰 300-Projects/almanya-masters-guide/TERMINAL-PROMPT.md` dosyasını yazdım: klonla, prompt'u
 yapıştır, tam araştırma+yazım+doğrulama sürecini kendi kendine yürütür, ilerledikçe commit atar.
+Arda "terminal'de de lecko'ya senkron olsun" dedi: prompt'a §9 eklendi — terminal oturumu her
+kapanışta ardavault'u ayrı geçici klasöre klonlayıp Last-Session.md/Threads.md günceller ve push
+eder. Genel kural olarak Kurallar.md'ye de yazıldı (her dış oturum kendi hafıza senkronunu yapsın).
 
 ## Previous Sessions
 ### 2026-09-02: Sıfırdan serisi takibe alındı
