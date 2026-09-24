@@ -7,6 +7,9 @@ status: active
 tags: [almanya, yuksek-lisans, rehber, site, prompt, terminal]
 ---
 
+> **Kullanılmıyor:** Arda terminal yerine cloud oturumundan devam etmeye karar verdi. Güncel
+> prompt: `CLOUD-PROMPT.md`. Bu dosya referans olarak duruyor.
+
 # Terminalde çalıştırılacak prompt
 
 Bilgisayarında (internet erişimi kısıtlanmamış terminalde) şunu çalıştır:

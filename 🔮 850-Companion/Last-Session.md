@@ -20,6 +20,12 @@ yapıştır, tam araştırma+yazım+doğrulama sürecini kendi kendine yürütü
 Arda "terminal'de de lecko'ya senkron olsun" dedi: prompt'a §9 eklendi — terminal oturumu her
 kapanışta ardavault'u ayrı geçici klasöre klonlayıp Last-Session.md/Threads.md günceller ve push
 eder. Genel kural olarak Kurallar.md'ye de yazıldı (her dış oturum kendi hafıza senkronunu yapsın).
+Sonra Arda terminalden vazgeçti: "buradan (cloud) yapacağız" dedi, chat'i kapatmadan önce
+"final prompt" istedi. `CLOUD-PROMPT.md` yazıldı: TERMINAL-PROMPT.md'nin cloud'a uyarlanmış
+hali — repo ekleme adımı, WebFetch bu ortamda EGRESS_BLOCKED olduğu için WebSearch'e (+ paralel
+Agent çağrılarına) dayalı araştırma, ve klonlama hilesi olmadan doğrudan ardavault üzerinde
+Lecko senkronu (aynı oturum, aynı disk). TERMINAL-PROMPT.md'ye "kullanılmıyor" notu eklendi.
+Sıradaki: Arda yeni bir cloud oturumunda CLOUD-PROMPT.md'yi yapıştırıp süreci başlatacak.
 
 ## Previous Sessions
 ### 2026-09-02: Sıfırdan serisi takibe alındı
