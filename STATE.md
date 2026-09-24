@@ -51,6 +51,9 @@ and the "subagents only for review" rule for tonight. Setup: one idea agent writ
 briefs to ideas/, one builder agent per accepted idea works only inside apps/<app>/ (and
 site/<app>/), the orchestrator (main session) verifies dod.sh and does all git commits.
 Wedge test and quality bar unchanged (Guideline 4.3).
+- 2026-09-23 ~23:30 UTC: all three builders stopped on the subscription session limit
+  (reset 01:50 UTC). Resumed at 02:30 UTC. Running three agents in parallel burns the
+  limit fast; if it happens again, resume them one or two at a time.
 1. Wait for Arda's Xcode result; fix anything he reports.
 2. When Arda reports the Xcode/ios-check result: fix, bump build number, update hand-off.
 3. Discover (2026-09-23): budget, TRY/EUR tracker and waste sorting failed the wedge
