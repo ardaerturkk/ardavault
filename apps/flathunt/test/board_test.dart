@@ -26,6 +26,10 @@ void main() {
       expect(parseCents('480.5'), 48050);
       expect(parseCents(' 480 € '), 48000);
       expect(parseCents('€480'), 48000);
+      expect(parseCents('480,-'), 48000);
+      expect(parseCents('480.--'), 48000);
+      expect(parseCents('480 EUR'), 48000);
+      expect(parseCents('1.200,- €'), 120000);
     });
 
     test('grouping in either style', () {
@@ -97,6 +101,17 @@ void main() {
     expect(b.moveTo('nope', Stage.applied, now), same(b));
   });
 
+  test('setting the time later clears an old viewing time', () {
+    final now = DateTime(2026, 10, 6, 12);
+    var b = const Board().add(flat);
+    b = b.moveTo('f1', Stage.viewing, now, viewing: DateTime(2026, 10, 1, 17));
+    b = b.moveTo('f1', Stage.applied, now);
+    expect(b.flat('f1')!.viewing, isNotNull);
+    b = b.moveTo('f1', Stage.viewing, now, clearViewing: true);
+    expect(b.flat('f1')!.stage, Stage.viewing);
+    expect(b.flat('f1')!.viewing, isNull);
+  });
+
   test('toggling a check adds and removes it', () {
     var b = const Board().add(flat);
     b = b.toggleCheck('f1', Check.viewed);
@@ -105,18 +120,33 @@ void main() {
     expect(b.flat('f1')!.checks, isEmpty);
   });
 
-  test('viewings sort by time, flats without a time last', () {
+  test('viewings: upcoming soonest first, then no time, then past', () {
     final b = heavyBoard();
-    final viewing = b.inStage(Stage.viewing);
-    expect(viewing.first.id, 'f6');
-    expect(viewing.last.viewing, isNull);
-    for (var i = 1; i < viewing.length - 1; i++) {
-      expect(viewing[i].viewing!.isAfter(viewing[i - 1].viewing!), isTrue);
+    final viewing = b.inStage(Stage.viewing, demoToday);
+    final upcoming = [
+      for (final f in viewing)
+        if (f.viewing != null && !f.viewing!.isBefore(demoToday)) f,
+    ];
+    expect(viewing.first.viewing!.isBefore(demoToday), isFalse);
+    for (var i = 1; i < upcoming.length; i++) {
+      expect(upcoming[i].viewing!.isAfter(upcoming[i - 1].viewing!), isTrue);
+    }
+    final rest = viewing.skip(upcoming.length).toList();
+    final noTime = rest.takeWhile((f) => f.viewing == null).length;
+    final past = rest.skip(noTime).toList();
+    expect(past.every((f) => f.viewing!.isBefore(demoToday)), isTrue);
+    for (var i = 1; i < past.length; i++) {
+      expect(past[i].viewing!.isBefore(past[i - 1].viewing!), isTrue);
     }
   });
 
+  test('typical board: the upcoming viewing comes before the past one', () {
+    final viewing = typicalBoard().inStage(Stage.viewing, demoToday);
+    expect(viewing.map((f) => f.id), ['f1', 'f6']);
+  });
+
   test('other stages sort by how long they waited', () {
-    final messaged = typicalBoard().inStage(Stage.messaged);
+    final messaged = typicalBoard().inStage(Stage.messaged, demoToday);
     expect(messaged.map((f) => f.id), ['f3', 'f5']);
   });
 
