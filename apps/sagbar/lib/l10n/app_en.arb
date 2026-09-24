@@ -1,0 +1,123 @@
+{
+  "@@locale": "en",
+  "appTitle": "Sagbar",
+  "tabSituations": "Situations",
+  "tabMe": "My Details",
+  "startTitle": "Add Your Details Once",
+  "startBody": "Your name, address and numbers go straight into every German line.",
+  "startButton": "Add My Details",
+  "situationsFooter": "Everyday phrases for the counter and the phone. They are not legal advice.",
+  "appointmentOn": "Appointment {date}",
+  "@appointmentOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "fillMissing": "Fill In Missing Details",
+  "missingList": "Missing: {names}",
+  "@missingList": {
+    "placeholders": {
+      "names": {
+        "type": "String"
+      }
+    }
+  },
+  "visitHeader": "This Visit",
+  "appointment": "Appointment",
+  "removeAppointment": "Remove Appointment",
+  "refFooter": "The number from your letter or booking confirmation.",
+  "notSet": "Not Set",
+  "linesHeader": "Lines",
+  "linesFooter": "Tap a line to show it in large type. Touch and hold to copy or hide it.",
+  "noLines": "No lines here. Add your own or show the hidden ones.",
+  "addLine": "Add Your Own Line",
+  "showHidden": "{count, plural, =1{Show 1 Hidden Line} other{Show {count} Hidden Lines}}",
+  "@showHidden": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "showCards": "Show Cards",
+  "yourLine": "Your line",
+  "copy": "Copy",
+  "copied": "Copied",
+  "hideLine": "Hide Line",
+  "editLine": "Edit Line",
+  "deleteLine": "Delete Line",
+  "deleteLineConfirm": "This line will be deleted.",
+  "newLine": "New Line",
+  "germanLabel": "German",
+  "germanHint": "What you want to say, in German",
+  "meaningLabel": "Meaning",
+  "meaningHint": "What it means (optional)",
+  "lineEditorFooter": "Write it the way you want to say it. Your details are not filled into your own lines.",
+  "cardOf": "{index} of {total}",
+  "@cardOf": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "previousLine": "Previous Line",
+  "nextLine": "Next Line",
+  "aboutYou": "About You",
+  "contact": "Contact",
+  "numbers": "Numbers",
+  "meFooter": "Stored only on this iPhone. Sagbar fills these into your German lines.",
+  "fieldName": "Full Name",
+  "fieldBirthDate": "Date of Birth",
+  "fieldAddress": "Address",
+  "fieldPhone": "Phone",
+  "fieldEmail": "Email",
+  "fieldInsurer": "Health Insurer",
+  "fieldInsuranceNumber": "Insurance Number",
+  "fieldStudentId": "Student Number",
+  "fieldTime": "Appointment Time",
+  "fieldDate": "Appointment Date",
+  "hintName": "As in your passport",
+  "hintAddress": "Street and number, postcode and city",
+  "hintPhone": "Your mobile number",
+  "hintEmail": "name@example.com",
+  "hintInsurer": "For example TK or AOK",
+  "hintInsuranceNumber": "On your health insurance card",
+  "hintStudentId": "On your student ID card",
+  "footerName": "Used in lines like “Mein Name ist …” and spelled out letter by letter.",
+  "footerAddress": "Write it the German way: Holtenauer Straße 12, 24105 Kiel.",
+  "removeBirthDate": "Remove Date of Birth",
+  "cancel": "Cancel",
+  "save": "Save",
+  "done": "Done",
+  "ok": "OK",
+  "discardChanges": "Discard Changes",
+  "keepEditing": "Keep Editing",
+  "listAnd": "{first} and {last}",
+  "@listAnd": {
+    "placeholders": {
+      "first": {
+        "type": "String"
+      },
+      "last": {
+        "type": "String"
+      }
+    }
+  },
+  "loadFailed": "Your saved details could not be read. A copy was kept, and Sagbar started empty.",
+  "saveFailed": "The last change could not be saved. Sagbar will try again with the next change.",
+  "semLineHint": "Shows the line in large type",
+  "semMissing": "missing: {name}",
+  "@semMissing": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  }
+}

@@ -3,23 +3,34 @@ import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
 
-import '../model/board.dart';
+import '../model/book.dart';
+import '../model/day.dart';
+import '../model/quota.dart';
 import 'storage.dart';
 
-/// Holds the board, saves every change, and tells the UI to rebuild.
+/// Holds the book, saves every change, and tells the UI to rebuild.
 class AppState extends ChangeNotifier with WidgetsBindingObserver {
-  AppState(
-    this._storage, {
-    this._board = const Board(),
-    DateTime Function()? now,
-  }) : now = now ?? DateTime.now;
+  AppState(this._storage, {this._book = const Book(), DateTime Function()? now})
+    : now = now ?? DateTime.now;
 
   /// The clock, replaceable in tests and screenshots.
   final DateTime Function() now;
 
-  final BoardStorage _storage;
-  Board _board;
-  Board get board => _board;
+  /// Today's calendar date.
+  Day get today => Day.of(now());
+
+  /// The what-if schedule on the Plan tab. Kept for the session only.
+  PlanInput? _planInput;
+  PlanInput get planInput =>
+      _planInput ?? PlanInput(start: today.plus(1), jobId: book.defaultJob?.id);
+  set planInput(PlanInput value) {
+    _planInput = value;
+    notifyListeners();
+  }
+
+  final BookStorage _storage;
+  Book _book;
+  Book get book => _book;
 
   /// True when the saved file could not be read. A copy was kept aside.
   bool loadFailed = false;
@@ -33,13 +44,13 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
   /// then off for this launch so the original file is never overwritten.
   bool _writesBlocked = false;
 
-  static Future<AppState> load(BoardStorage storage) async {
+  static Future<AppState> load(BookStorage storage) async {
     final state = AppState(storage);
     try {
       final raw = await storage.read();
       if (raw != null) {
         final json = (jsonDecode(raw) as Map).cast<String, Object?>();
-        state._board = Board.fromJson(json);
+        state._book = Book.fromJson(json);
       }
     } on Object {
       state.loadFailed = true;
@@ -52,8 +63,8 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
     return state;
   }
 
-  void update(Board next) {
-    _board = next;
+  void update(Book next) {
+    _book = next;
     notifyListeners();
     if (_writesBlocked) {
       saveFailed = true;
@@ -74,8 +85,8 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
     });
   }
 
-  /// Coming back after a night in the background: past and upcoming
-  /// viewings depend on the time, so rebuild.
+  /// Coming back after a night in the background: "this week" and the
+  /// current year depend on the date, so rebuild.
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) notifyListeners();

@@ -3,23 +3,21 @@ import 'dart:convert';
 
 import 'package:flutter/widgets.dart';
 
-import '../model/board.dart';
+import '../model/book.dart';
 import 'storage.dart';
 
-/// Holds the board, saves every change, and tells the UI to rebuild.
-class AppState extends ChangeNotifier with WidgetsBindingObserver {
-  AppState(
-    this._storage, {
-    this._board = const Board(),
-    DateTime Function()? now,
-  }) : now = now ?? DateTime.now;
+/// Holds the book, saves every change, and tells the UI to rebuild.
+class AppState extends ChangeNotifier {
+  AppState(this._storage, {Book book = const Book(), DateTime Function()? now})
+    : _book = book,
+      now = now ?? DateTime.now;
 
   /// The clock, replaceable in tests and screenshots.
   final DateTime Function() now;
 
-  final BoardStorage _storage;
-  Board _board;
-  Board get board => _board;
+  final BookStorage _storage;
+  Book _book;
+  Book get book => _book;
 
   /// True when the saved file could not be read. A copy was kept aside.
   bool loadFailed = false;
@@ -33,13 +31,13 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
   /// then off for this launch so the original file is never overwritten.
   bool _writesBlocked = false;
 
-  static Future<AppState> load(BoardStorage storage) async {
+  static Future<AppState> load(BookStorage storage) async {
     final state = AppState(storage);
     try {
       final raw = await storage.read();
       if (raw != null) {
         final json = (jsonDecode(raw) as Map).cast<String, Object?>();
-        state._board = Board.fromJson(json);
+        state._book = Book.fromJson(json);
       }
     } on Object {
       state.loadFailed = true;
@@ -52,8 +50,8 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
     return state;
   }
 
-  void update(Board next) {
-    _board = next;
+  void update(Book next) {
+    _book = next;
     notifyListeners();
     if (_writesBlocked) {
       saveFailed = true;
@@ -72,13 +70,6 @@ class AppState extends ChangeNotifier with WidgetsBindingObserver {
         notifyListeners();
       }
     });
-  }
-
-  /// Coming back after a night in the background: past and upcoming
-  /// viewings depend on the time, so rebuild.
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) notifyListeners();
   }
 
   void dismissLoadError() {

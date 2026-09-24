@@ -299,7 +299,9 @@ int? parseCents(String input) {
 
 /// Parses a size in square metres ("18", "18,5", "18.5 m²").
 double? parseSize(String input) {
-  final n = _parseNumber(input.replaceAll(RegExp('m²|m2|qm', caseSensitive: false), ''));
+  final n = _parseNumber(
+    input.replaceAll(RegExp('m²|m2|qm', caseSensitive: false), ''),
+  );
   if (n == null || n <= 0 || n > 10000) return null;
   return (n * 10).round() / 10;
 }

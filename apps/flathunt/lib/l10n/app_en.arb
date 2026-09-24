@@ -176,5 +176,7 @@
   },
   "chooseStage": "Move this flat to another stage.",
   "loadFailed": "Your saved flats could not be read, so a new board was started. The old file is still on this iPhone.",
-  "saveFailed": "Your last change could not be saved. Free up some storage and try again."
+  "saveFailed": "Your last change could not be saved. Free up some storage and try again.",
+  "addRent": "Add Rent and Size",
+  "sizeSqmLabel": "Size in m²"
 }
