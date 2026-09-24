@@ -216,8 +216,12 @@ class PlanResult {
   /// One entry per calendar year the plan touches, in order.
   final List<PlanYear> years;
 
-  /// The first year in which the plan reaches or goes over the limit.
+  /// The year to report: the first one the plan goes over, else the first
+  /// one in which it reaches the limit exactly.
   PlanYear? get firstLimitYear {
+    for (final y in years) {
+      if (y.isOver) return y;
+    }
     for (final y in years) {
       if (y.reachedOn != null) return y;
     }

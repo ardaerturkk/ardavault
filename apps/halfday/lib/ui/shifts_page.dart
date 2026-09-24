@@ -86,8 +86,8 @@ class ShiftTile extends StatelessWidget {
         if (s.date == shift.date && book.counts(s)) s,
     ];
     final large = isLargeText(context);
+    // Job name on its own line; the numbers below it.
     final parts = [
-      book.job(shift.jobId)?.name ?? '',
       hoursText(l, shift.minutes),
       if (counts && sameDay.length > 1)
         l.dayTotal(hoursText(l, sameDay.fold(0, (sum, s) => sum + s.minutes))),
@@ -99,7 +99,10 @@ class ShiftTile extends StatelessWidget {
       leading: dayStatusIcon(context, status),
       title: RowText(shortDate(l, shift.date)),
       subtitle: Text(
-        parts.where((p) => p.isNotEmpty).join('  ·  '),
+        [
+          book.job(shift.jobId)?.name ?? '',
+          parts.join('  ·  '),
+        ].where((p) => p.isNotEmpty).join('\n'),
         maxLines: 4,
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(fontFeatures: tabular),

@@ -139,7 +139,10 @@ class _ShiftEditPageState extends State<ShiftEditPage> {
                   child: CupertinoTimerPicker(
                     mode: CupertinoTimerPickerMode.hm,
                     minuteInterval: 5,
-                    initialTimerDuration: Duration(minutes: _minutes),
+                    // The wheel only takes 5-minute steps.
+                    initialTimerDuration: Duration(
+                      minutes: _minutes - _minutes % 5,
+                    ),
                     onTimerDurationChanged: (d) =>
                         setState(() => _minutes = d.inMinutes),
                   ),
