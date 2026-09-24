@@ -1,0 +1,291 @@
+{
+  "@@locale": "en",
+  "appTitle": "Bayramlaşma",
+  "tabCalls": "Calls",
+  "tabPeople": "People",
+  "kindRamazan": "Ramazan Bayramı",
+  "kindKurban": "Kurban Bayramı",
+  "kindNewYear": "New Year",
+  "kindMothersDay": "Mother's Day",
+  "kindFathersDayTr": "Father's Day in Turkey",
+  "kindVatertag": "Father's Day in Germany",
+  "kindBirthday": "Birthday",
+  "birthdayOf": "{name}'s Birthday",
+  "@birthdayOf": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "occasionYear": "{occasion} {year}",
+  "@occasionYear": {
+    "placeholders": {
+      "occasion": {
+        "type": "String"
+      },
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "kindMothersDayNote": "Second Sunday of May, in Turkey and in Germany",
+  "kindFathersDayTrNote": "Third Sunday of June",
+  "kindVatertagNote": "Ascension Day",
+  "circleElders": "Elders",
+  "circleFamily": "Family",
+  "circleFriends": "Friends",
+  "hijriShawwal": "{day} Shawwal {year}",
+  "@hijriShawwal": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "year": {
+        "type": "int"
+      }
+    }
+  },
+  "hijriDhuAlHijjah": "{day} Dhu al-Hijjah {year}",
+  "@hijriDhuAlHijjah": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "year": {
+        "type": "int"
+      }
+    }
+  },
+  "startsTomorrow": "Starts tomorrow",
+  "arefeToday": "Arefe today, starts tomorrow",
+  "dayOf": "Day {day} of {total}",
+  "@dayOf": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "today": "Today",
+  "endedYesterday": "Ended yesterday",
+  "inDays": "In {count, plural, =1{1 day} other{{count} days}}",
+  "@inDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reachedOf": "{done} of {total} reached",
+  "@reachedOf": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "peopleCount": "{count, plural, =1{1 person} other{{count} people}}",
+  "@peopleCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "leftCount": "{count} left",
+  "@leftCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sectionNow": "Now",
+  "sectionUpcoming": "Coming Up",
+  "sectionEarlier": "Earlier",
+  "datesFooter": "Bayram dates follow Diyanet's calendar and are included through {year}.",
+  "@datesFooter": {
+    "placeholders": {
+      "year": {
+        "type": "String"
+      }
+    }
+  },
+  "noUpcoming": "Nothing else in the next twelve months.",
+  "emptyCallsTitle": "Who Do You Call First?",
+  "emptyCallsBody": "Add the people you call on Bayram, elders first. Next up: {occasion}, {date}.",
+  "@emptyCallsBody": {
+    "placeholders": {
+      "occasion": {
+        "type": "String"
+      },
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "addPerson": "Add Person",
+  "sectionReached": "Reached",
+  "allReached": "Everyone is reached.",
+  "opensOn": "You can tick people off from {date}.",
+  "@opensOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "nobodyInRound": "Nobody is in this round any more.",
+  "timeIn": "{time} in {city}",
+  "@timeIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      },
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "nightThere": "Night there",
+  "pickCalled": "Called",
+  "pickMessaged": "Messaged",
+  "pickVisited": "Visited",
+  "statusCalled": "Called {when}",
+  "@statusCalled": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "statusMessaged": "Messaged {when}",
+  "@statusMessaged": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "statusVisited": "Visited {when}",
+  "@statusVisited": {
+    "placeholders": {
+      "when": {
+        "type": "String"
+      }
+    }
+  },
+  "markNotReached": "Mark as Not Reached",
+  "addNote": "Add Note",
+  "editNote": "Edit Note",
+  "noteHint": "Asked about exams",
+  "showNumber": "Show Number",
+  "copyNumber": "Copy Number",
+  "copied": "Copied",
+  "numberHelp": "Call from the Phone app or your messenger.",
+  "markCalledFor": "Mark {name} as called",
+  "@markCalledFor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "unmarkFor": "Mark {name} as not reached",
+  "@unmarkFor": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "reorder": "Order",
+  "reorderTitle": "Order",
+  "reorderFooter": "Drag to choose who comes first. Every round follows this order.",
+  "dragToReorder": "Drag to reorder {name}",
+  "@dragToReorder": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "eldersFooter": "Elders come first in every round.",
+  "emptyPeopleTitle": "No People Yet",
+  "emptyPeopleBody": "Start with the elders you call first on Bayram morning.",
+  "newPerson": "New Person",
+  "editPerson": "Edit Person",
+  "edit": "Edit",
+  "name": "Name",
+  "nameHint": "Name, like Hasan Amca",
+  "relation": "Relation",
+  "relationHint": "Relation, like uncle (optional)",
+  "phone": "Phone",
+  "phoneHint": "Phone number (optional)",
+  "circle": "Circle",
+  "city": "City",
+  "birthday": "Birthday",
+  "noneSet": "None",
+  "removeBirthday": "Remove Birthday",
+  "callOn": "Call On",
+  "callOnFooter": "Their birthday is added when you set one.",
+  "deletePerson": "Delete Person",
+  "deletePersonMessage": "Delete {name}? Their ticks in past rounds are deleted too.",
+  "@deletePersonMessage": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "delete": "Delete",
+  "searchCities": "Search",
+  "regionTurkey": "Turkey",
+  "regionGermany": "Germany",
+  "regionElsewhere": "Elsewhere",
+  "anyTown": "Any other town",
+  "cityFooter": "Turkey and Germany each have one time zone, so the country is enough.",
+  "noCityFound": "No city found. Pick the country or a city nearby with the same time.",
+  "cancel": "Cancel",
+  "save": "Save",
+  "done": "Done",
+  "ok": "OK",
+  "discardChanges": "Discard Changes",
+  "keepEditing": "Keep Editing",
+  "saveFailed": "Your last change could not be saved. Free up some storage and try again.",
+  "loadFailed": "Your saved list could not be read, so a new one was started. The old file is still on this iPhone.",
+  "dateRange": "{from} to {to}",
+  "@dateRange": {
+    "placeholders": {
+      "from": {
+        "type": "String"
+      },
+      "to": {
+        "type": "String"
+      }
+    }
+  },
+  "arefeOn": "Arefe {date}",
+  "@arefeOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "turnsAge": "Turns {age}",
+  "@turnsAge": {
+    "placeholders": {
+      "age": {
+        "type": "int"
+      }
+    }
+  }
+}

@@ -1,0 +1,421 @@
+{
+  "@@locale": "en",
+  "appTitle": "Sheetwise",
+  "courses": "Courses",
+  "addCourse": "Add Course",
+  "emptyTitle": "No Courses Yet",
+  "emptyBody": "Add a course with the admission rule from its course page. After each graded sheet, you see what you still need.",
+  "listFooter": "Most urgent first. Based on the rules you entered; the course page has the final word.",
+  "loadFailed": "Your saved courses could not be read. A copy was kept, and nothing was overwritten.",
+  "saveFailed": "Your last change could not be saved. Sheetwise tries again with the next change.",
+  "ok": "OK",
+  "cancel": "Cancel",
+  "save": "Save",
+  "edit": "Edit",
+  "all": "All",
+  "increase": "Increase",
+  "decrease": "Decrease",
+  "discardChanges": "Discard Changes",
+  "keepEditing": "Keep Editing",
+  "statusAdmitted": "Admitted",
+  "statusOutOfReach": "Out of reach",
+  "statusNoSheets": "No sheets yet",
+  "statusNeedPoints": "Need {points} of {max} per sheet",
+  "@statusNeedPoints": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "statusNeedShare": "Need {percent} per sheet",
+  "@statusNeedShare": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "statusPresentations": "{count, plural, =1{1 presentation left} other{{count} presentations left}}",
+  "@statusPresentations": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sheetsLeft": "{count, plural, =0{No sheets left} =1{1 sheet left} other{{count} sheets left}}",
+  "@sheetsLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sheetName": "Sheet {number}",
+  "@sheetName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "extraSheetName": "Extra Sheet {number}",
+  "@extraSheetName": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "heroPerSheetOf": "{count, plural, =1{of {max} points on the last remaining sheet} other{of {max} points on each of the {count} remaining sheets}}",
+  "@heroPerSheetOf": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "heroPerSheetShare": "{count, plural, =1{of the points on the last remaining sheet} other{of the points on each of the {count} remaining sheets}}",
+  "@heroPerSheetShare": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "heroAdmitted": "Admitted",
+  "heroAdmittedBody": "Every condition of the rule you entered is met.",
+  "heroOutOfReach": "Out of Reach",
+  "outOfReachPoints": "Even full points on every remaining sheet would leave you {points} points short.",
+  "@outOfReachPoints": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      }
+    }
+  },
+  "outOfReachSheets": "Only {possible} sheets can still reach {percent}, and {required} must.",
+  "@outOfReachSheets": {
+    "placeholders": {
+      "possible": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "String"
+      },
+      "required": {
+        "type": "int"
+      }
+    }
+  },
+  "heroPresentationsBody": "{count, plural, =1{more presentation needed. Your points are enough.} other{more presentations needed. Your points are enough.}}",
+  "@heroPresentationsBody": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "heroNoSheets": "No Sheets Yet",
+  "heroNoSheetsBody": "Add the sheets of this course to see where you stand.",
+  "pointsSoFar": "{counted} of {total} points",
+  "@pointsSoFar": {
+    "placeholders": {
+      "counted": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "pointsNeeded": "{needed} needed",
+  "@pointsNeeded": {
+    "placeholders": {
+      "needed": {
+        "type": "String"
+      }
+    }
+  },
+  "sheetsPassedSoFar": "{passed} of {required} sheets at {percent} or more",
+  "@sheetsPassedSoFar": {
+    "placeholders": {
+      "passed": {
+        "type": "int"
+      },
+      "required": {
+        "type": "int"
+      },
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "skipNeedPoints": "If you skip {sheet}: {points} of {max} on each other sheet.",
+  "@skipNeedPoints": {
+    "placeholders": {
+      "sheet": {
+        "type": "String"
+      },
+      "points": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "skipNeedShare": "If you skip {sheet}: {percent} on each other sheet.",
+  "@skipNeedShare": {
+    "placeholders": {
+      "sheet": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "skipOutOfReach": "Skipping {sheet} would put admission out of reach.",
+  "@skipOutOfReach": {
+    "placeholders": {
+      "sheet": {
+        "type": "String"
+      }
+    }
+  },
+  "skipNoCost": "Skipping {sheet} would cost you nothing.",
+  "@skipNoCost": {
+    "placeholders": {
+      "sheet": {
+        "type": "String"
+      }
+    }
+  },
+  "enterSheet": "Enter {sheet}",
+  "@enterSheet": {
+    "placeholders": {
+      "sheet": {
+        "type": "String"
+      }
+    }
+  },
+  "ruleHeader": "Admission Rule",
+  "rulePercentAll": "{percent} of all points",
+  "@rulePercentAll": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "rulePercentBest": "{percent} of the best {count} sheets",
+  "@rulePercentBest": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "rulePoints": "{points} points",
+  "@rulePoints": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      }
+    }
+  },
+  "rulePointsBest": "{points} points from the best {count} sheets",
+  "@rulePointsBest": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "ruleMinAll": "{percent} on every sheet",
+  "@ruleMinAll": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "ruleMinCount": "{percent} on at least {count} sheets",
+  "@ruleMinCount": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "presentations": "Presentations",
+  "valueOf": "{value} of {total}",
+  "@valueOf": {
+    "placeholders": {
+      "value": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "ruleFooter": "Based on the rule you entered. The course page has the final word.",
+  "met": "Met",
+  "notMetYet": "Not met yet",
+  "bonusFrom": "Bonus from {percent}",
+  "@bonusFrom": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "bonusReached": "Reached",
+  "addPresentation": "Add Presentation",
+  "removePresentation": "Remove Presentation",
+  "sheetsHeader": "Sheets",
+  "sheetOpen": "Not graded yet",
+  "sheetMissed": "Not handed in",
+  "sheetExcused": "Excused",
+  "addSheet": "Add Sheet",
+  "addExtraSheet": "Add Extra Sheet",
+  "addSheetMessage": "Points on an extra sheet count, but its maximum does not add to the total.",
+  "noteHeader": "Note",
+  "points": "Points",
+  "ofMax": "of {max}",
+  "@ofMax": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "resultHeader": "Result",
+  "stateGraded": "Graded",
+  "stateOpen": "Not Graded Yet",
+  "stateMissed": "Not Handed In",
+  "stateExcused": "Excused",
+  "resultFooter": "A sheet not handed in counts as zero. An excused sheet leaves the total.",
+  "maxPoints": "Maximum Points",
+  "extraSheet": "Extra Sheet",
+  "extraFooter": "Points on an extra sheet count, but its maximum does not add to the total.",
+  "whatIfHeader": "What If",
+  "whatIfSkip": "If You Skip This Sheet",
+  "whatIfNeedPoints": "You would need {points} of {max} on each other remaining sheet.",
+  "@whatIfNeedPoints": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "whatIfNeedShare": "You would need {percent} on each other remaining sheet.",
+  "@whatIfNeedShare": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "whatIfOut": "Admission would be out of reach.",
+  "whatIfAdmitted": "You would still be admitted.",
+  "whatIfEnough": "Your points would still be enough.",
+  "whatIfFooter": "Nothing is saved; this only shows the numbers.",
+  "deleteSheet": "Delete Sheet",
+  "deleteSheetConfirm": "Delete this sheet and its result?",
+  "pointsInvalid": "Enter the points, for example 7.5.",
+  "newCourse": "New Course",
+  "editCourse": "Edit Course",
+  "courseName": "Course Name",
+  "courseNameHint": "For example Linear Algebra",
+  "sheetCount": "Number of Sheets",
+  "pointsPerSheet": "Points per Sheet",
+  "sheetsFooterNew": "Not sure yet? Take your best guess. You can add or remove sheets later.",
+  "sheetsFooterEdit": "Sheets with a result are never removed here; delete them one by one.",
+  "presetsHeader": "Common Rules",
+  "presetHalf": "{percent} of All Points",
+  "@presetHalf": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "presetHalfAndMinimum": "{percent} of All Points, {minimum} per Sheet",
+  "@presetHalfAndMinimum": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      },
+      "minimum": {
+        "type": "String"
+      }
+    }
+  },
+  "presetHalfOfBest": "{percent} of the Best Sheets, 2 Dropped",
+  "@presetHalfOfBest": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "presetMostSheets": "{percent} on All but 2 Sheets",
+  "@presetMostSheets": {
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  },
+  "presetsFooter": "Pick the closest one, then adjust the details below.",
+  "neededKind": "Total",
+  "kindPercent": "Share",
+  "kindPoints": "Points",
+  "kindNone": "None",
+  "shareOfPoints": "Share of Points",
+  "pointsNeededField": "Points Needed",
+  "bestOnly": "Only the Best Sheets Count",
+  "bestCount": "Sheets Counted",
+  "minEach": "Minimum on Each Sheet",
+  "minPercent": "Share per Sheet",
+  "minCount": "Sheets That Must Reach It",
+  "presentationsSwitch": "Presentations",
+  "presentationsNeeded": "Presentations Needed",
+  "ruleEditorFooter": "Copy the rule from your course page. A sheet not handed in counts as zero; an excused sheet leaves the total.",
+  "noConditionFooter": "Choose at least one condition.",
+  "invalidFooter": "Some numbers are not valid. Shares go up to 100.",
+  "bonusHeader": "Exam Bonus",
+  "addBonusTier": "Add Bonus Tier",
+  "bonusFooter": "If good exercise results earn a bonus in the exam, add each tier.",
+  "bonusTierTitle": "Bonus Tier",
+  "bonusFromField": "From",
+  "bonusLabelField": "Bonus",
+  "bonusLabelHint": "For example 0.3 grade step",
+  "bonusTierFooter": "The share of the counted points this bonus needs.",
+  "deleteBonusTier": "Delete Bonus Tier",
+  "noteHint": "Tutor, group, where points are posted",
+  "deleteCourse": "Delete Course",
+  "deleteCourseConfirm": "Delete this course and all its sheets?"
+}
