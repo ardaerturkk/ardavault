@@ -36,6 +36,8 @@ class PlanPage extends StatelessWidget {
             top: false,
             sliver: SliverList.list(
               children: [
+                // The answer first, so it is visible at any text size.
+                _ResultSection(result: result, input: input),
                 CupertinoListSection.insetGrouped(
                   header: Text(l.planSchedule),
                   children: [
@@ -129,7 +131,6 @@ class PlanPage extends StatelessWidget {
                       ),
                   ],
                 ),
-                _ResultSection(result: result, input: input),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
                   child: SizedBox(
