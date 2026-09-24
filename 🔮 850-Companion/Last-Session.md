@@ -4,8 +4,9 @@
 Arda, 3ds.hacks.guide tarzında "Almanya'ya Master" rehber/wiki sitesi istiyor. Siteyi yaptıracak
 master prompt'u yazdım: `🏰 300-Projects/almanya-masters-guide/PROMPT.md` (araştırma protokolü,
 kaynak hiyerarşisi, 7 fazlı rota + dallanmalar, sayfa şablonu, VitePress, doğrulama turları).
-Vault'ta Arda'nın kendi süreci (uni-assist mi, vize kanalı, Sperrkonto) hakkında not yok;
-prompt'taki "Arda'nın notları" bölümünü doldurması lazım.
+Arda düzeltti: kişisel tecrübe bölümü yok, site her adımda tüm yolları/yöntemleri anlatan
+kaynaklı bir takip listesi olacak. "Arda'nın notları" kaldırıldı, forumlar kaynak olmaktan
+çıkarıldı, prompt'taki tohum rakamlar silindi (hepsi canlı kaynaktan bulunacak). Kural eklendi.
 
 ## Previous Sessions
 ### 2026-09-02: Sıfırdan serisi takibe alındı

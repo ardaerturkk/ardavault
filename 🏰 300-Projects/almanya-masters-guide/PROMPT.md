@@ -12,7 +12,7 @@ tags: [almanya, yuksek-lisans, rehber, site, prompt, cau-kiel]
 > **Nasıl kullanılır:** Boş bir GitHub reposu aç (öneri: `almanya-master-rehberi`), içinde Claude
 > Code oturumu başlat, `---8<---` çizgisinden aşağısını olduğu gibi yapıştır. Ajan tek oturumda
 > bitiremezse aynı prompt'u yeniden ver; `ROADMAP.md` ve `SOURCES.md` üzerinden kaldığı yerden
-> devam edecek şekilde tasarlandı. İstersen önce "Arda'nın notları" bölümünü kendi tecrübenle doldur.
+> devam edecek şekilde tasarlandı.
 
 ---8<---
 
@@ -21,8 +21,20 @@ tags: [almanya, yuksek-lisans, rehber, site, prompt, cau-kiel]
 Almanya'da yüksek lisans (Master) yapmak isteyen Türkçe konuşan biri için, **hiçbir şey bilmeyen
 birini sıfırdan alıp Almanya'da okula kayıtlı, ikamet izni almış, yerleşmiş hale getirene kadar**
 adım adım götüren bir rehber/wiki sitesi kur. İlham: [3ds.hacks.guide](https://3ds.hacks.guide).
-Oradaki hissi yakala: tek doğru yol, net sıra, her sayfada "ne lazım / ne yapacaksın / bitti mi →
+Oradaki hissi yakala: net sıra, her sayfada "ne lazım / ne yapacaksın / bitti mi →
 sonraki adım", hata anında bakılacak Troubleshooting, sade ve güven veren ton.
+
+**Bu rehber kimsenin kişisel tecrübesi değildir.** Tek bir kişinin "ben böyle yaptım" hikâyesini
+anlatmaz; her adımda **mevcut tüm yolları ve yöntemleri** anlatır, okurun kendi durumuna göre
+seçmesini sağlar ve seçtiği yolu adım adım takip edilebilir bir kontrol listesine çevirir.
+Bir adımda birden fazla yöntem varsa (ör. başvuru kanalı, finansman kanıtı, dil belgesi, sigorta
+türü, konaklama, vize başvuru kanalı) hepsi yan yana, karşılaştırma tablosuyla, kimin için uygun
+olduğu ve artı/eksileriyle yazılır. Site hiçbir yolu "tek doğru" diye dayatmaz; ancak resmi
+kurallar bir yolu zorunlu kılıyorsa bunu açıkça söyler.
+
+**Uydurma sıfır.** Sitedeki her bilgi gerçek, güncel ve kaynağı gösterilebilir araştırmaya
+dayanır. Bulamadığın veya doğrulayamadığın bilgiyi tahminle doldurma; ya çıkar ya da sayfada açıkça
+"doğrulanamadı, şu kuruma sorun" diye işaretle.
 
 Bu bir **doğruluk projesi**. Yanlış bir tarih, tutar veya belge adı birinin vizesini, başvurusunu
 veya parasını yakabilir. Hız ikincil; doğruluk ve eksiksizlik birincil.
@@ -66,9 +78,11 @@ veya parasını yakabilir. Hız ikincil; doğruluk ve eksiksizlik birincil.
 2. **İkincil (birincille doğrulanmadan yazma):** Sperrkonto/sigorta sağlayıcılarının kendi
    siteleri (Fintiba, Expatrio, Coracle, TK, AOK vb.; ticari çıkarları olduğunu unutma), büyük
    üniversitelerin International Office rehberleri.
-3. **Üçüncül (sadece "sahada ne oluyor" sinyali):** Reddit (r/germany, r/studyingermany),
-   ekşi sözlük, Türk öğrenci toplulukları, YouTube. **Asla tek kaynak olamaz.** Buradan gelen bir
-   bilgi ancak "Topluluk tecrübesi" kutusunda ve öyle etiketlenerek yazılabilir.
+3. **Siteye kaynak olamaz:** Reddit (r/germany, r/studyingermany), ekşi sözlük, forumlar,
+   Türk öğrenci toplulukları, YouTube, danışmanlık firması blogları, kişisel bloglar. Bunlar
+   yalnızca **soru bulmak** için kullanılır: insanlar nerede takılıyor, neyi soruyor, hangi hatayı
+   yapıyor. Bulduğun her soru/sorun, cevabı birincil (gerekirse ikincil) kaynaktan doğrulanarak
+   siteye girer. Anekdot, "bana böyle oldu" hikâyesi, doğrulanmamış tecrübe siteye yazılmaz.
 
 ### Kurallar
 - **Her olgusal iddia (tutar, süre, tarih, belge adı, kural) bir kaynağa bağlı.** Sayfa altında
@@ -293,38 +307,27 @@ tüm checklist'lerin birleşik görünümü "Checklist'im" sayfasında bulunsun,
 7. **Son kontrol:** Build temiz, link kontrolü temiz, tüm sayfalarda "Son doğrulama" var,
    sorumluluk reddi var, README'de nasıl güncellenir anlatılıyor.
 
-## 7. Doğrulanacak başlangıç noktaları
+## 7. Mutlaka araştırılacak konular (kontrol listesi)
 
-Aşağıdakiler aklıma gelen, **doğruluğu ve güncelliği teyit edilmesi gereken** konu başlıkları ve
-bilinen (ama değişebilir) çerçeve. Hiçbirini kaynak göstermeden siteye taşıma:
+Aşağıdaki konular sitede eksiksiz yer almalı. Buraya bilerek rakam yazmadım: tüm değerleri
+canlı birincil kaynaktan bul, `data/degerler.yml`'e kaynak ve tarihle gir.
 
-- Sperrkonto yıllık tutarı Auswärtiges Amt tarafından BAföG tavanına bağlı belirleniyor ve
-  periyodik olarak artıyor (2025 için 11.904 €/yıl, 992 €/ay idi; **güncel yılı kontrol et**).
-- Öğrenci çalışma limiti 2024'teki düzenleme ile yılda 140 tam / 280 yarım gün olarak
-  genişletilmişti; güncel hali kontrol et.
-- Minijob sınırı asgari ücrete endeksli; asgari ücret 2026'da yükseldi, güncel sınırı
-  Minijob-Zentrale'den al.
-- Anmeldung için genelde taşınmadan sonraki 14 gün kuralı; şehir uygulaması değişebilir.
-- Mezuniyet sonrası iş arama oturumu (§20 AufenthG) süresi; güncel süreyi kontrol et.
-- APS belgesi bazı ülke vatandaşlarından isteniyor (Çin, Vietnam, Hindistan); Türkiye için
-  **istenmediğini** doğrula ve bunu SSS'e yaz (kafa karışıklığı yaygın).
-- Almanya 2025'te ulusal vizeler için Auslandsportal'ı yaygınlaştırdı; Türkiye'de öğrenci
-  vizesinin **bugün** hangi kanaldan yapıldığını misyon sitelerinden kesinleştir.
-- Baden-Württemberg'in AB dışı öğrencilerden aldığı dönem harcı; başka eyalette benzer
-  uygulama başladı mı kontrol et.
-- Yasal sağlık sigortasında öğrenci tarifesi yaş/dönem sınırları ve muafiyetin geri alınamazlığı.
-
-## 8. Arda'nın notları (opsiyonel bağlam)
-
-Bu rehberin fikir sahibi Arda, bilgisayar mühendisi, CAU Kiel'de Master'a başlıyor. Süreci
-bizzat yaşadı. Aşağıdaki alan doluysa, "Sahadan not" kutularında gerçek tecrübe olarak kullan
-(kişisel veri koymadan). Boşsa atla, uydurma.
-
-- Başvurduğu kanal (uni-assist / doğrudan): …
-- Vize başvuru kanalı ve randevu tecrübesi: …
-- Sperrkonto / sigorta sağlayıcısı ve neden: …
-- En çok zaman kaybettiren adım: …
-- "Keşke bilseydim" listesi: …
+- Sperrkonto'nun güncel yıllık/aylık tutarı ve nasıl belirlendiği (Auswärtiges Amt).
+- Öğrencilerin yıllık çalışma gün limiti ve Werkstudent/HiWi/zorunlu staj istisnaları (AufenthG §16b, BeschV).
+- Güncel asgari ücret ve Minijob sınırı (Minijob-Zentrale, BMAS).
+- Anmeldung süresi ve gerekli belgeler (Bundesmeldegesetz + seçilen örnek şehirlerin Bürgeramt sayfaları).
+- Mezuniyet sonrası iş arama oturumu süresi ve koşulları (AufenthG §20), Mavi Kart maaş eşikleri.
+- APS belgesinin hangi ülke vatandaşlarından istendiği ve Türk vatandaşları için durum.
+- Türkiye'de öğrenci (ulusal D) vizesi başvurusunun bugün hangi kanaldan yapıldığı
+  (Auslandsportal / hizmet sağlayıcı / misyon), ücret, işlem süresi, belge listesi.
+- AB dışı öğrencilerden harç alan eyaletler ve güncel tutarlar.
+- Yasal sağlık sigortası öğrenci tarifesi: yaş/dönem sınırları, muafiyetin bağlayıcılığı, güncel katkı payları.
+- Sperrkonto ve sigorta sağlayıcılarının güncel ücretleri (karşılaştırma tablosu, tarih damgalı).
+- uni-assist ücretleri ve işlem süreleri; VPD'nin nasıl işlediği.
+- Dil sınavlarının Türkiye'deki güncel ücretleri, sınav merkezleri, sonuç süreleri.
+- T.C. tarafı: yurt dışında öğrenim tecili koşulları ve belgeleri, yurt dışı çıkış harcı ve
+  öğrenci muafiyeti, apostil makamları, yeminli tercüme/noter süreci, pasaport harcı.
+- Rundfunkbeitrag güncel tutarı ve öğrenci muafiyeti koşulları.
 
 ## 9. Teslim kriterleri (bitti sayılması için)
 
@@ -337,4 +340,6 @@ bizzat yaşadı. Aşağıdaki alan doluysa, "Sahadan not" kutularında gerçek t
 - [ ] Etkileşimli checklist, not dönüştürücü, bütçe hesaplayıcı, geriye doğru takvim çalışıyor.
 - [ ] Kırık link yok.
 - [ ] README: proje ne, nasıl çalıştırılır, değerler nasıl güncellenir, katkı rehberi.
+- [ ] Sitede kaynaksız tek bir olgusal cümle yok; forum/anekdot kaynaklı içerik yok.
+- [ ] Birden fazla yöntemi olan her adımda tüm yöntemler karşılaştırmalı olarak anlatılmış.
 - [ ] Son mesajında: ne yaptın, neyi doğrulayamadın, hangi konularda insan kontrolü şart.
