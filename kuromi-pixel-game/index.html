@@ -17,41 +17,54 @@
       <p class="subtitle">Doğru rengi seç, doğru kareyi boya ✦</p>
     </header>
 
-    <div class="game">
-      <div class="board-wrap">
-        <div id="board" class="board" role="grid" aria-label="Kuromi pixel tablosu"></div>
-        <div id="winOverlay" class="win-overlay hidden">
-          <div class="win-card">
-            <p class="win-emoji">🖤🎀</p>
-            <h2>Tamamlandı!</h2>
-            <p id="winStats"></p>
-            <button id="playAgainBtn" class="btn">Tekrar Oyna</button>
+    <section id="levelSelect" class="level-select">
+      <div id="levelGrid" class="level-grid"></div>
+    </section>
+
+    <section id="gameScreen" class="game-screen hidden">
+      <button id="backBtn" class="btn btn--ghost btn--back">← Seviyeler</button>
+
+      <div class="game">
+        <div class="board-wrap">
+          <div id="board" class="board" role="grid" aria-label="Pixel tablosu"></div>
+          <div id="winOverlay" class="win-overlay hidden">
+            <div class="win-card">
+              <p class="win-emoji">🖤🎀</p>
+              <h2>Tamamlandı!</h2>
+              <p id="winStats"></p>
+              <div class="win-actions">
+                <button id="playAgainBtn" class="btn">Tekrar Oyna</button>
+                <button id="nextLevelBtn" class="btn btn--ghost">Sonraki Seviye</button>
+              </div>
+            </div>
           </div>
         </div>
+
+        <aside class="panel">
+          <h2 id="levelTitle" class="panel__title"></h2>
+
+          <div class="stat">
+            <span class="stat__label">İlerleme</span>
+            <div class="progress">
+              <div id="progressFill" class="progress__fill"></div>
+            </div>
+            <span id="progressText" class="stat__value">0%</span>
+          </div>
+
+          <div class="stat">
+            <span class="stat__label">Hata</span>
+            <span id="mistakeCount" class="stat__value">0</span>
+          </div>
+
+          <div class="palette" id="palette" role="listbox" aria-label="Renk paleti"></div>
+
+          <button id="resetBtn" class="btn btn--ghost">Baştan Başla</button>
+        </aside>
       </div>
-
-      <aside class="panel">
-        <div class="stat">
-          <span class="stat__label">İlerleme</span>
-          <div class="progress">
-            <div id="progressFill" class="progress__fill"></div>
-          </div>
-          <span id="progressText" class="stat__value">0%</span>
-        </div>
-
-        <div class="stat">
-          <span class="stat__label">Hata</span>
-          <span id="mistakeCount" class="stat__value">0</span>
-        </div>
-
-        <div class="palette" id="palette" role="listbox" aria-label="Renk paleti"></div>
-
-        <button id="resetBtn" class="btn btn--ghost">Baştan Başla</button>
-      </aside>
-    </div>
+    </section>
 
     <footer class="app__footer">
-      <p>yap → <a href="https://vercel.com" target="_blank" rel="noopener">vercel</a> ile deploy edilecek 🚀</p>
+      <p>vercel ile deploy edildi 🚀</p>
     </footer>
   </main>
 
