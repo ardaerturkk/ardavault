@@ -54,6 +54,9 @@ Wedge test and quality bar unchanged (Guideline 4.3).
 - 2026-09-23 ~23:30 UTC: all three builders stopped on the subscription session limit
   (reset 01:50 UTC). Resumed at 02:30 UTC. Running three agents in parallel burns the
   limit fast; if it happens again, resume them one or two at a time.
+- 2026-09-24 ~05:00 UTC: session limit hit again (reset 07:20 UTC); Sheetwise and Bayram
+  Rounds builders resumed at 07:42 UTC. Morning status: Paperpath, Flatboard, Sagbar and
+  Halfday ready-for-arda (dod.sh passes, reviewed); Sheetwise and Bayram Rounds in build.
 1. Wait for Arda's Xcode result; fix anything he reports.
 2. When Arda reports the Xcode/ios-check result: fix, bump build number, update hand-off.
 3. Discover (2026-09-23): budget, TRY/EUR tracker and waste sorting failed the wedge

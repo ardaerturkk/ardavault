@@ -17,8 +17,9 @@ Yüklemeye hazır (her birinde `apps/<app>/ARDA-MAC.md` adım adım):
 
 Önemli düzeltme: Paperpath'in ekran görüntüleri alfa kanallıydı (App Store reddederdi);
 düzeltildi. Hepsini tek seferde değil, önce Paperpath'i yükle; sorun çıkarsa diğerlerine
-aynı düzeltmeyi yaparım. Hangilerini yayınlamak istediğini yaz. Bu gece farklı alanlarda (bürokrasi dışı)
-yeni uygulamalar üretmeye devam ediyorum.
+aynı düzeltmeyi yaparım. Hangilerini yayınlamak istediğini yaz. Gece iki kez abonelik kullanım limitine
+takıldık (agent'lar bekledi). Yapımda: **Sheetwise** (Übungsblatt puanları, Klausur-
+zulassung için kalan puan) ve **Bayram Rounds** (bayram arama listesi, iki takvim).
 
 Stüdyo şu an seni bekliyor (`.studio/WAITING_ON_ARDA`). Paperpath'i yükleyince ya da
 sorulara cevap verince bu dosyayı sil; stüdyo kaldığı yerden devam eder.
