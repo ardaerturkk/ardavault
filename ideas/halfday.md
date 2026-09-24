@@ -1,6 +1,6 @@
 # Idea: Student work-day allowance counter (working name "Halfday")
 
-Date: 2026-09-23. Stage: Discover, candidate (passes the wedge test).
+Date: 2026-09-23. Stage: built (apps/halfday), ready for review. 2.5-days-per-week method left out of v1 (explained in the app, not computed).
 
 ## Pain (Arda first)
 A non-EU student on a Section 16b residence permit may work 140 full days or 280 half
@@ -72,3 +72,5 @@ Personality: a calm payroll clerk who counts exactly and never lectures.
 ## Name
 "Halfday": no App Store app found by that name (searched 2026-09-23; near names:
 Halfway, HALF-TIME, Little Halfday focus app). Check again before submission.
+Checked again 2026-09-24: still no App Store app named "Halfday"; store name
+"Halfday: Student Work Days", home-screen name "Halfday".

@@ -19,7 +19,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get tabCompare => 'Vergleich';
 
   @override
-  String get stageInterested => 'Interessant';
+  String get stageInterested => 'Vorgemerkt';
 
   @override
   String get stageMessaged => 'Angeschrieben';
@@ -90,12 +90,12 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String warmShort(String amount) {
-    return '$amount warm';
+    return '$amount warm';
   }
 
   @override
   String sizeShort(String size) {
-    return '$size m²';
+    return '$size m²';
   }
 
   @override
@@ -192,7 +192,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get checkNoPrepay =>
-      'Keine Kaution und keine Miete vor Besichtigung und unterschriebenem Vertrag';
+      'Keine Kaution und keine Miete gezahlt vor Besichtigung und unterschriebenem Vertrag';
 
   @override
   String get checkAccountInName =>
@@ -208,7 +208,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get checksFooter =>
-      'Hake jeden Punkt ab, sobald du ihn geprüft hast. Stimmt einer nicht, halte inne und frag beim Studentenwerk oder beim Mieterverein vor Ort nach, bevor du zahlst oder Unterlagen schickst.';
+      'Hake jeden Punkt ab, sobald du ihn geprüft hast. Trifft einer nicht zu, ist das ein häufiges Warnzeichen: Frag beim Studentenwerk oder beim Mieterverein vor Ort nach, bevor du zahlst oder Unterlagen schickst.';
 
   @override
   String get semCheckHint => 'Markiert diesen Punkt als geprüft';
@@ -238,7 +238,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get districtHint => 'Zum Beispiel: Gaarden';
 
   @override
-  String get notesHint => 'Kontakt, Fragen, was mitbringen';
+  String get notesHint => 'Kontakt, Fragen, was du mitbringen musst';
 
   @override
   String get deleteFlat => 'Wohnung löschen';
@@ -249,7 +249,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get invalidAmount =>
-      'Beträge wie 480 oder 480,50 und eine Größe wie 18 oder 18,5 eingeben.';
+      'Gib Beträge wie 480 oder 480,50 und eine Größe wie 18 oder 18,5 ein.';
 
   @override
   String get save => 'Sichern';

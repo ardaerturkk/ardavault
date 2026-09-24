@@ -2,7 +2,7 @@
 
 Flatboard, ev/oda aramasını tek listede toplar: WG-Gesucht, Kleinanzeigen, ImmoScout24,
 Facebook grupları, Studentenwerk, arkadaşlar, hangi kaynaktan olursa olsun. Her ev
-İlgileniyorum > Yazıldı > Ev Gezme > Başvuruldu > Kabul/Ret aşamalarından geçer; ev gezme
+İlgileniyorum > Mesaj Atıldı > Ev Gezme > Başvuruldu > Kabul/Ret aşamalarından geçer; ev gezme
 saatleri, aylık ve m² başına sıcak kira karşılaştırması ve her ev için kısa bir
 dolandırıcılık kontrol listesi var. Tamamen çevrimdışı, hesap yok, veri toplamıyor.
 Bağlantılar yalnızca metin olarak saklanır (kopyalanabilir, uygulama açmaz). İngilizce,

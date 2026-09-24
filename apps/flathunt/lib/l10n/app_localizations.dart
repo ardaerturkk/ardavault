@@ -259,13 +259,13 @@ abstract class AppLocalizations {
   /// No description provided for @warmShort.
   ///
   /// In en, this message translates to:
-  /// **'{amount} warm'**
+  /// **'{amount} warm'**
   String warmShort(String amount);
 
   /// No description provided for @sizeShort.
   ///
   /// In en, this message translates to:
-  /// **'{size} m²'**
+  /// **'{size} m²'**
   String sizeShort(String size);
 
   /// No description provided for @viewingOn.
@@ -427,7 +427,7 @@ abstract class AppLocalizations {
   /// No description provided for @checkNoPrepay.
   ///
   /// In en, this message translates to:
-  /// **'No deposit or rent before the viewing and a signed contract'**
+  /// **'No deposit or rent paid before the viewing and a signed contract'**
   String get checkNoPrepay;
 
   /// No description provided for @checkAccountInName.
@@ -451,7 +451,7 @@ abstract class AppLocalizations {
   /// No description provided for @checksFooter.
   ///
   /// In en, this message translates to:
-  /// **'Tick each point once you have confirmed it. If one does not hold, stop and ask the Studentenwerk or the local tenants\' association (Mieterverein) before you pay or send documents.'**
+  /// **'Tick each point once you have confirmed it. If one does not hold, that is a common warning sign: ask the Studentenwerk or the local tenants\' association (Mieterverein) before you pay or send documents.'**
   String get checksFooter;
 
   /// No description provided for @semCheckHint.

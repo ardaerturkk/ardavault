@@ -69,6 +69,8 @@ app: when in doubt, look at how it does it and do the same.
 - Deleting an item whose detail page is open: remove only that route
   (`leaveDeletedPage`), never `maybePop()` from build.
 - Semantics(excludeSemantics: true) must also get `onTap`.
+- The store screenshot test is tagged `screenshots` and writes RGBA; only run it via
+  scripts/store_screenshots.sh (which flattens). dod.sh excludes it and checks alpha.
 - Soft hyphens (U+00AD) break lines without a visible hyphen: do not use them.
 - 12/24-hour time: follow `MediaQuery.alwaysUse24HourFormatOf(context)`.
 - Section footers: footnote size (13) in secondaryLabel (FooterText).

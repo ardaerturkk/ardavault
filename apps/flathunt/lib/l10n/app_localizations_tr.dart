@@ -22,7 +22,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get stageInterested => 'İlgileniyorum';
 
   @override
-  String get stageMessaged => 'Yazıldı';
+  String get stageMessaged => 'Mesaj Atıldı';
 
   @override
   String get stageViewing => 'Ev Gezme';
@@ -37,7 +37,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get stageDeclined => 'Reddedildi';
 
   @override
-  String get actionMessaged => 'Yazdım';
+  String get actionMessaged => 'Mesaj Attım';
 
   @override
   String get actionViewing => 'Ev Gezme Randevusu Ekle';
@@ -90,12 +90,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String warmShort(String amount) {
-    return '$amount sıcak';
+    return '$amount sıcak';
   }
 
   @override
   String sizeShort(String size) {
-    return '$size m²';
+    return '$size m²';
   }
 
   @override
@@ -118,7 +118,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String messagedOn(String date) {
-    return 'Yazıldı $date';
+    return 'Mesaj atıldı $date';
   }
 
   @override
@@ -209,7 +209,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get checksFooter =>
-      'Her maddeyi doğruladıktan sonra işaretle. Biri tutmuyorsa dur ve para ödemeden ya da belge göndermeden önce Studentenwerk\'e veya yerel kiracılar derneğine (Mieterverein) danış.';
+      'Her maddeyi doğruladıktan sonra işaretle. Biri tutmuyorsa bu sık görülen bir uyarı işaretidir: Para ödemeden ya da belge göndermeden önce Studentenwerk\'e veya yerel kiracılar derneğine (Mieterverein) danış.';
 
   @override
   String get semCheckHint => 'Bu maddeyi doğrulandı olarak işaretler';

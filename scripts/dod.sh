@@ -21,7 +21,8 @@ echo "== $app: code"
 (cd "$dir" && flutter pub get >/dev/null 2>&1)
 check "dart format clean" "cd '$dir' && dart format --output=none --set-exit-if-changed lib test integration_test"
 check "flutter analyze: no issues" "cd '$dir' && flutter analyze --no-pub"
-check "flutter test (incl. goldens) green" "cd '$dir' && flutter test --no-pub"
+# The store screenshot test writes RGBA files; it only runs via scripts/store_screenshots.sh.
+check "flutter test (incl. goldens) green" "cd '$dir' && flutter test --no-pub --exclude-tags screenshots"
 check "golden PNGs exist" "ls '$dir'/test/goldens/*.png"
 check "no print() in lib" "! grep -rnE '\\bprint\\(' '$dir/lib'"
 check "no TODO/FIXME in lib" "! grep -rnE 'TODO|FIXME|XXX' '$dir/lib'"
@@ -67,6 +68,14 @@ for l in en-US de-DE tr; do
   check "store/$l description <= 4000 chars" "python3 -c \"assert len(open('$s/description.txt').read().strip())<=4000\""
   check "store/$l keywords not in name/subtitle" "python3 '$root/scripts/keywords_check.py' '$s'"
 done
+check "store screenshots 1320x2868 without alpha" "python3 -c \"
+import glob,sys
+from PIL import Image
+fs=glob.glob('$dir/store/screenshots/*/*.png')
+assert fs
+for f in fs:
+    im=Image.open(f); assert im.size==(1320,2868) and im.mode=='RGB', f
+\""
 check "site privacy.md" "grep -qi 'does not collect' '$root/site/$app/privacy.md'"
 check "site support.md" "test -s '$root/site/$app/support.md'"
 check "ARDA-MAC.md" "test -s '$dir/ARDA-MAC.md'"

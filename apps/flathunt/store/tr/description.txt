@@ -4,7 +4,7 @@ Almanya'da bir üniversite şehrinde oda arayan öğrenciler için yapıldı, he
 
 NELER YAPABİLİRSİN
 - Bir evi saniyeler içinde ekle: başlık, nerede bulduğun, ilan bağlantısı, sıcak ve soğuk kira, büyüklük, semt ve notlar. Yalnızca başlık zorunlu.
-- Her evi ilerlet: İlgileniyorum, Yazıldı, Ev Gezme, Başvuruldu, sonra Kabul Edildi ya da Reddedildi. Tek bir düğme onu her zaman bir sonraki adıma taşır.
+- Her evi ilerlet: İlgileniyorum, Mesaj Atıldı, Ev Gezme, Başvuruldu, sonra Kabul Edildi ya da Reddedildi. Tek bir düğme onu her zaman bir sonraki adıma taşır.
 - Ev gezme saatlerini kaydet. Yaklaşan randevular listede öne çıkar, geçmiş olanlar geri çekilir.
 - Evleri aylık ya da metrekare başına sıcak kiraya göre, en ucuzundan başlayarak karşılaştır ve her birinin ne kadar daha pahalı olduğunu gör.
 - Her ev için kısa bir güvenlik kontrolünden geç: evi yerinde görmek, ev gezmeden ve imzalı sözleşme olmadan para ödememek, yurt dışına ya da nakit para transfer servisleriyle ödeme yapmamak, kimlik fotokopisini ancak sözleşme hazır olunca vermek, semte uygun bir kira.

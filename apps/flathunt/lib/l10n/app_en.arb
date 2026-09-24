@@ -26,7 +26,7 @@
   "emptyFlatsTitle": "No Flats Yet",
   "emptyFlatsBody": "Add each flat you like, from any site or group. Then move it along as you message, view and apply.",
   "addFlat": "Add Flat",
-  "warmShort": "{amount} warm",
+  "warmShort": "{amount} warm",
   "@warmShort": {
     "placeholders": {
       "amount": {
@@ -34,7 +34,7 @@
       }
     }
   },
-  "sizeShort": "{size} m²",
+  "sizeShort": "{size} m²",
   "@sizeShort": {
     "placeholders": {
       "size": {
@@ -117,11 +117,11 @@
   "notes": "Notes",
   "checksHeader": "Safety Checks",
   "checkViewed": "You have seen the flat in person",
-  "checkNoPrepay": "No deposit or rent before the viewing and a signed contract",
+  "checkNoPrepay": "No deposit or rent paid before the viewing and a signed contract",
   "checkAccountInName": "Payment only by bank transfer to the landlord, not abroad or through cash transfer services",
   "checkIdLater": "ID copy only once the contract is ready to sign",
   "checkPlausible": "The rent fits the area and size, not far below similar flats",
-  "checksFooter": "Tick each point once you have confirmed it. If one does not hold, stop and ask the Studentenwerk or the local tenants' association (Mieterverein) before you pay or send documents.",
+  "checksFooter": "Tick each point once you have confirmed it. If one does not hold, that is a common warning sign: ask the Studentenwerk or the local tenants' association (Mieterverein) before you pay or send documents.",
   "semCheckHint": "Marks this point as confirmed",
   "edit": "Edit",
   "newFlat": "New Flat",

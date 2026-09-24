@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sagbar/app.dart';
@@ -276,7 +277,7 @@ void main() {
     expect(state.book.detail(Slot.email), 'arda.ertuerk@posteo.de');
   });
 
-  testWidgets('hiding every line empties the cards action', (t) async {
+  testWidgets('hiding every line removes the cards action', (t) async {
     var book = typicalBook();
     for (final l in situationById('vermieter')!.lines) {
       book = book.hide(l.id);
@@ -284,13 +285,43 @@ void main() {
     await start(t, book);
     await tapText(t, 'Vermieter');
     expect(find.textContaining('No lines here'), findsOneWidget);
-    final button = t.widget<CupertinoButton>(
-      find.ancestor(
-        of: find.text('Show Cards'),
-        matching: find.byType(CupertinoButton),
+    expect(find.text('Show Cards'), findsNothing);
+    await tapText(t, 'Show 7 Hidden Lines');
+    expect(find.text('Show Cards'), findsOneWidget);
+  });
+
+  testWidgets('own lines are shown exactly as typed', (t) async {
+    await start(
+      t,
+      typicalBook().addLine('bank', 'Mein Code ist {name}.', 'Code {ref}'),
+    );
+    await tapText(t, 'Bank');
+    await t.scrollUntilVisible(
+      find.textContaining('Mein Code ist {name}.', findRichText: true),
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
+    expect(find.text('Code {ref}'), findsOneWidget);
+  });
+
+  testWidgets('VoiceOver reads the German part of a line in German', (t) async {
+    await start(t, typicalBook());
+    await tapText(t, 'Bürgeramt');
+    final tile = t.widget<Semantics>(
+      find.byWidgetPredicate(
+        (w) =>
+            w is Semantics &&
+            (w.properties.attributedLabel?.string.startsWith(
+                  'Guten Tag, ich habe um 10:40 Uhr einen Termin.',
+                ) ??
+                false),
       ),
     );
-    expect(button.onPressed, isNull);
+    final label = tile.properties.attributedLabel!;
+    expect(label.string, contains('\nHello, I have an appointment at 10:40.'));
+    final attr = label.attributes.single as LocaleStringAttribute;
+    expect(attr.locale, const Locale('de', 'DE'));
+    expect(attr.range.end, label.string.indexOf('\n'));
   });
 
   testWidgets('load error banner can be dismissed', (t) async {

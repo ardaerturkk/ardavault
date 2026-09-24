@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
+import '../model/book.dart';
 import '../model/content.dart';
 import '../state/app_state.dart';
 import 'line_text.dart';
@@ -88,7 +89,7 @@ class _CardPageState extends State<CardPage> {
         trailing: CupertinoButton(
           padding: EdgeInsets.zero,
           onPressed: () {
-            final text = plainText(l, book.fill(lines[index].german, s.id), s);
+            final text = plainText(l, book.germanOf(lines[index], s.id), s);
             unawaited(Clipboard.setData(ClipboardData(text: text)));
             unawaited(HapticFeedback.lightImpact());
             setState(() => _copied = index);
@@ -107,11 +108,8 @@ class _CardPageState extends State<CardPage> {
                   unawaited(HapticFeedback.selectionClick());
                   setState(() => _index = i);
                 },
-                itemBuilder: (context, i) => _Card(
-                  situation: s,
-                  german: lines[i].german,
-                  meaning: lines[i].meaning,
-                ),
+                itemBuilder: (context, i) =>
+                    _Card(situation: s, line: lines[i]),
               ),
             ),
             _Pager(
@@ -129,14 +127,9 @@ class _CardPageState extends State<CardPage> {
 
 /// One line in the largest type that fits the screen.
 class _Card extends StatelessWidget {
-  const _Card({
-    required this.situation,
-    required this.german,
-    required this.meaning,
-  });
+  const _Card({required this.situation, required this.line});
   final Situation situation;
-  final String german;
-  final String meaning;
+  final LineView line;
 
   @override
   Widget build(BuildContext context) {
@@ -144,20 +137,18 @@ class _Card extends StatelessWidget {
     final book = AppScope.of(context).book;
     final theme = CupertinoTheme.of(context).textTheme;
     final label = CupertinoColors.label.resolveFrom(context);
-    final pieces = book.fill(german, situation.id);
+    final pieces = book.germanOf(line, situation.id);
     final spans = lineSpans(
       context,
       pieces,
       situation,
       filledWeight: FontWeight.w700,
     );
-    final meaningText = meaning.isEmpty
-        ? ''
-        : plainText(
-            l,
-            book.fill(meaning, situation.id, numeric: true),
-            situation,
-          );
+    final meaningText = plainText(
+      l,
+      book.meaningOf(line, situation.id),
+      situation,
+    );
     final scaler = MediaQuery.textScalerOf(context)
         .clamp(minScaleFactor: 1, maxScaleFactor: 2);
     const pad = EdgeInsets.fromLTRB(24, 16, 24, 16);
@@ -245,7 +236,7 @@ class _Card extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text.rich(
-                  TextSpan(children: spans),
+                  TextSpan(locale: germanLocale, children: spans),
                   textScaler: TextScaler.noScaling,
                   style: germanStyle(size),
                 ),

@@ -316,6 +316,17 @@ class Book {
     return out;
   }
 
+  /// The German text of a line, filled in. The user's own lines are shown
+  /// exactly as typed: details are only filled into built-in lines.
+  List<Piece> germanOf(LineView line, String situationId) => line.isCustom
+      ? [Piece.text(line.german)]
+      : fill(line.german, situationId);
+
+  /// The meaning of a line, with numeric dates. Empty when there is none.
+  List<Piece> meaningOf(LineView line, String situationId) => line.isCustom
+      ? [if (line.meaning.isNotEmpty) Piece.text(line.meaning)]
+      : fill(line.meaning, situationId, numeric: true);
+
   /// Slots used by the visible lines of a situation that have no value yet.
   List<Slot> missingFor(Situation s, String locale) {
     final seen = <Slot>{};

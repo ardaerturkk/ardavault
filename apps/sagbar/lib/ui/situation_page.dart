@@ -171,14 +171,14 @@ class SituationPage extends StatelessWidget {
               ],
             ),
           ),
-          _ActionBar(
-            child: PrimaryButton(
-              onPressed: lines.isEmpty
-                  ? null
-                  : () => openCards(context, situation: s, index: 0),
-              label: l.showCards,
+          // With every line hidden, the list itself offers the next step.
+          if (lines.isNotEmpty)
+            _ActionBar(
+              child: PrimaryButton(
+                onPressed: () => openCards(context, situation: s, index: 0),
+                label: l.showCards,
+              ),
             ),
-          ),
         ],
       ),
     );
@@ -202,19 +202,15 @@ class LineTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final l = context.l;
     final book = AppScope.of(context).book;
-    final pieces = book.fill(line.german, situation.id);
+    final pieces = book.germanOf(line, situation.id);
     final meaning = line.meaning.isEmpty
         ? (line.isCustom ? l.yourLine : '')
-        : plainText(
-            l,
-            book.fill(line.meaning, situation.id, numeric: true),
-            situation,
-          );
+        : plainText(l, book.meaningOf(line, situation.id), situation);
     final secondary = CupertinoColors.secondaryLabel.resolveFrom(context);
     final theme = CupertinoTheme.of(context).textTheme;
     return Semantics(
       button: true,
-      label: '${plainText(l, pieces, situation)}\n$meaning',
+      attributedLabel: germanLabel(plainText(l, pieces, situation), meaning),
       hint: l.semLineHint,
       excludeSemantics: true,
       onTap: () => openCards(context, situation: situation, index: index),
@@ -225,6 +221,7 @@ class LineTile extends StatelessWidget {
           padding: const EdgeInsetsDirectional.fromSTEB(20, 12, 16, 12),
           title: Text.rich(
             TextSpan(
+              locale: germanLocale,
               children: lineSpans(
                 context,
                 pieces,
@@ -265,13 +262,13 @@ class LineTile extends StatelessWidget {
     final state = AppScope.read(context);
     final text = plainText(
       l,
-      state.book.fill(line.german, situation.id),
+      state.book.germanOf(line, situation.id),
       situation,
     );
     final choice = await showCupertinoModalPopup<String>(
       context: context,
       builder: (context) => CupertinoActionSheet(
-        message: Text(text),
+        message: Text.rich(TextSpan(text: text, locale: germanLocale)),
         actions: [
           CupertinoActionSheetAction(
             onPressed: () => Navigator.pop(context, 'copy'),

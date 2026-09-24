@@ -90,12 +90,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String warmShort(String amount) {
-    return '$amount warm';
+    return '$amount warm';
   }
 
   @override
   String sizeShort(String size) {
-    return '$size m²';
+    return '$size m²';
   }
 
   @override
@@ -193,7 +193,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get checkNoPrepay =>
-      'No deposit or rent before the viewing and a signed contract';
+      'No deposit or rent paid before the viewing and a signed contract';
 
   @override
   String get checkAccountInName =>
@@ -208,7 +208,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get checksFooter =>
-      'Tick each point once you have confirmed it. If one does not hold, stop and ask the Studentenwerk or the local tenants\' association (Mieterverein) before you pay or send documents.';
+      'Tick each point once you have confirmed it. If one does not hold, that is a common warning sign: ask the Studentenwerk or the local tenants\' association (Mieterverein) before you pay or send documents.';
 
   @override
   String get semCheckHint => 'Marks this point as confirmed';

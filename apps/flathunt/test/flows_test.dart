@@ -75,7 +75,7 @@ void main() {
     expect(f.stage, Stage.interested);
     expect(f.stageSince, demoToday);
     expect(find.text('Interested'), findsOneWidget);
-    expect(find.textContaining('€430.50 warm'), findsOneWidget);
+    expect(find.textContaining('€430.50\u00a0warm'), findsOneWidget);
     await state.flush();
     expect(jsonDecode(storage.contents!), isA<Map<String, Object?>>());
   });

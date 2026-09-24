@@ -66,7 +66,7 @@ void main() {
     expect(state.book.jobs.single.rateCents, 1350);
     expect(find.text('Minijob Pay in September'), findsOneWidget);
     expect(find.text('€54 of €603'), findsOneWidget);
-    expect(find.text('4 of 20 h'), findsOneWidget);
+    expect(find.text('4 of 20\u00a0h'), findsOneWidget);
     expect(find.text('0.5 of 140 days used'), findsOneWidget);
     await state.flush();
     expect(jsonDecode(storage.contents!), isA<Map<String, Object?>>());
@@ -82,7 +82,7 @@ void main() {
     expect(find.text('Edit Shift'), findsOneWidget);
     expect(find.text('Counts as a full day'), findsOneWidget);
     expect(
-      find.text('Together with 1 other shift that day: 5.5 h'),
+      find.text('Together with 1 other shift that day: 5.5\u00a0h'),
       findsOneWidget,
     );
   });
@@ -216,7 +216,10 @@ void main() {
     await start(t);
     await openTab(t, settingsIcon);
     await tapText(t, 'How Halfday Counts');
-    expect(find.textContaining('More than 4 h is a full day'), findsOneWidget);
+    expect(
+      find.textContaining('More than 4\u00a0h is a full day'),
+      findsOneWidget,
+    );
     await t.scrollUntilVisible(find.text('Not Legal Advice'), 200);
     expect(find.text('Not Legal Advice'), findsOneWidget);
   });

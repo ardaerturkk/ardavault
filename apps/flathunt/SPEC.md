@@ -23,8 +23,9 @@ a careful scam checklist on every flat.
    next stage: Interested > Messaged > Viewing > Applied > Answer (Accepted or
    Declined). Moving to Viewing asks for the viewing time (or "Set Time Later").
    Stage can also be set directly (Stage row, action sheet). The Flats list groups flats
-   by stage; Viewing is sorted by time and shows the date in the accent color, past
-   viewings in grey.
+   by what needs the user next: Accepted, Viewing, Applied, Messaged, Interested,
+   Declined. Viewing lists upcoming viewings soonest first (date in the accent color),
+   then flats without a time, then past viewings in grey, most recent first.
 3. Compare. Compare tab lists every flat that is not declined, sorted by warm rent per
    month or per m² (segmented control), cheapest first, with a thin proportional bar.
    Flats missing warm rent or size are listed below with what is missing.
@@ -51,7 +52,7 @@ maps, notifications (native plugin), import from portals (network), document lis
   confirmed), createdAt.
 - Derived: warm per m² (cents per m²), next stage, sorted sections, compare order.
 - Money is stored as integer euro cents; input accepts "480", "480,50", "1.200",
-  "1,200.50".
+  "1,200.50", "480,-", with or without € or EUR.
 
 ## Dependencies
 - flutter_localizations, intl (SDK / Dart team): localized dates, money and strings.

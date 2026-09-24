@@ -178,7 +178,7 @@ const situations = <Situation>[
         'buergeramt:6',
         'Hier sind mein Reisepass und die Wohnungsgeberbestätigung.',
         'Here are my passport and the confirmation from my landlord.',
-        'Pasaportum ve ev sahibi onay belgesi burada.',
+        'İşte pasaportum ve ev sahibi onay belgesi.',
       ),
       BuiltInLine(
         'buergeramt:7',
@@ -241,13 +241,16 @@ const situations = <Situation>[
       ),
       BuiltInLine(
         'auslaenderbehoerde:7',
-        'Bekomme ich bis dahin eine Fiktionsbescheinigung?',
-        'Will I get a provisional certificate (Fiktionsbescheinigung) until then?',
-        'O zamana kadar geçici bir belge (Fiktionsbescheinigung) alabilir miyim?',
+        'Bekomme ich eine Fiktionsbescheinigung, bis der Aufenthaltstitel '
+            'fertig ist?',
+        'Will I get a provisional certificate (Fiktionsbescheinigung) until '
+            'the residence permit is ready?',
+        'Oturum izni hazır olana kadar geçici bir belge '
+            '(Fiktionsbescheinigung) alabilir miyim?',
       ),
       BuiltInLine(
         'auslaenderbehoerde:8',
-        'Wann kann ich den Aufenthaltstitel abholen?',
+        'Wann kann ich meinen Aufenthaltstitel abholen?',
         'When can I pick up the residence permit card?',
         'Oturum kartını ne zaman alabilirim?',
       ),
@@ -271,7 +274,7 @@ const situations = <Situation>[
       BuiltInLine(
         'bank:2',
         'Ich möchte ein Girokonto eröffnen.',
-        'I would like to open a current account.',
+        'I would like to open a checking account.',
         'Vadesiz hesap (Girokonto) açmak istiyorum.',
       ),
       BuiltInLine(
@@ -300,7 +303,7 @@ const situations = <Situation>[
       ),
       BuiltInLine(
         'bank:7',
-        'Ich hätte gern auch eine Debitkarte und Onlinebanking.',
+        'Ich hätte außerdem gern eine Debitkarte und Onlinebanking.',
         'I would also like a debit card and online banking.',
         'Bir de banka kartı ve internet bankacılığı istiyorum.',
       ),
@@ -431,7 +434,7 @@ const situations = <Situation>[
       BuiltInLine(
         'vermieter:2',
         'Ich rufe wegen meiner Wohnung an: {address}.',
-        'I am calling about my flat: {address}.',
+        'I am calling about my apartment: {address}.',
         'Dairem hakkında arıyorum: {address}.',
       ),
       BuiltInLine(
@@ -454,9 +457,12 @@ const situations = <Situation>[
       ),
       BuiltInLine(
         'vermieter:6',
-        'Könnten Sie mir das bitte schriftlich an {email} schicken?',
-        'Could you please send that to me in writing at {email}?',
-        'Bunu bana yazılı olarak {email} adresine gönderebilir misiniz lütfen?',
+        'Könnten Sie mir das bitte schriftlich bestätigen? Meine '
+            'E-Mail-Adresse ist {email}.',
+        'Could you please confirm that in writing? My email address is '
+            '{email}.',
+        'Bunu yazılı olarak onaylayabilir misiniz lütfen? E-posta adresim '
+            '{email}.',
       ),
       BuiltInLine(
         'vermieter:7',
