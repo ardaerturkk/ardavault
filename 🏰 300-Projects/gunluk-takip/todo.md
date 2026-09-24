@@ -1,7 +1,7 @@
 ---
 title: Yapılacaklar
 created: 2026-09-20
-modified: 2026-09-21
+modified: 2026-09-24
 type: note
 status: active
 tags: [gunluk-takip, todo]
@@ -15,6 +15,9 @@ tags: [gunluk-takip, todo]
 - [ ] Günay'dan Verpflichtungserklarung bekliyorum
 - [ ] Sağlık Sigortası işini araştır / Emre'ye sor
 - [ ] Yeni internet taahhütüne bak
+- [ ] Sperrkonto Araştır
+- [ ] Uno projesi
+- [ ] uçak bileti
 
 ## Tamamlanmış
 
