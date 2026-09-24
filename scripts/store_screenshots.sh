@@ -5,7 +5,7 @@ set -e
 app="${1:?usage: scripts/store_screenshots.sh <app>}"
 root="$(cd "$(dirname "$0")/.." && pwd)"
 export PATH="$HOME/flutter/bin:$PATH"
-(cd "$root/apps/$app" && flutter test --tags screenshots test/store_screenshots_test.dart)
+(cd "$root/apps/$app" && flutter test --tags screenshots --run-skipped test/store_screenshots_test.dart)
 python3 - "$root/apps/$app/store/screenshots" <<'PY'
 import glob, sys
 from PIL import Image

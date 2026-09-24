@@ -5,9 +5,9 @@ Bundle ID prefix: com.arda (placeholder until Arda confirms)
 | App | Stage | Wedge | Bundle ID | Notes |
 | --- | --- | --- | --- | --- |
 | Paperpath | 6 ready-for-arda (1.0.0+1) | Knows which documents each paperwork step needs and gives you, so it always shows what you can do today and what to bring; offline, no account | com.arda.paperpath | Idea: ideas/paperpath.md. iOS workflow not run (tag push refused in cloud session). |
-| Flatboard (flat hunt) | 4 Polish/QA (dod.sh passes, review running) | One offline pipeline for flats from every portal, with viewings and warm-rent comparison | - | ideas/flathunt.md; waiting on Arda: still looking? |
+| Flatboard (flat hunt) | 6 ready-for-arda (1.0.0+1), review fixes applied | One offline pipeline for flats from every portal, with viewings and warm-rent comparison | - | ideas/flathunt.md; waiting on Arda: still looking? |
 | Halfday (work-day quota) | 4 Polish/QA (dod.sh passes, review running) | Counts full/half work days against the 140/280 student quota and shows when a plan hits the limit | com.arda.halfday | ideas/halfday.md |
-| Sagbar (counter phrases) | 5 iOS readiness done in cloud; review fixes applied (ready-for-arda after hand-off entry) | Ready German lines with your own details filled in, meanings in EN/TR, show-card for the counter | com.arda.sagbar | ideas/sagbar.md |
+| Sagbar (counter phrases) | 6 ready-for-arda (1.0.0+1), review fixes applied | Ready German lines with your own details filled in, meanings in EN/TR, show-card for the counter | com.arda.sagbar | ideas/sagbar.md |
 
 ## Parked / killed
 
@@ -43,3 +43,8 @@ Bundle ID prefix: com.arda (placeholder until Arda confirms)
   110 goldens and 50 tests did not: always run them before hand-off.
 - `flutter test` also ran the store screenshot test and silently re-wrote RGBA screenshots
   (App Store rejects alpha). dod.sh now excludes the tag and checks for alpha.
+- Plain `flutter test` now skips the `screenshots` tag (dart_test.yaml skip);
+  scripts/store_screenshots.sh passes --run-skipped.
+- WIP limit note: Arda asked for parallel apps on 2026-09-23; three ready-for-arda apps
+  exceed the usual limit of two unconfirmed. Stop adding new builds until he confirms
+  some of them.

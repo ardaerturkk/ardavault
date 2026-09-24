@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
   <rect width="1024" height="1024" fill="#3949AB"/>
-  <!-- a day as a circle: one half worked, one half free -->
-  <circle cx="512" cy="512" r="300" fill="none" stroke="#FFFFFF" stroke-width="44"/>
-  <path d="M512 212 A300 300 0 0 0 512 812 Z" fill="#FFFFFF"/>
+  <!-- one calendar day, half of it worked -->
+  <path d="M512 408 H252 V718 A70 70 0 0 0 322 788 H512 Z" fill="#FFFFFF"/>
+  <rect x="232" y="268" width="560" height="540" rx="90" fill="none" stroke="#FFFFFF" stroke-width="40"/>
+  <line x1="232" y1="408" x2="792" y2="408" stroke="#FFFFFF" stroke-width="40"/>
+  <rect x="352" y="196" width="48" height="136" rx="24" fill="#FFFFFF"/>
+  <rect x="624" y="196" width="48" height="136" rx="24" fill="#FFFFFF"/>
 </svg>

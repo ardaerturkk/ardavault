@@ -1,5 +1,25 @@
 # ARDA-INBOX
 
+## 2026-09-24 sabah: gece yapılanlar
+Dediğin gibi ayrı agent'larla çalıştım: bir fikir agent'ı fikir buldu, her uygulamayı
+ayrı bir builder yaptı, her birine ayrı bir tasarım+QA agent'ı baktı, ben doğrulayıp
+commit ettim. Hepsi Paperpath ile aynı standartta (3 dil, testler, ekran görüntüleri,
+ikon, gizlilik sayfası) ve `scripts/dod.sh` geçiyor. Hiçbiri iOS'ta derlenmedi.
+
+Yüklemeye hazır (her birinde `apps/<app>/ARDA-MAC.md` adım adım):
+- **Flatboard** (`apps/flathunt`): ev/oda arama takibi, tüm sitelerden tek liste,
+  gezme saatleri, sıcak kira karşılaştırması, dolandırıcılık kontrol listesi.
+- **Sagbar** (`apps/sagbar`): Bürgeramt, banka, Krankenkasse vb. için kendi
+  bilgilerinle dolmuş hazır Almanca cümleler, gişede göstermek için büyük kart.
+  Almanca cümleleri anadili Almanca biri okumadı; göz atarsan iyi olur.
+- **Halfday** (`apps/halfday`, son incelemesi sürüyor): öğrenci çalışma günü sayacı
+  (140 tam / 280 yarım gün), planın sınıra ne zaman takılacağını gösterir.
+
+Önemli düzeltme: Paperpath'in ekran görüntüleri alfa kanallıydı (App Store reddederdi);
+düzeltildi. Hepsini tek seferde değil, önce Paperpath'i yükle; sorun çıkarsa diğerlerine
+aynı düzeltmeyi yaparım. Hangilerini yayınlamak istediğini yaz, yeni uygulamaya
+başlamadan bunu bekleyeceğim.
+
 Stüdyo şu an seni bekliyor (`.studio/WAITING_ON_ARDA`). Paperpath'i yükleyince ya da
 sorulara cevap verince bu dosyayı sil; stüdyo kaldığı yerden devam eder.
 
