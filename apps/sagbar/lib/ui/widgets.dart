@@ -11,6 +11,31 @@ const accent = CupertinoDynamicColor.withBrightness(
   darkColor: Color(0xFFFF8A50),
 );
 
+/// Text on a filled accent button: white on the deep light-mode orange,
+/// near-black on the bright dark-mode orange so it stays readable.
+const onAccent = CupertinoDynamicColor.withBrightness(
+  color: CupertinoColors.white,
+  darkColor: Color(0xFF1C1C1E),
+);
+
+/// The one filled button style of the app.
+class PrimaryButton extends StatelessWidget {
+  const PrimaryButton({super.key, required this.label, this.onPressed});
+  final String label;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) => CupertinoButton.filled(
+    onPressed: onPressed,
+    foregroundColor: onAccent.resolveFrom(context),
+    child: Text(
+      label,
+      textAlign: TextAlign.center,
+      style: const TextStyle(fontWeight: FontWeight.w600),
+    ),
+  );
+}
+
 extension L10nX on BuildContext {
   AppLocalizations get l => AppLocalizations.of(this);
 }
@@ -100,10 +125,7 @@ class EmptyState extends StatelessWidget {
             const SizedBox(height: 24),
             SizedBox(
               width: double.infinity,
-              child: CupertinoButton.filled(
-                onPressed: onPrimary,
-                child: Text(primaryLabel, textAlign: TextAlign.center),
-              ),
+              child: PrimaryButton(onPressed: onPrimary, label: primaryLabel),
             ),
             if (secondaryLabel != null) ...[
               const SizedBox(height: 8),
@@ -337,7 +359,13 @@ class ValueTile extends StatelessWidget {
       padding: tilePadding,
       leading: leading,
       title: large
-          ? RowText(label)
+          ? (label.contains(' ')
+                ? RowText(label)
+                : FittedBox(
+                    fit: BoxFit.scaleDown,
+                    alignment: AlignmentDirectional.centerStart,
+                    child: Text(label, maxLines: 1),
+                  ))
           : Row(
               children: [
                 // Labels are short ("Deadline"); the value takes the rest.

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#3949AB"/>
+  <!-- a day as a circle: one half worked, one half free -->
+  <circle cx="512" cy="512" r="300" fill="none" stroke="#FFFFFF" stroke-width="44"/>
+  <path d="M512 212 A300 300 0 0 0 512 812 Z" fill="#FFFFFF"/>
+</svg>

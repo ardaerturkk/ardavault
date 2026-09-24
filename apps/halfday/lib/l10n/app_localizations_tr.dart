@@ -61,7 +61,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String usedOfLimit(String limit, String used) {
+  String usedOfLimit(String used, String limit) {
     return '$limit günün $used günü kullanıldı';
   }
 
@@ -95,7 +95,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get hoursThisWeek => 'Bu Haftaki Saat';
 
   @override
-  String ofValue(String limit, String used) {
+  String ofValue(String used, String limit) {
     return '$used / $limit';
   }
 
@@ -293,15 +293,25 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String planOverBodyNoLast(String days, String year) {
+  String planOverBodyNoLast(String year, String days) {
     return '$year sınırı zaten dolmuş. Plan $days fazla.';
+  }
+
+  @override
+  String planUsedUpTitle(String year) {
+    return '$year İçin Gün Kalmadı';
+  }
+
+  @override
+  String daysOver(String days) {
+    return '$days fazla';
   }
 
   @override
   String get planReachedTitle => 'Kalan Tüm Günleri Kullanır';
 
   @override
-  String planReachedBody(String date, String year) {
+  String planReachedBody(String year, String date) {
     return '$year sınırına $date tarihinde ulaşılır. Sonrasında gün kalmaz.';
   }
 

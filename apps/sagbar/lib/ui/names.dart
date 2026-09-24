@@ -40,9 +40,8 @@ String plainText(
   AppLocalizations l,
   List<Piece> pieces, [
   Situation? situation,
-]) => pieces
-    .map((p) => p.text ?? '[${slotLabel(l, p.slot!, situation)}]')
-    .join();
+]) =>
+    pieces.map((p) => p.text ?? '[${slotLabel(l, p.slot!, situation)}]').join();
 
 /// "A", "A and B", "A, B and C" in the current language.
 String joinNames(AppLocalizations l, List<String> names) {

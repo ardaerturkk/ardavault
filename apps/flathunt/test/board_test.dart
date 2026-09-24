@@ -75,16 +75,16 @@ void main() {
 
   test('add hands out fresh ids', () {
     var b = const Board();
-    b = b.add((id) => flat(id));
-    b = b.add((id) => flat(id));
+    b = b.add(flat);
+    b = b.add(flat);
     expect(b.flats.map((f) => f.id), ['f1', 'f2']);
-    b = b.remove('f2').add((id) => flat(id));
+    b = b.remove('f2').add(flat);
     expect(b.flats.last.id, 'f3');
   });
 
   test('moving stamps the time; staying keeps it', () {
     final now = DateTime(2026, 10, 6, 12);
-    var b = const Board().add((id) => flat(id));
+    var b = const Board().add(flat);
     b = b.moveTo('f1', Stage.messaged, now);
     expect(b.flat('f1')!.stage, Stage.messaged);
     expect(b.flat('f1')!.stageSince, now);
@@ -98,7 +98,7 @@ void main() {
   });
 
   test('toggling a check adds and removes it', () {
-    var b = const Board().add((id) => flat(id));
+    var b = const Board().add(flat);
     b = b.toggleCheck('f1', Check.viewed);
     expect(b.flat('f1')!.checks, {Check.viewed});
     b = b.toggleCheck('f1', Check.viewed);

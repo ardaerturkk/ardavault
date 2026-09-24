@@ -1,0 +1,19 @@
+Sagbar, Alman resmi dairelerinde ve telefonda ne söyleyeceğini önceden hazırlar. Bilgilerini bir kez gir, bir durum seç; adın, adresin, doğum tarihin ve numaraların yerleştirilmiş kısa, kibar Almanca cümleler hazır. Her cümlenin altında Türkçe veya İngilizce anlamı yazar.
+
+Gişede bir cümleye dokun, ekranı büyük yazıyla kaplasın. Yüksek sesle okuyabilir ya da iPhone'unu karşındakine gösterebilirsin.
+
+NELER YAPABİLİRSİN
+- Bilgilerini tek yerde tut: ad soyad, doğum tarihi, adres, telefon, e-posta, sağlık sigortası, sigorta numarası ve öğrenci numarası. Her alan isteğe bağlı.
+- Sekiz durum: Bürgeramt (adres kaydı), Ausländerbehörde (oturum izni), banka, Krankenkasse, doktor muayenehanesi, ev sahibini arama, öğrenci işleri ve her gişe için temel cümleler (örneğin daha yavaş konuşmasını rica etmek).
+- Randevu saatini ve mektubundaki numarayı (Aktenzeichen, Vorgangsnummer, Kundennummer) gir; uygun cümlelerde görünsün.
+- Her cümleyi büyük bir kart olarak göster, kaydırarak sonrakine geç, bir cümleyi mesaja veya e-postaya kopyala.
+- Telefonda adını harf harf söyle.
+- Kendi cümlelerini ekle, gerek duymadıklarını gizle.
+
+NE DEĞİLDİR
+Sagbar bir çeviri uygulaması ve hukuki danışmanlık değildir. Cümleler sık karşılaşılan anlar için kibar, gündelik standart Almancadır. Her dairenin kendi kuralları vardır.
+
+GİZLİLİK
+Hesap yok, takip yok, reklam yok. Bilgilerin yalnızca iPhone'unda saklanır ve uygulama tamamen çevrimdışı çalışır.
+
+Türkçe, Almanca ve İngilizce. Almanca cümleler her dilde aynı kalır.

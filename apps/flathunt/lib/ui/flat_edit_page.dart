@@ -329,6 +329,9 @@ class _FieldRow extends StatelessWidget {
           : TextCapitalization.none,
       autocorrect: keyboard == null,
       textAlign: large ? TextAlign.start : TextAlign.end,
+      // Long links and district names wrap instead of scrolling sideways.
+      maxLines: numeric ? 1 : null,
+      textInputAction: TextInputAction.done,
       padding: EdgeInsets.zero,
       style: TextStyle(
         fontFeatures: numeric ? tabular : null,

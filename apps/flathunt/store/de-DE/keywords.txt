@@ -1,0 +1,1 @@
+wg,wohnung,student,warmmiete,kaltmiete,vermieter,kaution,betrug,umzug,wohnheim,vergleich,liste

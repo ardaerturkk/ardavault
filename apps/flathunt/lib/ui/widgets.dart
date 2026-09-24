@@ -7,7 +7,7 @@ import '../state/app_state.dart';
 
 const accent = CupertinoDynamicColor.withBrightness(
   color: Color(0xFF0E7C66),
-  darkColor: Color(0xFF3CC7A6),
+  darkColor: Color(0xFF1C9A7F),
 );
 
 extension L10nX on BuildContext {
@@ -170,6 +170,7 @@ Future<DatePick?> pickDate(
   bool withTime = false,
   String? helpText,
   String? removeLabel,
+  bool removeIsDestructive = true,
   String? confirmLabel,
 }) {
   if (withTime) {
@@ -261,9 +262,11 @@ Future<DatePick?> pickDate(
                         Navigator.pop(context, const DatePick.removed()),
                     child: Text(
                       removeLabel,
-                      style: const TextStyle(
-                        color: CupertinoColors.destructiveRed,
-                      ),
+                      style: removeIsDestructive
+                          ? const TextStyle(
+                              color: CupertinoColors.destructiveRed,
+                            )
+                          : null,
                     ),
                   ),
               ],

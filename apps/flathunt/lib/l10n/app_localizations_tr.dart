@@ -212,11 +212,6 @@ class AppLocalizationsTr extends AppLocalizations {
       'Her maddeyi doğruladıktan sonra işaretle. Biri tutmuyorsa dur ve para ödemeden ya da belge göndermeden önce Studentenwerk\'e veya yerel kiracılar derneğine (Mieterverein) danış.';
 
   @override
-  String checksCount(int done, int total) {
-    return '$total maddeden $done tanesi doğrulandı';
-  }
-
-  @override
   String get semCheckHint => 'Bu maddeyi doğrulandı olarak işaretler';
 
   @override
@@ -282,9 +277,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get removeViewing => 'Randevuyu Kaldır';
-
-  @override
-  String get compareBy => 'Karşılaştırma';
 
   @override
   String get perMonthSeg => 'Aylık';

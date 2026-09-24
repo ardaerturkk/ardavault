@@ -24,7 +24,9 @@ Future<(AppState, MemoryStorage)> start(
   return (state, storage);
 }
 
+/// Scrolls the topmost list until [text] is built, then taps it.
 Future<void> tapText(WidgetTester t, String text) async {
+  await reveal(t, find.text(text));
   final f = find.text(text).last;
   await t.ensureVisible(f);
   await t.pumpAndSettle();
@@ -32,8 +34,16 @@ Future<void> tapText(WidgetTester t, String text) async {
   await t.pumpAndSettle();
 }
 
+Future<void> reveal(WidgetTester t, Finder f) async {
+  if (f.evaluate().isNotEmpty) return;
+  await t.scrollUntilVisible(f, 300, scrollable: find.byType(Scrollable).last);
+  await t.pumpAndSettle();
+}
+
 Finder field(String label) => find.descendant(
-  of: find.bySemanticsLabel(label),
+  of: find.byWidgetPredicate(
+    (w) => w is Semantics && w.properties.label == label,
+  ),
   matching: find.byType(EditableText),
 );
 
@@ -132,7 +142,10 @@ void main() {
     final f = state.board.flat('f4')!;
     expect(f.stage, Stage.viewing);
     expect(f.viewing, DateTime(2026, 10, 7, 17));
-    expect(find.text('Viewing Wed, Oct 7, 17:00'), findsOneWidget);
+    expect(
+      find.textContaining(RegExp(r'^Viewing Wed, Oct 7, 5:00.PM$')),
+      findsOneWidget,
+    );
 
     await tapText(t, 'Mark as Applied');
     expect(state.board.flat('f4')!.stage, Stage.applied);
@@ -179,13 +192,15 @@ void main() {
     expect(find.text('Move this flat to another stage.'), findsOneWidget);
     await tapText(t, 'Declined');
     expect(state.board.flat('f2')!.stage, Stage.declined);
+    await t.drag(find.byType(Scrollable).last, const Offset(0, 600));
+    await t.pumpAndSettle();
     expect(find.text('Declined Oct 6'), findsOneWidget);
   });
 
   testWidgets('tick safety checks', (t) async {
     final (state, _) = await start(t, typicalBoard());
     await tapText(t, 'WG Room Near Campus');
-    expect(find.text('Safety Checks'), findsOneWidget);
+    await reveal(t, find.text('Safety Checks'));
     await tapText(t, 'You have seen the flat in person');
     expect(state.board.flat('f1')!.checks, {Check.noPrepay, Check.viewed});
     await tapText(t, 'You have seen the flat in person');

@@ -56,14 +56,17 @@ void main() {
     expect(s.loadFailed, isFalse);
   });
 
-  test('if the bad file cannot be moved aside, nothing overwrites it', () async {
-    final storage = MemoryStorage('{bad')..failSetAside = true;
-    final s = await AppState.load(storage);
-    s.update(withJob(s.book, 'A'));
-    await s.flush();
-    expect(storage.contents, '{bad');
-    expect(s.saveFailed, isTrue);
-  });
+  test(
+    'if the bad file cannot be moved aside, nothing overwrites it',
+    () async {
+      final storage = MemoryStorage('{bad')..failSetAside = true;
+      final s = await AppState.load(storage);
+      s.update(withJob(s.book, 'A'));
+      await s.flush();
+      expect(storage.contents, '{bad');
+      expect(s.saveFailed, isTrue);
+    },
+  );
 
   test('a read error also sets the file aside', () async {
     final storage = MemoryStorage('{"shifts":[]}')..failReads = true;

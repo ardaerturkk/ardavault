@@ -122,17 +122,6 @@
   "checkIdLater": "ID copy only once the contract is ready to sign",
   "checkPlausible": "The rent fits the area and size, not far below similar flats",
   "checksFooter": "Tick each point once you have confirmed it. If one does not hold, stop and ask the Studentenwerk or the local tenants' association (Mieterverein) before you pay or send documents.",
-  "checksCount": "{done} of {total} confirmed",
-  "@checksCount": {
-    "placeholders": {
-      "done": {
-        "type": "int"
-      },
-      "total": {
-        "type": "int"
-      }
-    }
-  },
   "semCheckHint": "Marks this point as confirmed",
   "edit": "Edit",
   "newFlat": "New Flat",
@@ -155,7 +144,6 @@
   "viewingTime": "Viewing Time",
   "setTimeLater": "Set Time Later",
   "removeViewing": "Remove Viewing Time",
-  "compareBy": "Compare by",
   "perMonthSeg": "Per Month",
   "perSqmSeg": "Per m²",
   "compareEmptyTitle": "Nothing to Compare Yet",

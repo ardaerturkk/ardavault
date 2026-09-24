@@ -1,0 +1,18 @@
+Flatboard hält deine Wohnungssuche an einem Ort zusammen. Zimmer und Wohnungen findest du auf Anzeigenportalen, in Gruppen-Chats, beim Studentenwerk und über Freunde. Flatboard legt jede davon auf eine Liste und zeigt, wo du bei jeder stehst.
+
+Gemacht für Studierende auf Zimmersuche in einer deutschen Unistadt, und nützlich für jede Mietsuche.
+
+WAS DU TUN KANNST
+- Eine Wohnung in Sekunden eintragen: Titel, wo du sie gefunden hast, Link zur Anzeige, Warm- und Kaltmiete, Größe, Stadtteil und Notizen. Nur der Titel ist Pflicht.
+- Jede Wohnung weiterschieben: Interessant, Angeschrieben, Besichtigung, Beworben, dann Zusage oder Absage. Ein Knopf bringt sie immer zum nächsten Schritt.
+- Besichtigungstermine festhalten. Kommende Termine fallen in der Liste auf, vergangene treten zurück.
+- Wohnungen nach Warmmiete pro Monat oder pro Quadratmeter vergleichen, die günstigste zuerst, und sehen, wie viel mehr jede kostet.
+- Für jede Wohnung einen kurzen Sicherheitscheck durchgehen: persönlich gesehen, kein Geld vor Besichtigung und unterschriebenem Vertrag, keine Überweisung ins Ausland oder über Bargeld-Transferdienste, Ausweiskopie erst bei fertigem Vertrag, Miete passend zur Lage.
+- Einen gespeicherten Link kopieren und im Browser öffnen.
+
+PRIVAT VON ANFANG AN
+Kein Konto, kein Tracking, keine Werbung. Alles bleibt auf deinem iPhone und die App funktioniert komplett offline.
+
+Der Sicherheitscheck nennt allgemeine Vorsichtsmaßnahmen. Er ist keine Rechtsberatung; im Zweifel frag beim Studentenwerk oder beim Mieterverein nach.
+
+Auf Deutsch, Englisch und Türkisch.

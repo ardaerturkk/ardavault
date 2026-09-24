@@ -32,10 +32,10 @@
   "usedOfLimit": "{used} of {limit} days used",
   "@usedOfLimit": {
     "placeholders": {
-      "limit": {
+      "used": {
         "type": "String"
       },
-      "used": {
+      "limit": {
         "type": "String"
       }
     }
@@ -84,10 +84,10 @@
   "ofValue": "{used} of {limit}",
   "@ofValue": {
     "placeholders": {
-      "limit": {
+      "used": {
         "type": "String"
       },
-      "used": {
+      "limit": {
         "type": "String"
       }
     }
@@ -103,7 +103,7 @@
   "weekFooter": "Hours in all jobs, Monday to Sunday. The weekly limit matters during the lecture period.",
   "overWeekLimit": "Over the weekly limit",
   "overMinijobLimit": "Over the Minijob limit",
-  "hoursValue": "{hours} h",
+  "hoursValue": "{hours} h",
   "@hoursValue": {
     "placeholders": {
       "hours": {
@@ -236,10 +236,26 @@
   "planOverBodyNoLast": "The limit for {year} is already used up. The plan goes {days} over.",
   "@planOverBodyNoLast": {
     "placeholders": {
-      "days": {
+      "year": {
         "type": "String"
       },
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "planUsedUpTitle": "No Days Left in {year}",
+  "@planUsedUpTitle": {
+    "placeholders": {
       "year": {
+        "type": "String"
+      }
+    }
+  },
+  "daysOver": "{days} over",
+  "@daysOver": {
+    "placeholders": {
+      "days": {
         "type": "String"
       }
     }
@@ -248,10 +264,10 @@
   "planReachedBody": "The limit for {year} is reached on {date}. No days are left after that.",
   "@planReachedBody": {
     "placeholders": {
-      "date": {
+      "year": {
         "type": "String"
       },
-      "year": {
+      "date": {
         "type": "String"
       }
     }

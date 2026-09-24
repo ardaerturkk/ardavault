@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flathunt/model/board.dart';
 import 'package:flathunt/state/app_state.dart';
 import 'package:flathunt/state/storage.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 Flat probe(String id, String title) => Flat(
   id: id,

@@ -1,7 +1,7 @@
 # Flatboard: spec
 
 Personality: a level-headed friend who keeps every flat on one list and your guard up.
-Accent: house-door green (light #0E7C66, dark #3CC7A6). Everything else is system colors.
+Accent: house-door green (light #0E7C66, dark #1C9A7F). Everything else is system colors.
 
 ## User and job
 A student looking for a room or flat in a German university town (first: Arda, moving

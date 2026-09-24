@@ -1,0 +1,18 @@
+Flatboard ev arama sürecini tek bir yerde toplar. Oda ve evleri ilan sitelerinde, grup sohbetlerinde, Studentenwerk'te ve arkadaşlardan bulursun. Flatboard hepsini tek bir listeye koyar ve her birinde ne durumda olduğunu gösterir.
+
+Almanya'da bir üniversite şehrinde oda arayan öğrenciler için yapıldı, her kiralık ev aramasında da işe yarar.
+
+NELER YAPABİLİRSİN
+- Bir evi saniyeler içinde ekle: başlık, nerede bulduğun, ilan bağlantısı, sıcak ve soğuk kira, büyüklük, semt ve notlar. Yalnızca başlık zorunlu.
+- Her evi ilerlet: İlgileniyorum, Yazıldı, Ev Gezme, Başvuruldu, sonra Kabul Edildi ya da Reddedildi. Tek bir düğme onu her zaman bir sonraki adıma taşır.
+- Ev gezme saatlerini kaydet. Yaklaşan randevular listede öne çıkar, geçmiş olanlar geri çekilir.
+- Evleri aylık ya da metrekare başına sıcak kiraya göre, en ucuzundan başlayarak karşılaştır ve her birinin ne kadar daha pahalı olduğunu gör.
+- Her ev için kısa bir güvenlik kontrolünden geç: evi yerinde görmek, ev gezmeden ve imzalı sözleşme olmadan para ödememek, yurt dışına ya da nakit para transfer servisleriyle ödeme yapmamak, kimlik fotokopisini ancak sözleşme hazır olunca vermek, semte uygun bir kira.
+- Kayıtlı bir bağlantıyı kopyalayıp tarayıcında aç.
+
+GİZLİLİK ESASLI
+Hesap yok, takip yok, reklam yok. Her şey iPhone'unda kalır ve uygulama tamamen çevrimdışı çalışır.
+
+Güvenlik kontrolü genel önlemleri listeler. Hukuki tavsiye değildir; emin değilsen Studentenwerk'e ya da yerel kiracılar derneğine danış.
+
+Türkçe, Almanca ve İngilizce.

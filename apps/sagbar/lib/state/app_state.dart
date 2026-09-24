@@ -8,9 +8,8 @@ import 'storage.dart';
 
 /// Holds the book, saves every change, and tells the UI to rebuild.
 class AppState extends ChangeNotifier {
-  AppState(this._storage, {Book book = const Book(), DateTime Function()? now})
-    : _book = book,
-      now = now ?? DateTime.now;
+  AppState(this._storage, {this._book = const Book(), DateTime Function()? now})
+    : now = now ?? DateTime.now;
 
   /// The clock, replaceable in tests and screenshots.
   final DateTime Function() now;

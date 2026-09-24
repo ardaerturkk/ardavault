@@ -39,8 +39,10 @@ int countedMinutesOn(Book book, Day day) {
   return total;
 }
 
-DayStatus dayStatus(Book book, Day day) =>
-    statusForMinutes(countedMinutesOn(book, day), book.settings.halfDayMaxMinutes);
+DayStatus dayStatus(Book book, Day day) => statusForMinutes(
+  countedMinutesOn(book, day),
+  book.settings.halfDayMaxMinutes,
+);
 
 class YearUsage {
   const YearUsage({
@@ -239,7 +241,8 @@ PlanResult runPlan(Book book, PlanInput p) {
         if (d.year != year) continue;
         final before = statusForMinutes(minutes[d] ?? 0, threshold);
         minutes[d] = (minutes[d] ?? 0) + p.minutesPerDay;
-        added += halvesOf(statusForMinutes(minutes[d]!, threshold)) -
+        added +=
+            halvesOf(statusForMinutes(minutes[d]!, threshold)) -
             halvesOf(before);
       }
     }

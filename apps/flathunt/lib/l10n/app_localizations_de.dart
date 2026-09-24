@@ -211,11 +211,6 @@ class AppLocalizationsDe extends AppLocalizations {
       'Hake jeden Punkt ab, sobald du ihn geprüft hast. Stimmt einer nicht, halte inne und frag beim Studentenwerk oder beim Mieterverein vor Ort nach, bevor du zahlst oder Unterlagen schickst.';
 
   @override
-  String checksCount(int done, int total) {
-    return '$done von $total geprüft';
-  }
-
-  @override
   String get semCheckHint => 'Markiert diesen Punkt als geprüft';
 
   @override
@@ -282,9 +277,6 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get removeViewing => 'Termin entfernen';
-
-  @override
-  String get compareBy => 'Vergleichen nach';
 
   @override
   String get perMonthSeg => 'Pro Monat';

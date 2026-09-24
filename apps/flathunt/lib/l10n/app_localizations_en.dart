@@ -211,11 +211,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'Tick each point once you have confirmed it. If one does not hold, stop and ask the Studentenwerk or the local tenants\' association (Mieterverein) before you pay or send documents.';
 
   @override
-  String checksCount(int done, int total) {
-    return '$done of $total confirmed';
-  }
-
-  @override
   String get semCheckHint => 'Marks this point as confirmed';
 
   @override
@@ -281,9 +276,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get removeViewing => 'Remove Viewing Time';
-
-  @override
-  String get compareBy => 'Compare by';
 
   @override
   String get perMonthSeg => 'Per Month';

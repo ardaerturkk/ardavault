@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" fill="#C2410C"/>
+  <!-- A held-up card that is also a speech bubble: the prepared line. -->
+  <path d="M232 268 H792 a64 64 0 0 1 64 64 V632 a64 64 0 0 1 -64 64 H452 L318 800 V696 H232 a64 64 0 0 1 -64 -64 V332 a64 64 0 0 1 64 -64 Z" fill="#FFF7F0"/>
+  <rect x="262" y="380" width="500" height="56" rx="28" fill="#C2410C" opacity="0.28"/>
+  <rect x="262" y="508" width="232" height="56" rx="28" fill="#C2410C"/>
+  <rect x="526" y="508" width="160" height="56" rx="28" fill="#C2410C" opacity="0.28"/>
+</svg>

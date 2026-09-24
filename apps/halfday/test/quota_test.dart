@@ -14,7 +14,12 @@ Book bookWith(List<(String date, int minutes, String job)> shifts) {
   for (final (date, minutes, job) in shifts) {
     b = b
         .addShift(
-          (id) => Shift(id: id, jobId: job, date: Day.parse(date), minutes: minutes),
+          (id) => Shift(
+            id: id,
+            jobId: job,
+            date: Day.parse(date),
+            minutes: minutes,
+          ),
         )
         .$1;
   }
@@ -120,7 +125,8 @@ void main() {
       b = b.copyWith(settings: b.settings.copyWith(fullDayLimit: 2));
       b = b.addShifts([
         for (final d in ['2026-05-04', '2026-05-05', '2026-05-06'])
-          (id) => Shift(id: id, jobId: 'cafe', date: Day.parse(d), minutes: 300),
+          (id) =>
+              Shift(id: id, jobId: 'cafe', date: Day.parse(d), minutes: 300),
       ]);
       final u = yearUsage(b, 2026);
       expect(u.left, -1.0);
@@ -184,9 +190,7 @@ void main() {
   group('plan', () {
     test('places weeks x days work days from the start date', () {
       // Wednesday 23 Sep 2026, Monday to Friday, 2 weeks: 10 dates.
-      final days = planDays(
-        PlanInput(start: Day(2026, 9, 23), weeks: 2, daysPerWeek: 5),
-      );
+      final days = planDays(PlanInput(start: Day(2026, 9, 23), weeks: 2));
       expect(days, hasLength(10));
       expect(days.first, Day(2026, 9, 23));
       expect(days.last, Day(2026, 10, 6));
@@ -250,12 +254,7 @@ void main() {
       b = b.copyWith(settings: b.settings.copyWith(fullDayLimit: 3));
       final r = runPlan(
         b,
-        PlanInput(
-          start: Day(2026, 12, 28),
-          weeks: 2,
-          daysPerWeek: 5,
-          jobId: 'cafe',
-        ),
+        PlanInput(start: Day(2026, 12, 28), weeks: 2, jobId: 'cafe'),
       );
       expect(r.years.map((y) => y.year), [2026, 2027]);
       final y26 = r.years.first;

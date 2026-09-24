@@ -454,12 +454,6 @@ abstract class AppLocalizations {
   /// **'Tick each point once you have confirmed it. If one does not hold, stop and ask the Studentenwerk or the local tenants\' association (Mieterverein) before you pay or send documents.'**
   String get checksFooter;
 
-  /// No description provided for @checksCount.
-  ///
-  /// In en, this message translates to:
-  /// **'{done} of {total} confirmed'**
-  String checksCount(int done, int total);
-
   /// No description provided for @semCheckHint.
   ///
   /// In en, this message translates to:
@@ -591,12 +585,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Remove Viewing Time'**
   String get removeViewing;
-
-  /// No description provided for @compareBy.
-  ///
-  /// In en, this message translates to:
-  /// **'Compare by'**
-  String get compareBy;
 
   /// No description provided for @perMonthSeg.
   ///

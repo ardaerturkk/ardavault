@@ -105,9 +105,9 @@ const situations = <Situation>[
       ),
       BuiltInLine(
         'basics:3',
-        'Können Sie das bitte noch einmal wiederholen?',
-        'Could you repeat that once more, please?',
-        'Bunu bir kez daha tekrar edebilir misiniz lütfen?',
+        'Können Sie das bitte noch einmal sagen?',
+        'Could you say that again, please?',
+        'Bunu bir kez daha söyleyebilir misiniz lütfen?',
       ),
       BuiltInLine(
         'basics:4',
@@ -117,7 +117,7 @@ const situations = <Situation>[
       ),
       BuiltInLine(
         'basics:5',
-        'Können wir vielleicht Englisch sprechen?',
+        'Könnten wir vielleicht Englisch sprechen?',
         'Could we perhaps speak English?',
         'Acaba İngilizce konuşabilir miyiz?',
       ),
@@ -247,9 +247,9 @@ const situations = <Situation>[
       ),
       BuiltInLine(
         'auslaenderbehoerde:8',
-        'Wann kann ich die Karte abholen?',
-        'When can I pick up the card?',
-        'Kartı ne zaman alabilirim?',
+        'Wann kann ich den Aufenthaltstitel abholen?',
+        'When can I pick up the residence permit card?',
+        'Oturum kartını ne zaman alabilirim?',
       ),
     ],
   ),

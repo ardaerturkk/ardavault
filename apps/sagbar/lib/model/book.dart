@@ -229,8 +229,12 @@ class Book {
     ],
   );
 
-  Book removeLine(String id) =>
-      copyWith(custom: [for (final c in custom) if (c.id != id) c]);
+  Book removeLine(String id) => copyWith(
+    custom: [
+      for (final c in custom)
+        if (c.id != id) c,
+    ],
+  );
 
   Book hide(String builtInId) => copyWith(hidden: {...hidden, builtInId});
 
@@ -257,7 +261,11 @@ class Book {
   List<LineView> linesFor(Situation s, String locale) => [
     for (final b in s.lines)
       if (!hidden.contains(b.id))
-        LineView(id: b.id, german: b.german, meaning: locale == 'tr' ? b.tr : b.en),
+        LineView(
+          id: b.id,
+          german: b.german,
+          meaning: locale == 'tr' ? b.tr : b.en,
+        ),
     for (final c in custom)
       if (c.situationId == s.id)
         LineView(id: c.id, german: c.german, meaning: c.meaning, custom: c),
@@ -274,9 +282,8 @@ class Book {
             : numeric
             ? numericDate(birthDate!)
             : germanDate(birthDate!),
-      Slot.nameSpelled => detail(Slot.name) == null
-          ? null
-          : spellName(detail(Slot.name)!),
+      Slot.nameSpelled =>
+        detail(Slot.name) == null ? null : spellName(detail(Slot.name)!),
       Slot.ref => v.ref.isEmpty ? null : v.ref,
       Slot.time => appt == null ? null : germanTime(appt),
       Slot.date =>
@@ -291,7 +298,11 @@ class Book {
 
   /// Splits a template into text and filled (or missing) slots. Unknown
   /// braces stay as text, so a user's own line is shown as typed.
-  List<Piece> fill(String template, String situationId, {bool numeric = false}) {
+  List<Piece> fill(
+    String template,
+    String situationId, {
+    bool numeric = false,
+  }) {
     final out = <Piece>[];
     var at = 0;
     for (final m in _slotPattern.allMatches(template)) {
@@ -316,7 +327,10 @@ class Book {
     }
     // Spelling comes from the name: ask for the name once.
     if (seen.remove(Slot.nameSpelled)) seen.add(Slot.name);
-    return [for (final slot in Slot.values) if (seen.contains(slot)) slot];
+    return [
+      for (final slot in Slot.values)
+        if (seen.contains(slot)) slot,
+    ];
   }
 
   Map<String, Object?> toJson() => {

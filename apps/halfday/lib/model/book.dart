@@ -159,11 +159,7 @@ class Settings {
     final limits = j['minijobLimits'];
     return Settings(
       fullDayLimit: read('fullDayLimit', typicalFullDayLimit, 1),
-      halfDayMaxMinutes: read(
-        'halfDayMaxMinutes',
-        typicalHalfDayMaxMinutes,
-        1,
-      ),
+      halfDayMaxMinutes: read('halfDayMaxMinutes', typicalHalfDayMaxMinutes, 1),
       weeklyHourLimit: read('weeklyHourLimit', typicalWeeklyHourLimit, 1),
       minijobLimits: limits is Map
           ? {
@@ -257,15 +253,13 @@ class Book {
     nextId: nextId,
   );
 
-  int shiftCountFor(String jobId) => shifts.where((s) => s.jobId == jobId).length;
+  int shiftCountFor(String jobId) =>
+      shifts.where((s) => s.jobId == jobId).length;
 
   (Book, String) addShift(Shift Function(String id) make) {
     final (b, id) = _newId('s');
     final shift = make(id);
-    return (
-      b.copyWith(shifts: [...shifts, shift], lastJobId: shift.jobId),
-      id,
-    );
+    return (b.copyWith(shifts: [...shifts, shift], lastJobId: shift.jobId), id);
   }
 
   /// Adds many shifts at once (a confirmed plan).

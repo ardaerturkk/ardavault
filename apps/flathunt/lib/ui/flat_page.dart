@@ -253,6 +253,7 @@ class _FlatPageState extends State<FlatPage> {
       final pick = await _askViewingTime(
         f,
         removeLabel: context.l.setTimeLater,
+        removeIsDestructive: false,
       );
       if (pick == null) return;
       viewing = pick.date;
@@ -263,7 +264,11 @@ class _FlatPageState extends State<FlatPage> {
     );
   }
 
-  Future<DatePick?> _askViewingTime(Flat f, {String? removeLabel}) {
+  Future<DatePick?> _askViewingTime(
+    Flat f, {
+    String? removeLabel,
+    bool removeIsDestructive = true,
+  }) {
     final state = AppScope.read(context);
     final now = state.now();
     return pickDate(
@@ -272,6 +277,7 @@ class _FlatPageState extends State<FlatPage> {
       withTime: true,
       initial: f.viewing ?? DateTime(now.year, now.month, now.day + 1, 17),
       removeLabel: removeLabel,
+      removeIsDestructive: removeIsDestructive,
     );
   }
 

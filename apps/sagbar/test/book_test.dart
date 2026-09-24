@@ -17,10 +17,10 @@ void main() {
   group('formats', () {
     test('German dates and times', () {
       expect(germanDate(DateTime(2001, 3, 12)), '12. März 2001');
-      expect(germanDate(DateTime(2026, 10, 1), withYear: false), '1. Oktober');
+      expect(germanDate(DateTime(2026, 10, 3), withYear: false), '3. Oktober');
       expect(numericDate(DateTime(2001, 3, 2)), '02.03.2001');
       expect(numericDate(DateTime(2026, 10, 14), withYear: false), '14.10.');
-      expect(germanTime(DateTime(2026, 10, 14, 9, 5)), '09:05');
+      expect(germanTime(DateTime(2026, 10, 14, 9, 5, 30)), '09:05');
     });
 
     test('names are spelled letter by letter', () {

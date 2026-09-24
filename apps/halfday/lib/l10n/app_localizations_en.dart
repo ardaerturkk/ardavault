@@ -61,7 +61,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String usedOfLimit(String limit, String used) {
+  String usedOfLimit(String used, String limit) {
     return '$used of $limit days used';
   }
 
@@ -113,7 +113,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get hoursThisWeek => 'Hours This Week';
 
   @override
-  String ofValue(String limit, String used) {
+  String ofValue(String used, String limit) {
     return '$used of $limit';
   }
 
@@ -323,15 +323,25 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String planOverBodyNoLast(String days, String year) {
+  String planOverBodyNoLast(String year, String days) {
     return 'The limit for $year is already used up. The plan goes $days over.';
+  }
+
+  @override
+  String planUsedUpTitle(String year) {
+    return 'No Days Left in $year';
+  }
+
+  @override
+  String daysOver(String days) {
+    return '$days over';
   }
 
   @override
   String get planReachedTitle => 'Uses Every Day Left';
 
   @override
-  String planReachedBody(String date, String year) {
+  String planReachedBody(String year, String date) {
     return 'The limit for $year is reached on $date. No days are left after that.';
   }
 

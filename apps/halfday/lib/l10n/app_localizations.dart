@@ -194,7 +194,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{used} of {limit} days used'**
-  String usedOfLimit(String limit, String used);
+  String usedOfLimit(String used, String limit);
 
   /// No description provided for @fullAndHalf.
   ///
@@ -242,7 +242,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{used} of {limit}'**
-  String ofValue(String limit, String used);
+  String ofValue(String used, String limit);
 
   /// No description provided for @minijobPayIn.
   ///
@@ -584,7 +584,19 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'The limit for {year} is already used up. The plan goes {days} over.'**
-  String planOverBodyNoLast(String days, String year);
+  String planOverBodyNoLast(String year, String days);
+
+  /// No description provided for @planUsedUpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No Days Left in {year}'**
+  String planUsedUpTitle(String year);
+
+  /// No description provided for @daysOver.
+  ///
+  /// In en, this message translates to:
+  /// **'{days} over'**
+  String daysOver(String days);
 
   /// No description provided for @planReachedTitle.
   ///
@@ -596,7 +608,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'The limit for {year} is reached on {date}. No days are left after that.'**
-  String planReachedBody(String date, String year);
+  String planReachedBody(String year, String date);
 
   /// No description provided for @planFitsTitle.
   ///
