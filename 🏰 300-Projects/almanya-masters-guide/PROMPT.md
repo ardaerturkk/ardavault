@@ -78,11 +78,20 @@ veya parasını yakabilir. Hız ikincil; doğruluk ve eksiksizlik birincil.
 2. **İkincil (birincille doğrulanmadan yazma):** Sperrkonto/sigorta sağlayıcılarının kendi
    siteleri (Fintiba, Expatrio, Coracle, TK, AOK vb.; ticari çıkarları olduğunu unutma), büyük
    üniversitelerin International Office rehberleri.
-3. **Siteye kaynak olamaz:** Reddit (r/germany, r/studyingermany), ekşi sözlük, forumlar,
-   Türk öğrenci toplulukları, YouTube, danışmanlık firması blogları, kişisel bloglar. Bunlar
-   yalnızca **soru bulmak** için kullanılır: insanlar nerede takılıyor, neyi soruyor, hangi hatayı
-   yapıyor. Bulduğun her soru/sorun, cevabı birincil (gerekirse ikincil) kaynaktan doğrulanarak
-   siteye girer. Anekdot, "bana böyle oldu" hikâyesi, doğrulanmamış tecrübe siteye yazılmaz.
+3. **Üçüncül (destekleyici, açıkça etiketlenerek):** Reddit (r/germany, r/studyingermany), ekşi
+   sözlük, forumlar, Türk öğrenci toplulukları, YouTube, danışmanlık firması blogları, kişisel
+   bloglar. İki kullanım biçimi var:
+   - **Soru kaynağı olarak:** İnsanlar nerede takılıyor, neyi soruyor, hangi hatayı yapıyor —
+     buradan çıkan her soru/sorun, cevabı birincil (gerekirse ikincil) kaynaktan doğrulanarak
+     siteye girer.
+   - **Destekleyici bilgi olarak:** Birincil/ikincil kaynağın söylemediği ama sahada gerçekten
+     yaşanan bir pratiği (tipik bekleme süresi, sık yaşanan bir Ausländerbehörde uygulaması,
+     bir sağlayıcı ile yaşanan somut deneyim) anlatıyorsa, siteye **girebilir** — ama resmi bir
+     kural gibi değil, açıkça etiketlenerek: "Topluluk tecrübesi (kaynak: r/…, TT.AA.YYYY):
+     …". Tek bir anekdotla genelleme yapma; birden fazla bağımsız kaynak aynı şeyi söylüyorsa
+     yaz, tek kişinin tek hikâyesiyse ya atla ya da "tek bir kullanıcının tecrübesi" diye belirt.
+   Resmi bir kuralla (tutar, süre, zorunluluk) çelişen forum bilgisi asla resmi kuralın yerine
+   yazılmaz; en fazla "bazı okurlar farklı yaşadığını bildiriyor" notu olarak yanına eklenir.
 
 ### Kurallar
 - **Her olgusal iddia (tutar, süre, tarih, belge adı, kural) bir kaynağa bağlı.** Sayfa altında
@@ -329,7 +338,7 @@ canlı birincil kaynaktan bul, `data/degerler.yml`'e kaynak ve tarihle gir.
   öğrenci muafiyeti, apostil makamları, yeminli tercüme/noter süreci, pasaport harcı.
 - Rundfunkbeitrag güncel tutarı ve öğrenci muafiyeti koşulları.
 
-## 9. Teslim kriterleri (bitti sayılması için)
+## 8. Teslim kriterleri (bitti sayılması için)
 
 - [ ] Site build oluyor, GitHub Pages'e deploy workflow'u hazır.
 - [ ] Ana rotanın tüm adımları yazılı; her sayfa şablona uygun, önceki/sonraki bağlantılı.
@@ -340,6 +349,7 @@ canlı birincil kaynaktan bul, `data/degerler.yml`'e kaynak ve tarihle gir.
 - [ ] Etkileşimli checklist, not dönüştürücü, bütçe hesaplayıcı, geriye doğru takvim çalışıyor.
 - [ ] Kırık link yok.
 - [ ] README: proje ne, nasıl çalıştırılır, değerler nasıl güncellenir, katkı rehberi.
-- [ ] Sitede kaynaksız tek bir olgusal cümle yok; forum/anekdot kaynaklı içerik yok.
+- [ ] Sitede kaynaksız tek bir olgusal cümle yok; her forum/topluluk kaynaklı bilgi "Topluluk
+      tecrübesi" olarak açıkça etiketli ve kaynaklı, resmi kural yerine geçmiyor.
 - [ ] Birden fazla yöntemi olan her adımda tüm yöntemler karşılaştırmalı olarak anlatılmış.
 - [ ] Son mesajında: ne yaptın, neyi doğrulayamadın, hangi konularda insan kontrolü şart.
