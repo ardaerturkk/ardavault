@@ -8,8 +8,15 @@ Arda düzeltti: kişisel tecrübe bölümü yok, site her adımda tüm yolları/
 kaynaklı bir takip listesi olacak. "Arda'nın notları" kaldırıldı, prompt'taki tohum rakamlar
 silindi (hepsi canlı kaynaktan bulunacak). Sonra Arda ekledi: forum/reddit tamamen yasak değil,
 destekleyici bilgi olarak açık etiketle ("Topluluk tecrübesi") kullanılabilir, resmi kuralın
-yerine geçmez. Ardından Arda "Claude'un bu proje üzerinde çalışması için gerekenler ne" diye
-sordu; cevap verildi (yeni repo, Pages ayarı, ayrı oturum, network policy, çok oturumlu süreç).
+yerine geçmez. Ardından Arda "Claude'un bu proje üzerinde çalışması için gerekenler ne" diye sordu; cevap
+verildi. Arda repoyu (`ardaerturkk/almanya-master-rehberi`) açtı, Pages'i açtı, "kalanı sen
+devam et" dedi. Repo bu oturuma eklendi, push izni test edildi (çalışıyor). VitePress iskeleti
+kuruldu: config.mts, sidebar (32 adım + 7 dallanma + 6 referans), 58 boş sayfa, ROADMAP.md,
+SOURCES.md — commit'lendi, push'landı. Ardından blokaj çıktı: bu bulut ortamının network
+policy'si dış siteleri (resmi kaynaklar, 3ds.hacks.guide) engelliyor, WebFetch EGRESS_BLOCKED
+veriyor. Arda bunun yerine terminalden lokal Claude Code ile tek seferde halletmek istedi.
+`🏰 300-Projects/almanya-masters-guide/TERMINAL-PROMPT.md` dosyasını yazdım: klonla, prompt'u
+yapıştır, tam araştırma+yazım+doğrulama sürecini kendi kendine yürütür, ilerledikçe commit atar.
 
 ## Previous Sessions
 ### 2026-09-02: Sıfırdan serisi takibe alındı

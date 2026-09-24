@@ -17,8 +17,10 @@ bekleyen ödevleri takip dosyasındaki "Açık aksiyonlar" listesinde.
 ### Thread: Almanya Master rehber sitesi
 **Status:** 🟢 Active: created 2026-09-24
 3ds.hacks.guide tarzı, sıfırdan Almanya'da Master rehberi. Prompt hazır:
-`🏰 300-Projects/almanya-masters-guide/PROMPT.md`. Kişisel tecrübe yok; tüm yollar,
-kaynaklı. Sıradaki: Arda boş repo açar, prompt'u orada çalıştırır.
+`🏰 300-Projects/almanya-masters-guide/PROMPT.md`. Kişisel tecrübe yok; tüm yollar, kaynaklı. Repo açıldı: `ardaerturkk/almanya-master-rehberi`,
+VitePress iskeleti kuruldu ve push'landı. Bulut ortamının network kısıtı yüzünden araştırma/yazım
+fazı burada yapılamıyor; terminal prompt'u hazır:
+`🏰 300-Projects/almanya-masters-guide/TERMINAL-PROMPT.md`. Sıradaki: Arda bunu lokalde çalıştırır.
 
 ## Closed Threads
 (none)
