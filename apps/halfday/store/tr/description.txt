@@ -1,0 +1,21 @@
+Halfday, AB dışından gelen öğrencilerin Almanya'da kullanabileceği çalışma günlerini sayar. Her vardiya genel kurallara göre tam ya da yarım gün sayılır ve büyük sayı bu yıl kaç günün kaldığını her zaman gösterir.
+
+NASIL SAYAR
+- Bir tarihte 4 saatten fazla çalışmak tam gün, 4 saate kadar yarım gündür. Aynı gündeki vardiyalar toplanır.
+- Genel sınır: takvim yılı başına 140 tam ya da 280 yarım gün. Sayım 1 Ocak'ta yeniden başlar.
+- Üniversitedeki öğrenci asistanlığı ve tutorluk işleri sayım dışı olarak işaretlenebilir.
+- Tüm sınırlar değiştirilebilir, çünkü kurallar 2024'te değişti ve yine değişebilir.
+
+NELER YAPABİLİRSİN
+- Bir vardiyayı saniyeler içinde ekle: tarih, iş, saat. Günün tam mı yarım mı sayılacağını hemen görürsün.
+- Kalan günleri, kullanılan tam ve yarım günleri ve ders dönemindeki 20 saatlik hafta için bu haftanın saatlerini gör.
+- Saatlik ücretiyle bir Minijob ekle, bu ayın kazancını Minijob sınırıyla karşılaştır.
+- İleriyi planla: başlangıç, hafta, haftada gün ve saat gir; Halfday planın sınırı hangi tarihte aşacağını ya da kaç gün kalacağını gösterir. Plan kesinleşince vardiya olarak ekle.
+- Tüm vardiyaları ay ay gör.
+
+GİZLİLİK
+Hesap yok, takip yok, reklam yok. Her şey iPhone'unda kalır, uygulama tamamen çevrimdışı çalışır.
+
+Halfday girdiklerini genel kurallarla sayar. Hukuki tavsiye değildir: senin için neyin geçerli olduğuna oturma iznin, ek sayfası ve Yabancılar Dairesi (Ausländerbehörde) karar verir.
+
+İngilizce, Almanca ve Türkçe.

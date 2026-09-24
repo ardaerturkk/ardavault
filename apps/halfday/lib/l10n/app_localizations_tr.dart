@@ -89,6 +89,11 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String customLimitFooter(String full, String half) {
+    return 'Senin sınırın: yılda $full tam ya da $half yarım gün, Ayarlar\'da belirlendi. Belirleyici olan oturma iznin ve Yabancılar Dairesi\'dir.';
+  }
+
+  @override
   String get sectionThisWeek => 'Bu Hafta';
 
   @override
@@ -116,7 +121,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String hoursValue(String hours) {
-    return '$hours sa';
+    return '$hours sa';
   }
 
   @override

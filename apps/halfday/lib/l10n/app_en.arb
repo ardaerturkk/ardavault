@@ -79,6 +79,17 @@
       }
     }
   },
+  "customLimitFooter": "Your limit: {full} full or {half} half days a year, set in Settings. Your residence permit and the Ausländerbehörde decide.",
+  "@customLimitFooter": {
+    "placeholders": {
+      "full": {
+        "type": "String"
+      },
+      "half": {
+        "type": "String"
+      }
+    }
+  },
   "sectionThisWeek": "This Week",
   "hoursThisWeek": "Hours This Week",
   "ofValue": "{used} of {limit}",

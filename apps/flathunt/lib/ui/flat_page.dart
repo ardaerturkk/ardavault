@@ -247,20 +247,29 @@ class _FlatPageState extends State<FlatPage> {
 
   /// Moves the flat on. Moving to Viewing asks for the time first.
   Future<void> _moveTo(Flat f, Stage stage) async {
+    if (!mounted) return;
     final state = AppScope.read(context);
     DateTime? viewing;
+    var later = false;
     if (stage == Stage.viewing) {
       final pick = await _askViewingTime(
         f,
         removeLabel: context.l.setTimeLater,
         removeIsDestructive: false,
       );
-      if (pick == null) return;
+      if (pick == null || !mounted) return;
       viewing = pick.date;
+      later = pick.removed;
     }
     unawaited(HapticFeedback.lightImpact());
     state.update(
-      state.board.moveTo(f.id, stage, state.now(), viewing: viewing),
+      state.board.moveTo(
+        f.id,
+        stage,
+        state.now(),
+        viewing: viewing,
+        clearViewing: later,
+      ),
     );
   }
 

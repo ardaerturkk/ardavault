@@ -226,6 +226,12 @@ abstract class AppLocalizations {
   /// **'Typical rule: {full} full or {half} half days a year. Your residence permit and the Ausländerbehörde decide.'**
   String heroFooter(String full, String half);
 
+  /// No description provided for @customLimitFooter.
+  ///
+  /// In en, this message translates to:
+  /// **'Your limit: {full} full or {half} half days a year, set in Settings. Your residence permit and the Ausländerbehörde decide.'**
+  String customLimitFooter(String full, String half);
+
   /// No description provided for @sectionThisWeek.
   ///
   /// In en, this message translates to:
@@ -271,7 +277,7 @@ abstract class AppLocalizations {
   /// No description provided for @hoursValue.
   ///
   /// In en, this message translates to:
-  /// **'{hours} h'**
+  /// **'{hours} h'**
   String hoursValue(String hours);
 
   /// No description provided for @oneDay.

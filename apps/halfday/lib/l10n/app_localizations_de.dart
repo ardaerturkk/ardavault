@@ -107,6 +107,11 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
+  String customLimitFooter(String full, String half) {
+    return 'Dein Limit: $full ganze oder $half halbe Tage im Jahr, festgelegt in den Einstellungen. Maßgeblich sind deine Aufenthaltserlaubnis und die Ausländerbehörde.';
+  }
+
+  @override
   String get sectionThisWeek => 'Diese Woche';
 
   @override
@@ -134,7 +139,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String hoursValue(String hours) {
-    return '$hours Std.';
+    return '$hours Std.';
   }
 
   @override

@@ -7,12 +7,13 @@ import 'flat_page.dart';
 import 'format.dart';
 import 'widgets.dart';
 
-/// Sections run from the flats furthest along to the newest, so answers,
-/// applications and viewings come first. Declined flats sit at the end.
+/// Sections run by what needs you next: an offer to answer, then upcoming
+/// viewings, then applications waiting for a reply, then the early stages.
+/// Declined flats sit at the end.
 const sectionOrder = [
   Stage.accepted,
-  Stage.applied,
   Stage.viewing,
+  Stage.applied,
   Stage.messaged,
   Stage.interested,
   Stage.declined,
@@ -23,7 +24,9 @@ class FlatsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final board = AppScope.of(context).board;
+    final state = AppScope.of(context);
+    final board = state.board;
+    final now = state.now();
     final l = context.l;
     return CupertinoPageScaffold(
       backgroundColor: CupertinoColors.systemGroupedBackground,
@@ -56,7 +59,7 @@ class FlatsPage extends StatelessWidget {
               sliver: SliverList.list(
                 children: [
                   for (final stage in sectionOrder)
-                    if (board.inStage(stage) case final flats
+                    if (board.inStage(stage, now) case final flats
                         when flats.isNotEmpty)
                       CupertinoListSection.insetGrouped(
                         header: Text(stageName(l, stage)),

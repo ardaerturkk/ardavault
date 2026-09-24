@@ -1,0 +1,21 @@
+Halfday counts the working days a student from outside the EU may use in Germany. Each shift becomes a full day or a half day under the typical rules, and the big number always shows how many days are left this year.
+
+HOW IT COUNTS
+- More than 4 hours on a date is a full day, up to 4 hours a half day. Shifts on the same date are added up.
+- Typical limit: 140 full or 280 half days per calendar year. The count starts again on 1 January.
+- Student assistant and tutor jobs at the university can be marked as not counted.
+- Every limit is editable, because the rules changed in 2024 and can change again.
+
+WHAT YOU CAN DO
+- Log a shift in seconds: date, job, hours. The editor shows live whether the day counts as full or half.
+- See days left, full and half days used, and this week's hours against the 20-hour week of the lecture period.
+- Add a Minijob with its hourly pay and see this month's pay against the Minijob limit.
+- Plan ahead: enter a start date, weeks, days per week and hours, and Halfday shows the date the plan would go over the limit, or how many days would remain. Add the plan as shifts when it is settled.
+- Browse every shift by month.
+
+PRIVATE BY DESIGN
+No account, no tracking, no ads. Everything stays on your iPhone and the app works fully offline.
+
+Halfday counts what you enter using typical rules. It is not legal advice: your residence permit, its supplementary sheet and your Ausländerbehörde decide what applies to you.
+
+Available in English, German and Turkish.

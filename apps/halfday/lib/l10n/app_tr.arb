@@ -21,6 +21,7 @@
   "logShift": "Vardiya Ekle",
   "overviewFirstHint": "Her vardiya tam gün ({hours} üstü) ya da yarım gün sayılır. Üniversitedeki işler sayım dışı bırakılabilir.",
   "heroFooter": "Genel kural: yılda {full} tam ya da {half} yarım gün. Belirleyici olan oturma iznin ve Yabancılar Dairesi'dir (Ausländerbehörde).",
+  "customLimitFooter": "Senin sınırın: yılda {full} tam ya da {half} yarım gün, Ayarlar'da belirlendi. Belirleyici olan oturma iznin ve Yabancılar Dairesi'dir.",
   "sectionThisWeek": "Bu Hafta",
   "hoursThisWeek": "Bu Haftaki Saat",
   "ofValue": "{used} / {limit}",

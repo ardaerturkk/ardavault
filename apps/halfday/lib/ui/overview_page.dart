@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+import '../model/book.dart';
 import '../model/quota.dart';
 import '../state/app_state.dart';
 import 'format.dart';
@@ -42,7 +43,9 @@ class OverviewPage extends StatelessWidget {
                         ? l.overviewFirstHint(
                             hoursText(l, settings.halfDayMaxMinutes),
                           )
-                        : l.heroFooter(
+                        : (settings.fullDayLimit == Settings.typicalFullDayLimit
+                              ? l.heroFooter
+                              : l.customLimitFooter)(
                             numberText(l, settings.fullDayLimit),
                             numberText(l, settings.fullDayLimit * 2),
                           ),
@@ -193,6 +196,7 @@ class _Bar extends StatelessWidget {
       borderRadius: BorderRadius.circular(3),
       child: SizedBox(
         height: 6,
+        width: double.infinity,
         child: Stack(
           children: [
             Positioned.fill(

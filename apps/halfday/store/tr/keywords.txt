@@ -1,0 +1,1 @@
+werkstudent,minijob,oturum izni,vize,280,120,yarım,vardiya,saat,iş,öğrenci vizesi,yabancı

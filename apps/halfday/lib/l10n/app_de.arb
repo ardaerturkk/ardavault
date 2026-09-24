@@ -21,6 +21,7 @@
   "logShift": "Schicht eintragen",
   "overviewFirstHint": "Jede Schicht wird zu einem ganzen Tag (mehr als {hours}) oder einem halben Tag. Jobs an der Uni können ausgenommen werden.",
   "heroFooter": "Übliche Regel: {full} ganze oder {half} halbe Tage im Jahr. Maßgeblich sind deine Aufenthaltserlaubnis und die Ausländerbehörde.",
+  "customLimitFooter": "Dein Limit: {full} ganze oder {half} halbe Tage im Jahr, festgelegt in den Einstellungen. Maßgeblich sind deine Aufenthaltserlaubnis und die Ausländerbehörde.",
   "sectionThisWeek": "Diese Woche",
   "hoursThisWeek": "Stunden diese Woche",
   "ofValue": "{used} von {limit}",

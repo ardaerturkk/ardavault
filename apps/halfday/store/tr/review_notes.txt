@@ -1,0 +1,1 @@
+Halfday tamamen çevrimdışı çalışır, hesap gerektirmez. Ana akış: Özet sekmesinde Vardiya Ekle, İş Ekle, bir ad gir, Kaydet, sonra vardiyayı kaydet. Kalan gün 140'tan 139,5'e düşer. Planla sekmesi, planlanan bir programın yıllık sınıra hangi tarihte ulaşacağını gösterir. Uygulama veri toplamaz ve ağ bağlantısı kurmaz.

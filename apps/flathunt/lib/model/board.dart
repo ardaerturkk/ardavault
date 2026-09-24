@@ -202,15 +202,24 @@ class Board {
 
   /// Moves a flat to [stage], stamping when. A viewing time is kept so the
   /// user still sees when they viewed it.
-  Board moveTo(String id, Stage stage, DateTime now, {DateTime? viewing}) {
+  /// With [clearViewing], an old viewing time is dropped (the user chose to
+  /// set the time later).
+  Board moveTo(
+    String id,
+    Stage stage,
+    DateTime now, {
+    DateTime? viewing,
+    bool clearViewing = false,
+  }) {
     final f = flat(id);
     if (f == null) return this;
-    if (f.stage == stage && viewing == null) return this;
+    if (f.stage == stage && viewing == null && !clearViewing) return this;
     return withFlat(
       f.copyWith(
         stage: stage,
         stageSince: f.stage == stage ? f.stageSince : now,
         viewing: viewing,
+        clearViewing: clearViewing && viewing == null,
       ),
     );
   }
@@ -223,24 +232,31 @@ class Board {
     return withFlat(f.copyWith(checks: next));
   }
 
-  /// Flats in one stage, in the order the list shows them. Viewings by time
-  /// (flats without a time last); the rest by how long they have waited in
+  /// Flats in one stage, in the order the list shows them. Viewings: what is
+  /// coming up first, soonest first; then those without a time; then past
+  /// viewings, most recent first. The rest by how long they have waited in
   /// the stage, longest first, since those need a nudge.
-  List<Flat> inStage(Stage stage) {
+  List<Flat> inStage(Stage stage, DateTime now) {
     final order = {for (var i = 0; i < flats.length; i++) flats[i].id: i};
     final list = [
       for (final f in flats)
         if (f.stage == stage) f,
     ];
-    int key(Flat f) {
-      if (stage == Stage.viewing) {
-        return f.viewing?.millisecondsSinceEpoch ?? (1 << 52);
+    (int, int) key(Flat f) {
+      if (stage != Stage.viewing) {
+        return (0, f.stageSince.millisecondsSinceEpoch);
       }
-      return f.stageSince.millisecondsSinceEpoch;
+      final v = f.viewing;
+      if (v == null) return (1, 0);
+      if (v.isBefore(now)) return (2, -v.millisecondsSinceEpoch);
+      return (0, v.millisecondsSinceEpoch);
     }
 
     list.sort((a, b) {
-      final c = key(a).compareTo(key(b));
+      final (ga, ka) = key(a);
+      final (gb, kb) = key(b);
+      if (ga != gb) return ga.compareTo(gb);
+      final c = ka.compareTo(kb);
       return c != 0 ? c : order[a.id]!.compareTo(order[b.id]!);
     });
     return list;
@@ -289,7 +305,8 @@ class Board {
 }
 
 /// Parses a typed amount of euros into cents. Accepts "480", "480,50",
-/// "480.5", "1.200", "1,200.50", "1.200,50", with or without a euro sign.
+/// "480.5", "1.200", "1,200.50", "1.200,50", "480,-", with or without a
+/// euro sign or "EUR".
 /// Returns null for empty or unreadable input.
 int? parseCents(String input) {
   final n = _parseNumber(input);
@@ -307,7 +324,10 @@ double? parseSize(String input) {
 }
 
 double? _parseNumber(String input) {
-  var s = input.replaceAll(RegExp(r'[\s€  ]'), '');
+  var s = input
+      .replaceAll(RegExp(r'[\s€  ]|eur', caseSensitive: false), '')
+      // "480,-" and "480.--" mean whole euros, as often written in Germany.
+      .replaceFirst(RegExp(r'[.,]-+$'), '');
   if (s.isEmpty) return null;
   final lastDot = s.lastIndexOf('.');
   final lastComma = s.lastIndexOf(',');
